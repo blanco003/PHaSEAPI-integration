@@ -1,0 +1,584 @@
+2025-06-24 15:47:48,099 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-24 15:47:48,100 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-24 15:47:48,101 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-24 15:47:48,101 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-24 15:47:48,102 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-24 15:47:48,103 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-24 15:47:48,106 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-24 15:47:48,108 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-24 15:47:48,108 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-24 15:47:48,110 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-24 15:47:48,110 - apscheduler.scheduler - INFO - Added job "main.<locals>.<lambda>" to job store "default"
+2025-06-24 15:47:48,110 - apscheduler.scheduler - INFO - Scheduler started
+2025-06-24 15:47:48,299 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getMe "HTTP/1.1 200 OK"
+2025-06-24 15:47:48,365 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/deleteWebhook "HTTP/1.1 200 OK"
+2025-06-24 15:47:48,366 - apscheduler.scheduler - INFO - Scheduler started
+2025-06-24 15:47:48,366 - telegram.ext.Application - INFO - Application started
+2025-06-24 15:47:52,831 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 15:47:52,992 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendChatAction "HTTP/1.1 200 OK"
+
+####################################################################################################
+Debug (ChatBotController -> answer_router)
+
+answer_router ---- > answer_question
+
+
+----------------------------------------------------------------------------------------------------
+Debug (ChatBotController -> answer_question)
+
+userData : 
+ <dto.User.User object at 0x000002060CFA9FD0>
+
+userPrompt : 
+ Hi!
+
+token : 
+ TOKEN 1
+
+memory : 
+ 
+
+info : 
+ None
+GRETINGS
+2025-06-24 15:47:59,244 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+
+answer: 
+ TOKEN 1
+Ciao! 👋
+
+Sono E-Mealio, il tuo assistente personale per l'alimentazione sostenibile e salutare! Posso aiutarti a scegliere cibi eco-sostenibili e a migliorare le tue abitudini alimentari.
+
+Puoi selezionare una delle funzionalità dai pulsanti del menu per ricevere una spiegazione dettagliata su come utilizzarla. Ti mostrerò esempi pratici e istruzioni specifiche per ogni funzione.
+
+Ricorda che puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
+
+Ecco una battuta per strapparti un sorriso: 
+Perché la pasta non voleva uscire con il pomodoro? 
+Perché era troppo "salsoso"! 😄
+
+action from get_token(answer):  TOKEN 1
+
+info from get_info(answer): 
+  
+
+answer from clean_answer_from_token_and_info(answer, info): 
+ Ciao! 👋
+
+Sono E-Mealio, il tuo assistente personale per l'alimentazione sostenibile e salutare! Posso aiutarti a scegliere cibi eco-sostenibili e a migliorare le tue abitudini alimentari.
+
+Puoi selezionare una delle funzionalità dai pulsanti del menu per ricevere una spiegazione dettagliata su come utilizzarla. Ti mostrerò esempi pratici e istruzioni specifiche per ogni funzione.
+
+Ricorda che puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
+
+Ecco una battuta per strapparti un sorriso: 
+Perché la pasta non voleva uscire con il pomodoro? 
+Perché era troppo "salsoso"! 😄
+
+response: 
+ {'answer': 'Ciao! 👋\n\nSono E-Mealio, il tuo assistente personale per l\'alimentazione sostenibile e salutare! Posso aiutarti a scegliere cibi eco-sostenibili e a migliorare le tue abitudini alimentari.\n\nPuoi selezionare una delle funzionalità dai pulsanti del menu per ricevere una spiegazione dettagliata su come utilizzarla. Ti mostrerò esempi pratici e istruzioni specifiche per ogni funzione.\n\nRicorda che puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.\n\nEcco una battuta per strapparti un sorriso: \nPerché la pasta non voleva uscire con il pomodoro? \nPerché era troppo "salsoso"! 😄', 'action': 'TOKEN 1', 'info': ' ', 'memory': None, 'modifiedPrompt': ''}
+
+####  TOKEN 1  ---->>>  TOKEN 1  ####
+
+####################################################################################################
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+Invio messaggio all'utente : 
+ Ciao! 👋
+
+Sono E-Mealio, il tuo assistente personale per l'alimentazione sostenibile e salutare! Posso aiutarti a scegliere cibi eco-sostenibili e a migliorare le tue abitudini alimentari.
+
+Puoi selezionare una delle funzionalità dai pulsanti del menu per ricevere una spiegazione dettagliata su come utilizzarla. Ti mostrerò esempi pratici e istruzioni specifiche per ogni funzione.
+
+Ricorda che puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
+
+Ecco una battuta per strapparti un sorriso: 
+Perché la pasta non voleva uscire con il pomodoro? 
+Perché era troppo "salsoso"! 😄
++++++++++++++++++++++++++++++++++++++++++++++++
+
+2025-06-24 15:47:59,489 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendMessage "HTTP/1.1 200 OK"
+2025-06-24 15:48:02,902 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 15:48:08,830 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 15:48:09,086 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendChatAction "HTTP/1.1 200 OK"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+lorenzob16 ha cliccato : Recipe Recommendation !
+
+####################################################################################################
+Debug (ChatBotController -> answer_router)
+
+answer_router ---- > answer_question
+
+
+----------------------------------------------------------------------------------------------------
+Debug (ChatBotController -> answer_question)
+
+userData : 
+ <dto.User.User object at 0x000002060CFA9FD0>
+
+userPrompt : 
+ I clicked on the Recipe Recommendation button functionality.
+
+token : 
+ TOKEN 1
+
+memory : 
+ None
+
+info : 
+  
+GRETINGS
+2025-06-24 15:48:12,462 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+
+answer: 
+ TOKEN 1.2
+
+action from get_token(answer):  TOKEN 1.2
+
+info from get_info(answer): 
+  
+
+answer from clean_answer_from_token_and_info(answer, info): 
+ 
+
+response: 
+ {'answer': '', 'action': 'TOKEN 1.2', 'info': ' ', 'memory': None, 'modifiedPrompt': ''}
+
+####  TOKEN 1  ---->>>  TOKEN 1.2  ####
+
+answer_router ---- > answer_question
+
+
+----------------------------------------------------------------------------------------------------
+Debug (ChatBotController -> answer_question)
+
+userData : 
+ <dto.User.User object at 0x000002060CFA9FD0>
+
+userPrompt : 
+ I clicked on the Recipe Recommendation button functionality.
+
+token : 
+ TOKEN 1.2
+
+memory : 
+ None
+
+info : 
+  
+PRE_FOOD_SUGGESTION
+2025-06-24 15:48:19,921 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+
+answer: 
+ TOKEN 2
+Benvenuto nella funzionalità di Raccomandazione Ricette!
+
+Sono qui per aiutarti a trovare la ricetta perfetta che sia sia gustosa che sostenibile per l'ambiente. Ti suggerirò ricette basate sulle tue preferenze, privilegiando ingredienti di stagione e a basso impatto ambientale.
+
+Per fornirti il suggerimento migliore, ho bisogno di sapere:
+- Per quale pasto desideri la ricetta (colazione, pranzo, cena o spuntino)?
+- Quali ingredienti vorresti includere?
+- Ci sono ingredienti che preferisci evitare?
+
+Se lo desideri, puoi anche specificare:
+- Preferenze sul tempo di preparazione (es. "vorrei una ricetta veloce")
+- Se desideri che la ricetta sia particolarmente salutare
+
+Fammi sapere le tue preferenze e ti suggerirò una ricetta su misura per te!
+
+Ricorda: puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
+
+action from get_token(answer):  TOKEN 2
+
+info from get_info(answer): 
+  
+
+answer from clean_answer_from_token_and_info(answer, info): 
+ Benvenuto nella funzionalità di Raccomandazione Ricette!
+
+Sono qui per aiutarti a trovare la ricetta perfetta che sia sia gustosa che sostenibile per l'ambiente. Ti suggerirò ricette basate sulle tue preferenze, privilegiando ingredienti di stagione e a basso impatto ambientale.
+
+Per fornirti il suggerimento migliore, ho bisogno di sapere:
+- Per quale pasto desideri la ricetta (colazione, pranzo, cena o spuntino)?
+- Quali ingredienti vorresti includere?
+- Ci sono ingredienti che preferisci evitare?
+
+Se lo desideri, puoi anche specificare:
+- Preferenze sul tempo di preparazione (es. "vorrei una ricetta veloce")
+- Se desideri che la ricetta sia particolarmente salutare
+
+Fammi sapere le tue preferenze e ti suggerirò una ricetta su misura per te!
+
+Ricorda: puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
+
+response: 
+ {'answer': 'Benvenuto nella funzionalità di Raccomandazione Ricette!\n\nSono qui per aiutarti a trovare la ricetta perfetta che sia sia gustosa che sostenibile per l\'ambiente. Ti suggerirò ricette basate sulle tue preferenze, privilegiando ingredienti di stagione e a basso impatto ambientale.\n\nPer fornirti il suggerimento migliore, ho bisogno di sapere:\n- Per quale pasto desideri la ricetta (colazione, pranzo, cena o spuntino)?\n- Quali ingredienti vorresti includere?\n- Ci sono ingredienti che preferisci evitare?\n\nSe lo desideri, puoi anche specificare:\n- Preferenze sul tempo di preparazione (es. "vorrei una ricetta veloce")\n- Se desideri che la ricetta sia particolarmente salutare\n\nFammi sapere le tue preferenze e ti suggerirò una ricetta su misura per te!\n\nRicorda: puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.', 'action': 'TOKEN 2', 'info': ' ', 'memory': None, 'modifiedPrompt': ''}
+
+####  TOKEN 1.2  ---->>>  TOKEN 2  ####
+
+####################################################################################################
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+Invio messaggio all'utente : 
+ Benvenuto nella funzionalità di Raccomandazione Ricette!
+
+Sono qui per aiutarti a trovare la ricetta perfetta che sia sia gustosa che sostenibile per l'ambiente. Ti suggerirò ricette basate sulle tue preferenze, privilegiando ingredienti di stagione e a basso impatto ambientale.
+
+Per fornirti il suggerimento migliore, ho bisogno di sapere:
+- Per quale pasto desideri la ricetta (colazione, pranzo, cena o spuntino)?
+- Quali ingredienti vorresti includere?
+- Ci sono ingredienti che preferisci evitare?
+
+Se lo desideri, puoi anche specificare:
+- Preferenze sul tempo di preparazione (es. "vorrei una ricetta veloce")
+- Se desideri che la ricetta sia particolarmente salutare
+
+Fammi sapere le tue preferenze e ti suggerirò una ricetta su misura per te!
+
+Ricorda: puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
++++++++++++++++++++++++++++++++++++++++++++++++
+
+2025-06-24 15:48:19,934 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 15:48:20,210 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendMessage "HTTP/1.1 200 OK"
+2025-06-24 15:48:20,313 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/editMessageReplyMarkup "HTTP/1.1 200 OK"
+2025-06-24 15:48:28,164 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 15:48:28,389 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendChatAction "HTTP/1.1 200 OK"
+
+
+===================================================================================
+context.user_data['callbackMessage'] :  
+update.message.text :  per pranzo
+
+####################################################################################################
+Debug (ChatBotController -> answer_router)
+
+answer_router ---- > answer_question
+
+
+----------------------------------------------------------------------------------------------------
+Debug (ChatBotController -> answer_question)
+
+userData : 
+ <dto.User.User object at 0x000002060CFA9FD0>
+
+userPrompt : 
+ per pranzo
+
+token : 
+ TOKEN 2
+
+memory : 
+ None
+
+info : 
+  
+FOOD_SUGGESTION_INTERACTION
+2025-06-24 15:48:31,412 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+
+answer: 
+ TOKEN 2.05
+{
+    "mealType": "Lunch",
+    "recipeName": "",
+    "sustainabilityScore": "",
+    "ingredients_desired": [],
+    "ingredients_not_desired": [],
+    "cookingTime": "",
+    "healthiness": ""
+}
+
+action from get_token(answer):  TOKEN 2.05
+
+info from get_info(answer): 
+  {
+    "mealType": "Lunch",
+    "recipeName": "",
+    "sustainabilityScore": "",
+    "ingredients_desired": [],
+    "ingredients_not_desired": [],
+    "cookingTime": "",
+    "healthiness": ""
+}
+
+answer from clean_answer_from_token_and_info(answer, info): 
+ 
+
+response: 
+ {'answer': '', 'action': 'TOKEN 2.05', 'info': ' {\n    "mealType": "Lunch",\n    "recipeName": "",\n    "sustainabilityScore": "",\n    "ingredients_desired": [],\n    "ingredients_not_desired": [],\n    "cookingTime": "",\n    "healthiness": ""\n}', 'memory': None, 'modifiedPrompt': ''}
+
+####  TOKEN 2  ---->>>  TOKEN 2.05  ####
+
+answer_router ---- > answer_question
+
+
+----------------------------------------------------------------------------------------------------
+Debug (ChatBotController -> answer_question)
+
+userData : 
+ <dto.User.User object at 0x000002060CFA9FD0>
+
+userPrompt : 
+ per pranzo
+
+token : 
+ TOKEN 2.05
+
+memory : 
+ None
+
+info : 
+  {
+    "mealType": "Lunch",
+    "recipeName": "",
+    "sustainabilityScore": "",
+    "ingredients_desired": [],
+    "ingredients_not_desired": [],
+    "cookingTime": "",
+    "healthiness": ""
+}
+FOOD_SUGGESTION_DATA_VERIFICATION
+
+####  TOKEN 2.05  ---->>>  TOKEN 2.10  ####
+
+answer_router ---- > answer_question
+
+
+----------------------------------------------------------------------------------------------------
+Debug (ChatBotController -> answer_question)
+
+userData : 
+ <dto.User.User object at 0x000002060CFA9FD0>
+
+userPrompt : 
+ per pranzo
+
+token : 
+ TOKEN 2.10
+
+memory : 
+ None
+
+info : 
+  {
+    "mealType": "Lunch",
+    "recipeName": "",
+    "sustainabilityScore": "",
+    "ingredients_desired": [],
+    "ingredients_not_desired": [],
+    "cookingTime": "",
+    "healthiness": ""
+}
+PROVIDING_FOOD_SUGGESTION
+2025-06-24 15:48:33,416 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+translated_info : 
+ {
+    "mealType": "Lunch",
+    "recipeName": "",
+    "sustainabilityScore": "",
+    "ingredients_desired": [],
+    "ingredients_not_desired": [],
+    "cookingTime": "",
+    "healthiness": ""
+}
+
+Debug (get_recipe_suggestion)
+
+mealDataJson : 
+ {
+    "mealType": "Lunch",
+    "recipeName": "",
+    "sustainabilityScore": "",
+    "ingredients_desired": [],
+    "ingredients_not_desired": [],
+    "cookingTime": "",
+    "healthiness": ""
+}
+
+userData : 
+ <dto.User.User object at 0x000002060CFA9FD0>
+2025-06-24 15:48:33,425 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-06-24 15:48:33,425 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Alibaba-NLP/gte-large-en-v1.5
+Batches:   0%|                                                                                                                               | 0/1 [00:00<?, ?it/s]Batches: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:04<00:00,  4.01s/it]Batches: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:04<00:00,  4.01s/it]
+
+mealData['ingredients_desired'] :  []
+disliked_ingredients_in_user_profile :  []
+all_disliked_ingredients :  []
+Batches:   0%|                                                                                                                               | 0/1 [00:00<?, ?it/s]Batches: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 10.64it/s]
+
+Debug (query_template_replacement)
+
+mandatoryRepalcement : 
+ [['TAGS_SUSTAINABILITY', ''], ['TAGS_RESTRICTIONS', ''], ['TAGS_ALLERGENES', ''], ['TAGS_MEAL_TYPE', ' "$and": [ { "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "lunch" } } ] ']]
+
+notMandatoryReplacement : 
+ [['TAGS_USER_HISTORY', ''], ['TAGS_HEALTHINESS', ''], ['TAGS_MEAL_DURATION', ''], ['TAGS_DIETARY_PREFERENCES', ' "$and": [  {"tags": { "$regex": "vegan" }} ] ']]
+
+numberReplacement : 
+ 4
+
+queryTemplate : 
+ { "$and": [ 
+        { "sustainability_label": { "$in": [0, 1] } }, 
+        { "percentage_covered_cfp": { "$gte": 70 } }, 
+        { "percentage_covered_wfp": { "$gte": 70 } },
+        { "disabled": false },
+        {TAGS_SUSTAINABILITY},
+        {TAGS_RESTRICTIONS},
+        {TAGS_ALLERGENES},
+        {TAGS_DIETARY_PREFERENCES},
+        {TAGS_MEAL_TYPE},
+        {TAGS_USER_HISTORY},
+        {TAGS_HEALTHINESS},
+        {TAGS_MEAL_DURATION},
+        ] }
+
+return queryTemplate :
+ { "$and": [ 
+        { "sustainability_label": { "$in": [0, 1] } }, 
+        { "percentage_covered_cfp": { "$gte": 70 } }, 
+        { "percentage_covered_wfp": { "$gte": 70 } },
+        { "disabled": false },
+        {},
+        {},
+        {},
+        { "$and": [  {"tags": { "$regex": "vegan" }} ] },
+        { "$and": [ { "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "lunch" } } ] },
+        {},
+        {},
+        {},
+        ] }
+Executed query{ "$and": [ 
+        { "sustainability_label": { "$in": [0, 1] } }, 
+        { "percentage_covered_cfp": { "$gte": 70 } }, 
+        { "percentage_covered_wfp": { "$gte": 70 } },
+        { "disabled": false },
+        {},
+        {},
+        {},
+        { "$and": [  {"tags": { "$regex": "vegan" }} ] },
+        { "$and": [ { "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "lunch" } } ] },
+        {},
+        {},
+        {},
+        ] }
+Retrieved 61 recipes
+Start similarity searching 
+End similarity searching 
+
+suggestedRecipe : 
+ <dto.Recipe.Recipe object at 0x000002060DEA2150>
+
+Debug (get_recipe_suggestion)
+
+
+@@@@@@@@@@@@@@@@@@@@@@@ who_score : 0.2968559218559218 @@@@@@@@@@@@@@@@@@@@@@@
+
+
+2025-06-24 15:49:01,344 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+
+answer: 
+ TOKEN 2.20
+Ti suggerisco "Carrot Rice with Peanuts", una ricetta che si allinea perfettamente con il tuo obiettivo di seguire una dieta vegana. Può essere facilmente adattata sostituendo il burro con un'alternativa vegetale.
+
+🌍 Impatto ambientale:
+• Bassa impronta di carbonio per la maggior parte degli ingredienti (carote 0.24, cipolle 0.22 kg CO2)
+• Utilizzo efficiente dell'acqua, specialmente per carote (195L) e cipolle (290L)
+Sostenibilità complessiva: ★★★★☆
+
+❤️ Profilo nutrizionale:
+• Solo 199 calorie per porzione
+• Basso contenuto di grassi saturi (1.9g)
+• Buona fonte di carboidrati (30g)
+• Basso contenuto di sodio (109.6mg)
+Qualità nutrizionale WHO: ★★★☆☆
+
+Istruzioni complete: https://www.food.com/recipe/carrot-rice-with-peanuts-15656
+
+🤔 Ti piacerebbe provare questa ricetta? Puoi accettare il suggerimento, aggiungere vincoli per una nuova proposta o rifiutarlo. La tua risposta verrà salvata nel tuo profilo per monitorare le tue abitudini alimentari sostenibili.
+
+Per qualsiasi domanda sugli ingredienti o sulla preparazione, non esitare a chiedere!
+
+action from get_token(answer):  TOKEN 2.20
+
+info from get_info(answer): 
+  
+
+answer from clean_answer_from_token_and_info(answer, info): 
+ Ti suggerisco "Carrot Rice with Peanuts", una ricetta che si allinea perfettamente con il tuo obiettivo di seguire una dieta vegana. Può essere facilmente adattata sostituendo il burro con un'alternativa vegetale.
+
+🌍 Impatto ambientale:
+• Bassa impronta di carbonio per la maggior parte degli ingredienti (carote 0.24, cipolle 0.22 kg CO2)
+• Utilizzo efficiente dell'acqua, specialmente per carote (195L) e cipolle (290L)
+Sostenibilità complessiva: ★★★★☆
+
+❤️ Profilo nutrizionale:
+• Solo 199 calorie per porzione
+• Basso contenuto di grassi saturi (1.9g)
+• Buona fonte di carboidrati (30g)
+• Basso contenuto di sodio (109.6mg)
+Qualità nutrizionale WHO: ★★★☆☆
+
+Istruzioni complete: https://www.food.com/recipe/carrot-rice-with-peanuts-15656
+
+🤔 Ti piacerebbe provare questa ricetta? Puoi accettare il suggerimento, aggiungere vincoli per una nuova proposta o rifiutarlo. La tua risposta verrà salvata nel tuo profilo per monitorare le tue abitudini alimentari sostenibili.
+
+Per qualsiasi domanda sugli ingredienti o sulla preparazione, non esitare a chiedere!
+
+response: 
+ {'answer': 'Ti suggerisco "Carrot Rice with Peanuts", una ricetta che si allinea perfettamente con il tuo obiettivo di seguire una dieta vegana. Può essere facilmente adattata sostituendo il burro con un\'alternativa vegetale.\n\n🌍 Impatto ambientale:\n• Bassa impronta di carbonio per la maggior parte degli ingredienti (carote 0.24, cipolle 0.22 kg CO2)\n• Utilizzo efficiente dell\'acqua, specialmente per carote (195L) e cipolle (290L)\nSostenibilità complessiva: ★★★★☆\n\n❤️ Profilo nutrizionale:\n• Solo 199 calorie per porzione\n• Basso contenuto di grassi saturi (1.9g)\n• Buona fonte di carboidrati (30g)\n• Basso contenuto di sodio (109.6mg)\nQualità nutrizionale WHO: ★★★☆☆\n\nIstruzioni complete: https://www.food.com/recipe/carrot-rice-with-peanuts-15656\n\n🤔 Ti piacerebbe provare questa ricetta? Puoi accettare il suggerimento, aggiungere vincoli per una nuova proposta o rifiutarlo. La tua risposta verrà salvata nel tuo profilo per monitorare le tue abitudini alimentari sostenibili.\n\nPer qualsiasi domanda sugli ingredienti o sulla preparazione, non esitare a chiedere!', 'action': 'TOKEN 2.20', 'info': ' ', 'memory': InMemoryChatMessageHistory(messages=[HumanMessage(content='You are a food recommender system with the role of helping users choose environmentally sustainable and healthy foods.\nYour role is to suggest the following recipe {{"py/object": "dto.Recipe.Recipe", "name": "Carrot Rice with Peanuts", "id": 15656, "ingredients": [{{"py/object": "dto.Ingredient.Ingredient", "name": "rice", "cfp": 2.19, "wfp": 1597.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "water", "cfp": 0.49, "wfp": null}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "peanut", "cfp": 0.83, "wfp": 2782.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "butter", "cfp": 8.48, "wfp": 5659.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "onion", "cfp": 0.22, "wfp": 290.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "gingerroot", "cfp": 0.84, "wfp": 1657.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "carrot", "cfp": 0.24, "wfp": 195.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "salt", "cfp": 0.44, "wfp": null}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "pepper", "cfp": 0.65, "wfp": 379.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "cilantro", "cfp": 0.84, "wfp": 8280.0}}], "sustainabilityScore": 0.11106179658988523, "who_score": 0.2968559218559218, "instructions": "https://www.food.com/recipe/carrot-rice-with-peanuts-15656", "description": "This is an unbelievably flavourful rice recipe that almost seems a little too yummy for so few calories! I found this recice on a newsgroup, trimmed and vegetarian-ised it, and thought I\'d share it with everyone here! It can easily be veganised with a suitable butter substitute.", "removedConstraints": [], "mealType": "Lunch"}} given the following constraints {{\n    "mealType": "Lunch",\n    "recipeName": "",\n    "sustainabilityScore": "",\n    "ingredients_desired": [],\n    "ingredients_not_desired": [],\n    "cookingTime": "",\n    "healthiness": ""\n}} and the user profile {{"py/object": "dto.User.User", "username": "lorenzob16", "id": "310071850", "name": "Lorenzo", "surname": "Blanco", "dateOfBirth": "16/12/2003", "nation": "Italia", "language": "it", "allergies": [], "restrictions": [], "disliked_ingredients": [], "evolving_diet": ["vegan"], "reminder": false, "days_reminder": null, "hour_reminder": null, "lastInteraction": "2025-06-24 15:48:19", "tastes": {{"breakfast": [], "lunch": [], "dinner": [], "break": []}}}}.\n\nCommunicate with the user in the following language : it.\n\nFollow these steps to produce the output:\n- Print the string "TOKEN 2.20", then explain why the suggested recipe is a good choice for the user, focusing on the environmental benefits it provides. \n  If there are constraints in the "removedConstraints" field of the suggested recipe, explain that those not mandatory constraints were removed in order to provide the suggestion, but mention that the user can explicitly choose to ignore one or more of these constraints, or refine them to receive a more tailored suggestion.\n  If the constraint "TAGS_DIETARY_PREFERENCES" does not appear in the "removedConstraints" field, emphasize that the suggested recipe is well aligned with the user\'s future dietary preferences [\'vegan\'], reinforcing that the recommendation supports their personal goals and sustainable food journey.\n  Do not mention missing constraints if the "removedConstraints" field is empty. \n  Take into account the following allergies [] and dietary restrictions [] to avoid trivial or irrelevant comparisons for the user.\n  If the recipe the recipe to be suggested contains ingredients that the user is allergic to, also provide only the name of the recipe beside to explain why he cant eat it,\n  without mentioning the sustainable/healthiness and instructions of it, but instead ask him if he wants to remove or ingredients to the preferences to receive a new recipe suggestion.\n\n  Write an empty row for better readability before the environmental part.\n\n  Write a sentence to introduce the environmental impact of the recipe, using a representative emoji to start it. \n  Use information about the carbon footprint and water footprint of the ingredients to support your explanation, but keep it simple and understandable, using a bullet point for each concept.\n  Refer to numbers of CFP and WFP, but also provide an idea of whether those values are good or bad for the environment.\n  \n  The sustainability score is such that the lower the value, the better the recipe is for the environment. It ranges from 0 to 1.\n  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).\n  \n  Write a sentence to introduce the healthiness of the recipe, using a representative emoji to start it. \n  Use information about the nutritional facts {{\'calories [cal]\': 199.1, \'totalFat [g]\': 6.9, \'saturatedFat [g]\': 1.9, \'totalCarbohydrate [g]\': 30, \'protein [g]\': 4.8, \'sugars [g]\': 2, \'dietaryFiber [g]\': 1.9, \'cholesterol [mg]\': 5.1, \'sodium [mg]\': 109.6}} of the recipe to support your explanation, but keep it simple and understandable, using a bullet point for each concept.\n  \n  The who score : 0.2968559218559218, a score based on the World Health Organization methodology, is used to express the overall nutritional quality of the recipe, such that the higher the value, the healthier the recipe. It ranges from 0 to 1.\n  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Use this value to reinforce the overall nutritional quality of the recipe. Mention to what it refers. \n\n  Provide the URL that redirects to the recipe instructions.\n\n  Then, highlightning the following part using an emoji:\n  Persuade the user to accept the suggestion by explicitly asking if they want to eat the suggested food, add constraints to get a new suggestion, or decline it.\n  Explain also that the response will be saved in the user\'s profile for track the consumption of the recipe and allow the evaluation of the user\'s sustainability habits.\n  \n  Write an empty row for better readability before the final part.\n\n  Finally conclude suggesting the user to ask more details about the recipe or the ingredients if they want.\n\n\nBe succinct, using up to 200 words.\nMaintain a respectful and polite tone.\n', additional_kwargs={}, response_metadata={}), HumanMessage(content='Suggest me a recipe given the following constraints {{\n    "mealType": "Lunch",\n    "recipeName": "",\n    "sustainabilityScore": "",\n    "ingredients_desired": [],\n    "ingredients_not_desired": [],\n    "cookingTime": "",\n    "healthiness": ""\n}}', additional_kwargs={}, response_metadata={}), AIMessage(content='Ti suggerisco "Carrot Rice with Peanuts", una ricetta che si allinea perfettamente con il tuo obiettivo di seguire una dieta vegana. Può essere facilmente adattata sostituendo il burro con un\'alternativa vegetale.\n\n🌍 Impatto ambientale:\n• Bassa impronta di carbonio per la maggior parte degli ingredienti (carote 0.24, cipolle 0.22 kg CO2)\n• Utilizzo efficiente dell\'acqua, specialmente per carote (195L) e cipolle (290L)\nSostenibilità complessiva: ★★★★☆\n\n❤️ Profilo nutrizionale:\n• Solo 199 calorie per porzione\n• Basso contenuto di grassi saturi (1.9g)\n• Buona fonte di carboidrati (30g)\n• Basso contenuto di sodio (109.6mg)\nQualità nutrizionale WHO: ★★★☆☆\n\nIstruzioni complete: https://www.food.com/recipe/carrot-rice-with-peanuts-15656\n\n🤔 Ti piacerebbe provare questa ricetta? Puoi accettare il suggerimento, aggiungere vincoli per una nuova proposta o rifiutarlo. La tua risposta verrà salvata nel tuo profilo per monitorare le tue abitudini alimentari sostenibili.\n\nPer qualsiasi domanda sugli ingredienti o sulla preparazione, non esitare a chiedere!', additional_kwargs={}, response_metadata={})]), 'modifiedPrompt': ''}
+
+####  TOKEN 2.10  ---->>>  TOKEN 2.20  ####
+
+####################################################################################################
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+Invio messaggio all'utente : 
+ Ti suggerisco "Carrot Rice with Peanuts", una ricetta che si allinea perfettamente con il tuo obiettivo di seguire una dieta vegana. Può essere facilmente adattata sostituendo il burro con un'alternativa vegetale.
+
+🌍 Impatto ambientale:
+• Bassa impronta di carbonio per la maggior parte degli ingredienti (carote 0.24, cipolle 0.22 kg CO2)
+• Utilizzo efficiente dell'acqua, specialmente per carote (195L) e cipolle (290L)
+Sostenibilità complessiva: ★★★★☆
+
+❤️ Profilo nutrizionale:
+• Solo 199 calorie per porzione
+• Basso contenuto di grassi saturi (1.9g)
+• Buona fonte di carboidrati (30g)
+• Basso contenuto di sodio (109.6mg)
+Qualità nutrizionale WHO: ★★★☆☆
+
+Istruzioni complete: https://www.food.com/recipe/carrot-rice-with-peanuts-15656
+
+🤔 Ti piacerebbe provare questa ricetta? Puoi accettare il suggerimento, aggiungere vincoli per una nuova proposta o rifiutarlo. La tua risposta verrà salvata nel tuo profilo per monitorare le tue abitudini alimentari sostenibili.
+
+Per qualsiasi domanda sugli ingredienti o sulla preparazione, non esitare a chiedere!
++++++++++++++++++++++++++++++++++++++++++++++++
+
+2025-06-24 15:49:01,356 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 15:49:01,628 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendMessage "HTTP/1.1 200 OK"
+2025-06-24 15:49:11,426 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 15:49:21,493 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 15:49:31,561 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 15:49:41,626 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 15:49:51,693 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 15:50:01,768 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"

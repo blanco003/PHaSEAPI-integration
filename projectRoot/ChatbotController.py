@@ -740,40 +740,6 @@ def answer_question(userData,userPrompt,token,memory,info):
     
 ########################################################################################
 
-#RECIPE CONSUPTION DIARY################################################################
-
-    elif(token == p.TASK_7_HOOK):
-        log.save_log("RECIPE_CONSUPTION_DIARY", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        response = lcs.execute_chain(p.TASK_7_PROMPT.format(language=language), "Meal data: " + info +" "+userPrompt, 0.2, userData)
-        return response
-    
-    elif(token == p.TASK_7_10_HOOK):
-        log.save_log("RECIPE_CONSUPTION_DIARY_DATA_VERIFICATION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        response = lcs.execute_chain(p.TASK_7_10_PROMPT.format(language=language), "Meal data: " + info, 0.3, userData)
-        return response
-    
-    elif(token == p.TASK_7_20_HOOK):
-        log.save_log("RECIPE_CONSUPTION_DIARY_DATA_SAVING", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        
-        jsonRecipeAssertion = utils.extract_json(info, 0)
-
-        """
-        jsonRecipeAssertion :  {
-                "mealType": "Lunch",
-                "ingredients": ["pasta", "chicken", "spinach", "olive oil"],
-                "quantities": [80, 150, 100, 10],
-                "name": "Pasta with chicken and spinach"
-        }
-        """
-
-        fhService.build_and_save_user_history_from_user_assertion(userData, jsonRecipeAssertion)
-
-        response = lcs.execute_chain(p.TASK_7_20_PROMPT.format(language=language), "Meal data: " + jsonRecipeAssertion, 0.1, userData)
-        return response
-########################################################################################
-
-########################################################################################
-
 # loop states - X
 
     # la memoria viene ripulita passando None come memoria della risposta
@@ -812,13 +778,7 @@ def answer_question(userData,userPrompt,token,memory,info):
         # passiamo le informazioni all'esperto
         return rc.Response('',"TOKEN 6",info,None,'')
            
-    elif(token == p.TASK_MINUS_7_HOOK):
 
-        log.save_log("MEMORY_CLEANING_BEFORE_7", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        fhService.clean_temporary_declined_suggestions(userData.id)
-        # passiamo le informazioni sul pasto consumato dall'utente
-        return rc.Response('',"TOKEN 7",info, None,'')
-    
 ########################################################################################
 
 

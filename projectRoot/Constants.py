@@ -62,9 +62,6 @@ This task can be triggered by sentences like "What did I eat in the last 7 days?
 Those are general examples; the user can ask about any environmental concept, but the main topic is environmental sustainability and healthiness.
 This task is usually triggered by sentences like "What is the carbon footprint of INGREDIENT/RECIPE?", "How much water is used to produce a kg of INGREDIENT/RECIPE?", "Tell me about INGREDIENT/RECIPE" etc. where RECIPE is the actual recipe and INGREDIENT is the actual ingredient.
 
-7) Keep track of recipes that the user asserts to have eaten, in order to subsequently evaluate the sustainability and healthiness of the user's food habits.
-This task is usually triggered by sentences like "I ate a pizza", "I had a salad for lunch", "I cooked a carbonara" etc. Recipe tracking requires the list of ingredients for the recipe.
-
 Each number is the identifier of a specific task.
 
 Put maximum effort into properly understanding the user request in the previous categories. 
@@ -75,7 +72,7 @@ Questions of type 3 are usually more specific and contain a recipe or a food.
 Communicate with the user in the following language : {language}.
 
 Follow these steps to produce the output:
-- If the user asks a question that triggers a functionality of type 2, 3, 4, 5, or 7, just print the string "TOKEN X" where X is the number of the task. Do not write anything else.
+- If the user asks a question that triggers a functionality of type 2, 3, 4, or 5, just print the string "TOKEN X" where X is the number of the task. Do not write anything else.
 
 - If the user ask a question about you, or asks how to use or invoke one of your previously mentioned numbered tasks (included recipe sustainability improvement and sustainability expertise), execute the following steps:
      Print the string "TOKEN 1", then continue by providing a detailed explanation of how to invoke such functionality by referring to previuosly mentioned example sentences and instructions. 
@@ -229,8 +226,6 @@ HANDLE_LOOP_STATE = """
   - if the user wants to consults his food history, print the string "TOKEN -5". Do not write anything else.
 
   - if the user wants to consults his profile or wants to updates his personal information, print the string "TOKEN -4". Do not write anything else. 
-
-  - if the user provides a recipe that he has eaten/prepared, or wants to track in his food diary a recipe that he has eaten/prepared, print the string "TOKEN -7". Do not write anything else.
 
   - if the user said something completely unrelated to the current functionality, and has nothing to do with the bot's functionality either, print the string "TOKEN -1", then write a message where you tell the user that is unrelated to the bot's functionalites. Finally softly invite the user to start a new conversation.
 """
@@ -842,84 +837,6 @@ Follow these steps to produce the output:
 
 Always maintain a respectful and polite tone."""
 
-
-#Food consumption assertion (polished and tested)
-
-
-PRE_TASK_7_PROMPT = """You are a food recommender system named E-Mealio with the role of helping users choose environmentally sustainable and healthy foods.
-The user clicked on the button corresponding to the Food Diary functionality.
-
-Communicate with the user in the following language : {language}.
-
-Follow these steps to produce the output:
-
-- Print the string "TOKEN 7", welcome the user to the Food Diary, then continue by providing a detailed explanation of it, and ask the user the recipe, with the ingredients, that he ate, in order to track it inside his profile.
-     Do NOT mention the number of the task, just the functionality.
-     Conclude adding a reminder about using the /start command to return to the main menu and view the list of available functionalities.
-"""
-
-TASK_7_PROMPT = """You are a food recommender system named E-Mealio with the role of helping users choose environmentally sustainable and healthy foods.
-The user will provide you with a sentence or a JSON containing a recipe that they assert to have eaten.
-The recipe is mentioned as a list of ingredients and, eventually, the recipe name.
-JSON and conversational information can also be provided together.
-The meal data is structured as follows:
-mealType: the type of meal. The possible values are "Breakfast", "Lunch", "Dinner" and "Break". Mandatory. Used to register the meal at the correct time of day.
-ingredients: the ingredients of the recipe provided by the user. Do not make up any ingredient. Valorize this field as a list of strings. Mandatory.
-quantities : the corrisponding quantities of the ingredients of the recipe provided by the user. Mandatory.
-name: the name of the recipe. Optional.
-The user could provide you with this information in a conversational form and also via a structured JSON.
-
-Communicate with the user in the following language : {language}.
-
-Follow these steps to produce the output:
-- If the user asks something about the constraints, explain the constraint in detail, then print the string "TOKEN 7".
-
-- Otherwise:
-  Print the string "TOKEN 7.10", then print a JSON with the information collected until now. 
-  If the user doesnt specify the quantity in grams of some ingredient, or specifies it with phrases such as "a portion", "a dish", "a pinch", assume it based on the portion generally used or recommended of the corresponding ingredient. If the user specify the quantites in grams, report only the number without grams.
-  Be careful not to confuse units, for example "2 eggs", with weights. In this case, to obtain the weight, multiply the average weigth of the portion of the corresponding ingredient by the number of units provided by the user.
-  Set the absent information as an empty string (for atomic fields) or an empty list (for list fields).
-  Collect the ingredient information in english.
-  Derive a proper recipe name from the list of ingredients provided by the user if not provided.
-  
-Do not include in the JSON any markup text like "```json\n\n```".
-Do not make up any other question or statement that are not the previous ones."""
-
-
-TASK_7_10_PROMPT = """You are a food recommender system named E-Mealio with the role of helping users choose environmentally sustainable and healthy foods.
-The user will provide you with a sentence containing a recipe that they assert to have eaten.
-The recipe is mentioned as a list of ingredients and, eventually, the recipe name.
-The recipe data is structured as follows:
-mealType: the type of meal, between breakfast, lunch, dinner, or break. Mandatory.
-ingredients: the ingredients of the recipe provided by the user. Do not make up any ingredient. Valorize this field as a list of strings. Mandatory.
-quantities : the corrisponding quantities of the ingredients of the recipe provided by the user. Mandatory.
-name: the recipe name provided by the user. Derive it from the ingredients if not provided. Mandatory.
-The user will provide you with a JSON containing some information about the meal they assert to have eaten.
-
-Communicate with the user in the following language : {language}.
-
-Follow these steps to produce the output:
-- If all the mandatory information is collected: print the string "TOKEN 7.20", then print a JSON with the information in JSON provided by the user.
-
-- If the user doesn't provide all the mandatory information:
-    Print the string "TOKEN 7", then print the JSON provided by the user.
-    Subsequently ask them for the remaining information.
-    
-Do not include in the JSON any markup text like "```json\n\n```"."""
-
-
-TASK_7_20_PROMPT = """You are a food recommender system named E-Mealio with the role of helping users choose environmentally sustainable and healthy foods.
-The user will provide you with a JSON containing a meal that they assert to have eaten.
-
-Communicate with the user in the following language : {language}.
-
-Follow these steps to produce the output:
-- Print the string "TOKEN 1", then summarize the information collected in a conversational form, without references to quantities. 
-  Finally communicate that you have saved the information in order to analyze their eating habits and refine your future suggestions."""
-####################################################################################################################
-
-
-
 #TOKENS############################################################################################################
 
 # Memory reset
@@ -1004,19 +921,13 @@ TASK_6_30_HOOK = "TOKEN 6.30"
 TASK_6_35_HOOK = "TOKEN 6.35"
 TASK_6_40_HOOK = "TOKEN 6.40" # loop state
 
-
-#Food consumption assertion
-TASK_7_HOOK = "TOKEN 7"
-TASK_7_10_HOOK = "TOKEN 7.10"
-TASK_7_20_HOOK = "TOKEN 7.20"
-
 # handle loop state
 TASK_MINUS_2_HOOK = "TOKEN -2"
 TASK_MINUS_3_10_HOOK = "TOKEN -3.10" # non essendo già un miglioramento di ricetta
 TASK_MINUS_4_HOOK = "TOKEN -4"
 TASK_MINUS_5_HOOK = "TOKEN -5"
 TASK_MINUS_6_HOOK = "TOKEN -6"
-TASK_MINUS_7_HOOK = "TOKEN -7"
+
 
 
 ####################################################################################################################

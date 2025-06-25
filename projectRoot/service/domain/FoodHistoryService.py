@@ -235,49 +235,6 @@ def build_and_save_user_history(userData, jsonRecipe, status, ingredients_to_rem
     save_user_history(userHistory.to_plain_json())
 
 
-def build_and_save_user_history_from_user_assertion(userData, jsonRecipeAssertion):
-    """
-    Costruisce un oggetto di cronologia suggerimento alimentare istanza della classe UserHistory
-    a partire da una ricetta proposta direttamente dall'utente, calcolandone anche i valori nutrizionali,
-    il punteggio di sostenibilità e il who score, e lo salva nel db.
-
-    Args:
-    - userData (User): oggetto utente contenente le informazioni dell'utente.
-    - jsonRecipeAssertion : stringa JSON che rappresenta la ricetta dichiarata dall'utente, con nome, lista di ingredienti e tipologia di pasto.
-    """
-
-    
-    custom_recipe_Assertion = jsonpickle.decode(jsonRecipeAssertion)
-
-    ingredients = ingService.get_ingredient_list_from_generic_list_of_string(custom_recipe_Assertion['ingredients'])
-
-    sustanaibilityScore = None
-
-    # calcoliamo i valori nutrizionali totali della ricetta
-    nutritional_facts = recipeService.calculate_nutritional_facts_of_recipe(ingredients, custom_recipe_Assertion['quantities'])
-
-    # calcoliamo il who score
-    who_score = recipeService.compute_who_score_of_custom_recipe(nutritional_facts['protein [g]'],nutritional_facts['totalCarbohydrate [g]'],
-                                                nutritional_facts['sugars [g]'],nutritional_facts['totalFat [g]'],
-                                                nutritional_facts['saturatedFat [g]'],nutritional_facts['dietaryFiber [g]'],
-                                                nutritional_facts['sodium [mg]'],1,"",True)
-
-
-    # costruiamo l'oggeto ricetta personalizzata
-    asserted_custom_recipe = customRecipe.CustomRecipe(custom_recipe_Assertion["name"],ingredients, custom_recipe_Assertion["quantities"], custom_recipe_Assertion["mealType"],nutritional_facts['servingSize [g]'],nutritional_facts['calories [cal]'],nutritional_facts['totalFat [g]'],nutritional_facts['saturatedFat [g]'],nutritional_facts['totalCarbohydrate [g]'],nutritional_facts['protein [g]'],nutritional_facts['sugars [g]'],nutritional_facts['dietaryFiber [g]'],nutritional_facts['cholesterol [mg]'],nutritional_facts['sodium [mg]'], sustanaibilityScore, who_score)
-    
-    # calcoliamo lo score di sostenibilità
-    recipeService.compute_recipe_sustainability_score(asserted_custom_recipe)
-
-    # costruiamo l'oggetto di cronologia alimentare
-    sysdate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-    userHistory = uh.UserHistory(userData.id, None, asserted_custom_recipe, sysdate, 'asserted')
-
-    # salvataggio su db della cronologia alimentare
-    save_user_history(userHistory.to_plain_json())
-
-
-
 def get_consumed_recipes(userId, onlyAccepted = True):
 
     consumed_recipes = []

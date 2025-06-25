@@ -1,4 +1,4 @@
-import persistence.IngredientPersistence as ip
+
 import dto.Ingredient as ingredientDto
 
 

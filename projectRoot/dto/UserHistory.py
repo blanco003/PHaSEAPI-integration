@@ -4,7 +4,7 @@ class UserHistory:
 
     """Rappresenta una cronologia alimentare di un utente."""
 
-    def __init__(self, userId, recipeId, recipe, date, status):
+    def __init__(self, userId, recipe, date, status):
         """
         Inizializza un oggetto istanza della classe UserHistory.
 
@@ -15,7 +15,6 @@ class UserHistory:
         - status: Lo stato della ricetta in relazione all'utente  (accepted, declined, temporary_declined)
         """
         self.userId = userId
-        self.recipeId = recipeId
         self.recipe = recipe
         self.date = date
         self.status = status
@@ -33,7 +32,6 @@ class UserHistory:
         """
         json_obj = jsonpickle.decode(jsonString)
         self.userId = json_obj.userId
-        self.recipeId = json_obj.recipeId
         self.recipe = json_obj.recipe
         self.date = json_obj.date
         self.status = json_obj.status

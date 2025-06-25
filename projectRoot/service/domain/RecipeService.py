@@ -3,7 +3,7 @@ import math
 import jsonpickle
 import service.domain.IngredientService as ingredientService
 import dto.Recipe as recipe
-import persistence.RecipePersistence as rp
+
 
 
 def compute_normalized_cfp_sustainability(ingredients):
@@ -63,7 +63,21 @@ def compute_recipe_sustainability_score(recipe):
     Args : 
     - recipe : ricetta di cui calcolare lo score di sostenibilità.
     """
-    ingredients = recipe.ingredients
+
+    # ingredients non è più una lista di oggetti di classe Ingredient
+    # ma un dizionario contenente i campi ingredients e quantities
+    
+    ingredient_names = recipe.ingredients.get("ingredients", []) 
+
+    ingredients = []
+    #ingredients = recipe.ingredients
+
+    for ingredient in ingredient_names:
+        ing_obj = ingredientPersistence.get_most_similar_ingredient(ingredient)
+        ingredients.append(ing_obj)
+    
+    
+
     alpha = 0.8
     beta = 0.2
     max_overall_sustainability = 0.8689
@@ -72,7 +86,7 @@ def compute_recipe_sustainability_score(recipe):
 
     overall_sustainability = alpha * cfp_score + beta * wfp_score
     normalized_overall_sustainability = overall_sustainability / max_overall_sustainability
-    recipe.sustainabilityScore = normalized_overall_sustainability
+    recipe.sustainability_score = normalized_overall_sustainability
 
 
 def get_recipe_cluster(recipe):
@@ -90,15 +104,15 @@ def get_recipe_cluster(recipe):
     """
 
     #if the sustainability score is in [0, 0.04] then the recipe belongs to cluster 0
-    if recipe.sustainabilityScore >= 0 and recipe.sustainabilityScore <= 0.04:
+    if recipe.sustainability_score >= 0 and recipe.sustainability_score <= 0.04:
         return 0
     
     #if the sustainability score is in ]0.04, 0.15] then the recipe belongs to cluster 1
-    if recipe.sustainabilityScore > 0.04 and recipe.sustainabilityScore <= 0.15:
+    if recipe.sustainability_score > 0.04 and recipe.sustainability_score <= 0.15:
         return 1
     
     #if the sustainability score is in ]0.15, 1] then the recipe belongs to cluster 2
-    if recipe.sustainabilityScore > 0.15 and recipe.sustainabilityScore <= 1:
+    if recipe.sustainability_score > 0.15 and recipe.sustainability_score <= 1:
         return 2
 
 
@@ -186,96 +200,6 @@ def calculate_nutritional_facts_of_recipe(ingredients_names, quantites):
                 nutritional_facts[nut_fact] += val * (int(quantity)/100)
 
     return nutritional_facts
-
-
-
-   
-def get_serving_size_by_id(recipe_id):
-    """
-    Recupera il serving size di una ricetta del db, a partire dal suo id.
-
-    Args : 
-    - recipe_id : id della ricetta di cui recuperare i valori nutrizionali.
-
-    Returns :
-    - serving_size : peso in grammi della ricetta.
-    """
-
-    recipeData = rp.get_recipe_by_id(int(recipe_id))
-
-    serving_size = ""
-    if recipeData['servingSize [g]'] is not None:
-        serving_size = recipeData['servingSize [g]']
-
-    return serving_size
-
-    
-def get_nutritional_facts_by_id(recipe_id):
-    """
-    Recupera i valori nutrizionali di una ricetta del db, a partire dal suo id.
-
-    Args : 
-    - recipe_id : id della ricetta di cui recuperare i valori nutrizionali.
-
-    Returns :
-    - nutrional_facts : valori nutrizionali della ricetta con dato id.
-    """
-
-    recipeData = rp.get_recipe_by_id(int(recipe_id))
-
-    nutrional_facts = {}
-    for info in ['calories [cal]', 'totalFat [g]', 'saturatedFat [g]', 'totalCarbohydrate [g]', 'protein [g]', 'sugars [g]', 'dietaryFiber [g]', 'cholesterol [mg]', 'sodium [mg]']:
-        if recipeData[info] is not None:
-            nutrional_facts[info] = recipeData[info]
-
-    return nutrional_facts
-
-
-
-def get_nutritional_facts_by_title(recipe_title):
-    """
-    Recupera i valori nutrizionali di una ricetta del db, a partire dal nome.
-    Se non è presente nessuna ricetta con il nome dato in input, vengono restituiti i valori della ricetta
-    con similarità del coseno più alta rispetto al nome dato input.
-
-    Args : 
-    - recipe_title : stringa rappresentante il nome della ricetta di cui recuperare i valori nutrizionali.
-
-    Returns :
-    - nutrional_facts : valori nutrizionali della ricetta con dato nome.
-    """
-
-    recipeData = rp.get_recipe_by_title(recipe_title)
-
-    if recipeData == None or recipeData == 'null':
-        recipeData = rp.get_most_similar_recipe(recipe_title)
-
-    nutrional_facts = {}
-    for info in ['calories [cal]', 'totalFat [g]', 'saturatedFat [g]', 'totalCarbohydrate [g]', 'protein [g]', 'sugars [g]', 'dietaryFiber [g]', 'cholesterol [mg]', 'sodium [mg]']:
-        if recipeData[info] is not None:
-            nutrional_facts[info] = recipeData[info]
-
-    return nutrional_facts
-
-
-
-def get_who_score(recipe_id):
-    """
-    Recupera il who score di una ricetta del db, a partire dal suo id.
-
-    Args : 
-    - recipe_id : id della ricetta di cui recuperare il who score.
-
-    Returns :
-    - who score : score di salubrità, secondo WHO, della ricetta con dato id.
-    """
-
-    recipeData = rp.get_recipe_by_id(int(recipe_id))
-    
-    if recipeData["who_score"] is not None:
-        return recipeData["who_score"]
-    else:
-        return None
 
 
 
@@ -384,48 +308,5 @@ def compute_who_score_of_custom_recipe(protein, total_carbohydrate, sugars, tota
     else:
         return score
 
-
-def compute_who_score(recipe, normalization_comment, normalize=False):
-    """
-    Calculates the WHO-Score. The range is 0-14, with 14 as the best.
-
-    Args : 
-    - protein: The proteins in g per 100 g.
-    - total_carbohydrate: The carbohydrates in g per 100 g.
-    - sugars: The sugar in g per 100 g.
-    - total_fat: The fat in g per 100 g.
-    - saturated_fat: The saturated fat in g per 100 g.
-    - dietary_fiber: The dietary fiber in g per 100 g.
-    - sodium: The sodium in g per 100 g.
-    - serving_size: The size of a single portion.
-    - normalization_comment: The comment from the normalization.
-    - normalize: Whether the result shall be normalized in the range [0,1] or not. Default is False.
-    """
-
-    nutritional_facts = get_nutritional_facts_by_id(recipe.id)
-    serving_size = get_serving_size_by_id(recipe.id)
-    
-    # WHO score requires the daylie sodium value. As there are no user information here, we take the next best value-
-    # the sodium amount per portion (assuming the user eats one portion)
-    # Also, re-factor the normalization process.
-    if normalization_comment == '' and serving_size > 0:
-        sodium_per_serving = nutritional_facts['sodium [mg]'] / 100 * serving_size
-    else:  # for recipes with problematic normalization return an invalid score
-        sodium_per_serving = float('nan')
-
-    score = sum([_score_who_value(nutritional_facts['protein [g]'], lower_bound=10, upper_bound=15, normalize=normalize, minimize=False),
-                 _score_who_value(nutritional_facts['totalCarbohydrate [g]'], lower_bound=55, upper_bound=75, normalize=normalize,
-                                  minimize=False),
-                 _score_who_value(nutritional_facts['sugars [g]'], lower_bound=0, upper_bound=10, normalize=normalize),
-                 _score_who_value(nutritional_facts['totalFat [g]'], lower_bound=15, upper_bound=30, normalize=normalize),
-                 _score_who_value(nutritional_facts['saturatedFat [g]'], lower_bound=0, upper_bound=10, normalize=normalize),
-                 _score_who_value(nutritional_facts['dietaryFiber [g]'], lower_bound=0, upper_bound=3, normalize=normalize, minimize=False),
-                 _score_who_value(sodium_per_serving, lower_bound=0, upper_bound=2)])
-
-    if normalize:
-        score = _normalize(score, 14)
-    
-    recipe.who_score = score
-    
 
 

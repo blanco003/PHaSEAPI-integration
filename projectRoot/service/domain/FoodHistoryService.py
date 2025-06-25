@@ -3,10 +3,10 @@ from datetime import datetime, timedelta
 import jsonpickle
 import dto.UserHistory as uh
 import dto.Recipe as recipe
-import dto.CustomRecipe as customRecipe
+#import dto.CustomRecipe as customRecipe
 import service.domain.RecipeService as recipeService
 import service.domain.IngredientService as ingService
-import persistence.IngredientPersistence as ip
+
 import Utils as utils
 import service.bot.LangChainService as lcs
 
@@ -71,7 +71,7 @@ def get_user_history_of_week(userId, onlyAccepted = True):
     Returns : 
     - userHistory : cronologia dell'ultima settimana dell'utente con dato userId recuperata dal db.
     """
-    
+
     fullUserHistory = userHistoryDB.get_user_history(userId)
 
     #filter the user history of the week
@@ -153,7 +153,7 @@ def build_and_save_user_history(userData, jsonRecipe, status, ingredients_to_rem
     - ingredients_to_add : evenutali nomi degli ingredienti da aggiungere alla ricetta prima di salvarla.
     """
 
-    suggestedRecipe = recipe.Recipe(None,None,None,None,None,None,None,None,None)
+    suggestedRecipe = recipe.Recipe(None,None,None,None,None,None)
 
     print("---------------------------------------------------------------------\nJSON RECIPE : \n",jsonRecipe)
     suggestedRecipe.from_json(jsonRecipe)
@@ -221,7 +221,7 @@ def build_and_save_user_history(userData, jsonRecipe, status, ingredients_to_rem
     ########################################################################################################
 
     sysdate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-    userHistory = uh.UserHistory(userData.id, suggestedRecipe.id, suggestedRecipe, sysdate, status)
+    userHistory = uh.UserHistory(userData.id, suggestedRecipe, sysdate, status)
     
     #save the suggestion in the user history
     save_user_history(userHistory.to_plain_json())
@@ -268,4 +268,25 @@ def build_and_save_user_history_from_user_assertion(userData, jsonRecipeAssertio
     # salvataggio su db della cronologia alimentare
     save_user_history(userHistory.to_plain_json())
 
+
+
+def get_consumed_recipes(userId, onlyAccepted = True):
+
+    consumed_recipes = []
+
+    fullUserHistory = userHistoryDB.get_user_history(userId)
+        
+    #filter the user history of the week
+    sysdate = datetime.today()
+    previousWeek = sysdate - timedelta(days=7)
+
+    for history in fullUserHistory:
+        date = datetime.strptime(history['date'], '%Y-%m-%d %H:%M:%S')
+        if date >= previousWeek and date <= sysdate and (not onlyAccepted or history['status'] == 'accepted'or history['status'] == 'asserted'):
+            consumed_recipes.append(history['recipe']['name'])
+
+    if len(consumed_recipes) == 0:
+        return None
+
+    return consumed_recipes
 

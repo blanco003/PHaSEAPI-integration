@@ -1,62 +1,137 @@
 import jsonpickle
+from typing import Optional, Dict
+from .Schema import HealthinessInfo, SustainabilityInfo
 
 class Recipe:
 
-    """Rappresenta una ricetta già presente nel db."""
-
-    def __init__(self, name, id, ingredients, sustainabilityScore, who_score, instructions, description, removedConstraints, mealType):
-        """
-        Inizializza un oggetto istanza della classe Recipe.
-
-        Args:
-        - name : Nome della ricetta.
-        - id : Identificatore univoco della ricetta.
-        - ingredients : Elenco degli ingredienti utilizzati nella ricetta.
-        - sustainabilityScore : Punteggio di sostenibilità della ricetta.
-        - who_score : Punteggio di salubrità della ricetta.
-        - instructions : URL che rimanda alle istruzioni di preparazione della ricetta.
-        - description : Descrizione testuale della ricetta.
-        - removedConstraints: Elenco di vincoli che sono stati rimossi dalla query per estrarre la ricetta.
-        - mealType : Tipo di pasto (ad esempio, ”Cena”, ”Pranzo”).
-        """
+    def __init__(self, name, explanation, ingredients, healthiness: Optional[HealthinessInfo], sustainability: Optional[SustainabilityInfo], nutritional_values: Dict[str, float]):
         self.name = name
-        self.id = id
+        self.explanation = explanation
         self.ingredients = ingredients
-        self.sustainabilityScore = sustainabilityScore
-        self.who_score = who_score
-        self.instructions = instructions
-        self.description = description
-        self.removedConstraints = removedConstraints
-        self.mealType = mealType
-        
-    
-    def from_json(self, jsonString):
-        """
-        Decodifica una stringa JSON e popola l'istanza corrente di Recipe.
+        self.healthiness = healthiness
+        self.sustainability = sustainability
+        self.nutritional_values = nutritional_values
 
-        Args:
-        - jsonString (str): Una stringa JSON che rappresenta un oggetto Recipe.
 
-        Returns:
-        - Recipe: L'istanza stessa, con i campi popolati a partire dall stringa JSON.
-        """
-        json_obj = jsonpickle.decode(jsonString)
-        self.name = json_obj.name
-        self.id = json_obj.id
-        self.ingredients = json_obj.ingredients
-        self.sustainabilityScore = json_obj.sustainabilityScore
-        self.who_score = json_obj.who_score
-        self.instructions = json_obj.instructions
-        self.description = json_obj.description
-        self.removedConstraints = json_obj.removedConstraints
-        self.mealType = json_obj.mealType
-        return self
-    
     def to_json(self):
-        """
-        Codifica l'oggetto Recipe in una stringa JSON.
-
-        Returns:
-        - str: La rappresentazione JSON dell'oggetto.
-        """
         return jsonpickle.encode(self)
+
+    def from_json(self, json_string):
+        obj = jsonpickle.decode(json_string)
+        return self.from_dict(obj.__dict__)
+
+    def from_dict(self, data):
+        name = data.get("name", "")
+        explanation = data.get("explanation", "")
+
+        ingr_data = data.get("ingredients", {})
+        if isinstance(ingr_data, list):
+            ingredients = ingr_data
+        elif isinstance(ingr_data, dict):
+            names = ingr_data.get("ingredients", [])
+            quants = ingr_data.get("quantities", [])
+            ingredients = list(zip(names, quants))
+        else:
+            ingredients = []
+
+        healthiness_score = data.get("healthiness_score", "")
+        sustainability_score = data.get("sustainability_score", "")
+        nutr = data.get("nutritional_values", {})
+        nutritional_values = {k: float(v) for k, v in nutr.items()}
+
+        return Recipe(name, explanation, ingredients, healthiness_score, sustainability_score, nutritional_values)
+
+    def from_recommendation_dict(self, rec_item):
+        food_info = rec_item.get("food_info", {})
+
+        self.name = food_info.get("food_item", "")
+        self.explanation = rec_item.get("explanation", "")
+
+        ingr_data = food_info.get("ingredients", {})
+        names = ingr_data.get("ingredients", [])
+        quants = ingr_data.get("quantities", [])
+        self.ingredients = list(zip(names, quants))
+
+        healthiness_data = food_info.get("healthiness", {})
+        sustainability_data = food_info.get("sustainability", {})
+        self.healthiness = HealthinessInfo(**healthiness_data) if healthiness_data else None
+        self.sustainability = SustainabilityInfo(**sustainability_data) if sustainability_data else None
+
+        nutr = food_info.get("nutritional_values", {})
+        self.nutritional_values = {k: float(v) for k, v in nutr.items()}
+
+        
+
+    def from_alternative_dict(self, alt_item):
+        self.name = alt_item.get("food_item", "")
+        self.explanation = ""
+
+        # Ingredienti
+        ingr_data = alt_item.get("ingredients")
+        if ingr_data is None:
+          self.ingredients = []
+        else:
+          names = ingr_data.get("ingredients", [])
+          quants = ingr_data.get("quantities", [])
+          self.ingredients = list(zip(names, quants))
+
+        healthiness_data = alt_item.get("healthiness", {})
+        sustainability_data = alt_item.get("sustainability", {})
+        self.healthiness = HealthinessInfo(**healthiness_data) if healthiness_data else None
+        self.sustainability = SustainabilityInfo(**sustainability_data) if sustainability_data else None
+
+        nutr = alt_item.get("nutritional_values", {})
+        self.nutritional_values = {k: float(v) for k, v in nutr.items()}
+
+        
+
+
+    def from_foodinfo_dict(self, food_info):
+        self.name = food_info.get("food_item", "")
+        self.explanation = ""  # food_info non ha explanation
+
+        ingr_data = food_info.get("ingredients", {})
+        names = ingr_data.get("ingredients", [])
+        quants = ingr_data.get("quantities", [])
+        self.ingredients = list(zip(names, quants))
+
+        healthiness_data = food_info.get("healthiness", {})
+        sustainability_data = food_info.get("sustainability", {})
+        self.healthiness = HealthinessInfo(**healthiness_data) if healthiness_data else None
+        self.sustainability = SustainabilityInfo(**sustainability_data) if sustainability_data else None
+
+        nutr = food_info.get("nutritional_values", {})
+        self.nutritional_values = {k: float(v) for k, v in nutr.items()}
+
+        
+
+    def display(self):
+        print("\n" + "-"*90)
+        print(f"\nName : {self.name}")
+        print(f"Spiegazione: {self.explanation}")
+
+        print(f"\nHealthiness Score: {self.healthiness.score if self.healthiness else 'N/A'}")
+        if self.healthiness and self.healthiness.qualitative:
+            print(f"  • Qualitative: {self.healthiness.qualitative}")
+
+        print(f"\nSustainability Score: {self.sustainability.score if self.sustainability else 'N/A'}")
+        if self.sustainability:
+            if self.sustainability.qualitative:
+                print(f"  • Qualitative: {self.sustainability.qualitative}")
+            if self.sustainability.CF is not None:
+                print(f"  • CF: {self.sustainability.CF}")
+            if self.sustainability.WF is not None:
+                print(f"  • WF: {self.sustainability.WF}")
+
+        if self.ingredients:
+          print("\nIngredienti:")
+          for ingrediente, quantita in self.ingredients:
+            print(f"  - {ingrediente}: {quantita}")
+        else:
+          print("\nIngredienti: N/A")
+
+        print("\nValori nutrizionali:")
+        for nutriente, valore in self.nutritional_values.items():
+            print(f"  • {nutriente}: {valore}")
+
+        print("-"*90)

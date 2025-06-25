@@ -1,64 +1,29 @@
-import requests
+import service.bot.PhaseApi as api
 
-BASE_URL = "http://localhost:8100"
+# FOOD INFO
 
-
-def test_food_info(food_item: str):
-    """Test GET /food-info/{food_item}"""
-    response = requests.get(f"{BASE_URL}/food-info/{food_item}")
-    print(f"Food info for '{food_item}':", response.status_code)
-    print(response.json() if response.ok else response.text)
-
-def test_recommendation():
-    """Test POST /recommend"""
-    payload = {
-        "user_id": 12345,
-        "preferences": ["pasta", "Italian cuisine", "cheese"],
-        "soft_restrictions": ["onion", "garlic"],
-        "hard_restrictions": ["peanuts"],
-        "meal_time": "dinner",
-        "previous_recommendations": ["pizza margherita"],
-        "recommendation_count": 3,
-        "diversity_factor": 0.7,
-        "conversation_id": "conv_test_001",
-    }
-
-    response = requests.post(f"{BASE_URL}/recommend", json=payload)
-    print("Recommendation:", response.status_code)
-    print(response.json() if response.ok else response.text)
-
-def test_alternative(food_item: str, num_alternatives: int = 3):
-    """Test POST /alternative"""
-    payload = {"food_item": food_item, "num_alternatives": num_alternatives}
-    response = requests.post(f"{BASE_URL}/alternative", params=payload)
-    print(f"Alternatives for '{food_item}':", response.status_code)
-    print(response.json() if response.ok else response.text)
+food_info_recipe = "Lasagna"
+recipe = api.get_information(food_info_recipe)
+recipe.display()
 
 
-if __name__ == "__main__":
+# ALTERNATIVE
+
+food_alternative = "Lasagna"
+num_alternative = 3
+recipe = api.get_alternative(food_alternative, num_alternative)
+recipe.display()
 
 
-    #print("\n### FOOD INFO ###")
-    test_food_info("Amatriciana")
-    #test_food_info("Spaghetti Carbonara") 
-    #test_food_info("Cacio e pepe")
+# REC
 
-    #print("\n### FOOD INFO INGREDIENT ###")
-    #test_food_info("Onion") 
-
-    #print("\n### RECOMMENDATION ###")  # NON FUNZIONA
-    #test_recommendation()
-
-    #print("\n### ALTERNATIVE ###")
-    #test_alternative("Spahetti Carbonara")
-
+recipe = api.get_recipe_suggestion({}, {})
+recipe.display()
 
 
 #################################################################################################################################################################
 
 # FOOD INFO RECIPE
-
-# test_food_info("Amatriciana")
 
 """
 Food info for 'Amatriciana': 200
@@ -221,6 +186,7 @@ Food info for 'Onion': 200
     }
   ],
   "scores": [ 0.85, 0.75, 0.65]
+}
 """
 
 #################################################################################################################################################################

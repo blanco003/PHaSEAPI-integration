@@ -277,19 +277,6 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 
-
-
-"""
-# VERSIONE VECCHIA
-async def send_reminder(context: CallbackContext):
-   
-    users = us.get_all_users_with_reminder()
-    for user in users:
-        last_interaction = datetime.strptime(user['lastInteraction'], '%Y-%m-%d %H:%M:%S').date()
-        if datetime.now().date() - last_interaction >= timedelta(days=2):
-            await context.bot.send_message(chat_id=user['id'], text="Hey! It's been a while since we last talked. How about a chat to keep up with your sustainable habits and discover new recipe? Just write me something and I'll be here for you!")
-"""
-
 def schedule_user_reminder(scheduler, bot, user):
     
     async def personalized_reminder():

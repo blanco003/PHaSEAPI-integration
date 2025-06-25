@@ -2,6 +2,7 @@ import json
 import requests
 
 import dto.Recipe as rp
+import dto.Ingredient as ig
 from service.domain import FoodHistoryService as fs
 
 
@@ -128,26 +129,28 @@ def get_recipe_suggestion(mealDataJson, userData):
 
 
 
-def get_information(recipe_name):
+def get_food_info(item):
    
    try :
-      response = requests.get(URL_INFORMATION + recipe_name, headers=HEADER)
+      response = requests.get(URL_INFORMATION + item, headers=HEADER)
       response_json = response.json()
       print(f"Status Code: {response.status_code}")
       print("Response JSON:", response_json)
       
        
-      # TODO: CONTROLLA SE RICETTA O INGREDIENTE
+      # l'endpoint è lo stesso per ricette e ingredienti, ma cambia il campo food_item_type della riposta
+      if response_json["food_item_type"]=="recipe":
+          recipe_information = rp.Recipe("", "", [], None, None, {})
+          recipe_information.from_foodinfo_dict(response_json)
+          return recipe_information
 
-      recipe_information = rp.Recipe("", "", [], None, None, {})
-      recipe_information.from_foodinfo_dict(response_json)
-      #recipe_information.display()
-
-
-      return recipe_information
-   
+      else:
+          ingredient_information = ig.Ingredient("", [], None, None, {})
+          ingredient_information.from_food_info_dict(response_json)
+          return ingredient_information
+     
    except requests.exceptions.RequestException as e:
-        print(f"Errore durante la richiesta di recupero informazioni {recipe_name} :", e)
+        print(f"Errore durante la richiesta di recupero informazioni {item} :", e)
         return None
 
 

@@ -100,6 +100,7 @@ class Recipe:
         self.nutritional_values = {
             k: float(v) for k, v in nutr.items() if v is not None
         }   
+        
 
     def from_foodinfo_dict(self, food_info):
         self.name = food_info.get("food_item", "")
@@ -116,7 +117,9 @@ class Recipe:
         self.sustainability = SustainabilityInfo.from_dict(s_data) if s_data else None
 
         nutr = food_info.get("nutritional_values", {})
-        self.nutritional_values = {k: float(v) for k, v in nutr.items()}
+        self.nutritional_values = {
+            k: float(v) for k, v in nutr.items() if v is not None
+        }   
 
     def display(self):
         print("\n" + "-" * 90)

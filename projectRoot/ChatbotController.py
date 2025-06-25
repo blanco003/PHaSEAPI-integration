@@ -599,104 +599,39 @@ def answer_question(userData,userPrompt,token,memory,info):
         return response
     
     elif(token == p.TASK_6_20_HOOK):
-        log.save_log("SUSTAINABILITY_INGREDIENTS_EXPERT_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        log.save_log("SUSTAINABILITY_INGREDIENT_OR_RECIPE_EXPERT_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        
         allergies = user.get_allergies(userData.id)
         restrictions = user.get_restrictions(userData.id)
-        ingredientsData = jsonpickle.decode(info)
 
-        print("INGREDIENTS_DATA : \n", ingredientsData)
+        item_data = jsonpickle.decode(info)
 
-        translated_ingredients = lcs.translate_ingredients_list(ingredientsData['ingredients'],language)
+        print("ITEM_DATA : \n", item_data)
 
-        print("TRANSLATED_INGREDIENTS : \n", ingredientsData)
-
-        # recupera le fonti
-        ingredients_data_origins = {}
-
-        #sueatablelife_link = "https://www.sueatablelife.eu/"
-        sueatablelife_link = "https://doi.org/10.6084/m9.figshare.13271111.v2"
-
-        for ingredient in translated_ingredients:
-            ingredientDataOrigin = ingService.get_data_origin(ingredient)
-            if ingredientDataOrigin != None:
-                ingredients_data_origins[ingredient] = ingredientDataOrigin
-            else :
-                ingredients_data_origins[ingredient] = sueatablelife_link
         
+        translated_item = lcs.translate_ingredients_list(item_data['item'],language)
 
-        ingredients_data_origins = utils.adapt_output_to_bot(ingredients_data_origins)
-        ingredientsData = utils.adapt_output_to_bot(ingService.get_ingredient_list_from_generic_list_of_string(translated_ingredients))
+        print("TRANSLATED_ITEM: \n", translated_item)
+
+        items_food_info = []
+
+        for item in translated_item:
+            item_food_info = api.get_food_info(item)
+            if items_food_info!=None:
+                item_food_info.display()
+                items_food_info.append(utils.adapt_output_to_bot(item_food_info))
+
+        print(items_food_info)
+        
         
         # filtra eventuali messaggi vuoti
         # Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.3: all messages must have non-empty content except for the optional final assistant message'}}
         if memory is not None:
             memory.messages = [m for m in memory.messages if m.content and m.content.strip()]
             
-        response = lcs.execute_chain(p.TASK_6_20_PROMPT.format(ingredients = ingredientsData, language=language, allergies = allergies, restrictions = restrictions, ingredients_data_origins=ingredients_data_origins), userPrompt, 0.3, userData, memory, True)
+        response = lcs.execute_chain(p.TASK_6_20_PROMPT.format(items_food_info = items_food_info, language=language, allergies = allergies, restrictions = restrictions), userPrompt, 0.3, userData, memory, True)
         return response
     
-
-    elif(token == p.TASK_6_25_HOOK):
-        log.save_log("HEALTHNIESS_INGREDIENTS_EXPERT_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        
-        allergies = user.get_allergies(userData.id)
-        restrictions = user.get_restrictions(userData.id)
-        ingredientsData = jsonpickle.decode(info)
-
-        translated_ingredients = lcs.translate_ingredients_list(ingredientsData['ingredients'],language)    
-
-        ingredientsData = ingService.get_nutritional_facts_from_list_of_ingredients(translated_ingredients)
-        ingredientsData = utils.adapt_output_to_bot(ingredientsData)
-
-        print("\n\ningredientsData :\n",ingredientsData)
-
-        # filtra eventuali messaggi vuoti
-        # Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.3: all messages must have non-empty content except for the optional final assistant message'}}
-        if memory is not None:
-            memory.messages = [m for m in memory.messages if m.content and m.content.strip()]
-            
-        response = lcs.execute_chain(p.TASK_6_25_PROMPT.format(ingredients = ingredientsData, language=language, allergies = allergies, restrictions = restrictions), userPrompt, 0.3, userData, memory, True)
-        return response
-    
-    elif(token == p.TASK_6_30_HOOK):
-        log.save_log("SUSTAINABILITY_RECIPE_EXPERT_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        allergies = user.get_allergies(userData.id)
-        restrictions = user.get_restrictions(userData.id)
-        recipesData = jsonpickle.decode(info)
-
-        recipes = er.extractRecipes(recipesData)
-    
-        recipe_data_origins = {}
-        ingredients_data_origins = {}
-
-        #sueatablelife_link = "https://www.sueatablelife.eu/"
-        sueatablelife_link = "https://doi.org/10.6084/m9.figshare.13271111.v2"
-        
-        for recipe_obj, nutritional_facts in recipes:
-            recipe_data_origins[recipe_obj.name] = recipe_obj.instructions 
-            for ingredient in recipe_obj.ingredients:
-                ingredientDataOrigin = ingService.get_data_origin(ingredient.name)
-                if ingredientDataOrigin != None:
-                    ingredients_data_origins[ingredient.name] = ingredientDataOrigin
-                else :
-                    ingredients_data_origins[ingredient.name] = sueatablelife_link
-
-        recipes = utils.adapt_output_to_bot(recipes)
-        response = lcs.execute_chain(p.TASK_6_30_PROMPT.format(recipes = recipes, language=language, allergies = allergies, restrictions = restrictions), userPrompt, 0.3, userData, memory, True)
-        return response
-    
-
-    elif(token == p.TASK_6_35_HOOK):
-        log.save_log("HEALTHINESS_RECIPE_EXPERT_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        allergies = user.get_allergies(userData.id)
-        restrictions = user.get_restrictions(userData.id)
-        recipesData = jsonpickle.decode(info)
-
-        recipes = er.extractRecipes(recipesData)
-        recipes = utils.adapt_output_to_bot(recipes)
-
-        response = lcs.execute_chain(p.TASK_6_35_PROMPT.format(recipes = recipes, language=language, allergies = allergies, restrictions = restrictions), userPrompt, 0.3, userData, memory, True)
-        return response
     
     elif(token == p.TASK_6_40_HOOK):
         log.save_log("SUSTAINABILITY_EXPERT_LOOP", datetime.datetime.now(), "System", userData.id, PRINT_LOG)

@@ -271,16 +271,12 @@ def translate_text(text, target_language):
     return translated_text
 
 
-
-
-
 def translate_info(info, input_language, fields_to_translate = None):
     """
     Data una stringa rappresentante un json, traduce i valori dei campi dalla lingua di partenza data in input all'inglese.
     """
 
-    if input_language.lower() == "english":
-        print("\nfunz. translate_info : restituito direttamente")
+    if input_language.lower() == "english" or input_language.lower() == "en" :
         return info
 
     if fields_to_translate == None :
@@ -324,6 +320,10 @@ def translate_ingredients_list(ingredients, input_language):
     - lista di stringhe rappresentanti in nomi degli ingredienti tradotti in inglese.
     
     """
+
+    if input_language.lower() == "english" or input_language.lower() == "en" :
+        return ingredients
+    
     # Costruisci il prompt con la lista come stringa
     joined_ingredients = ", ".join(ingredients)
     

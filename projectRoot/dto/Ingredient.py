@@ -1,44 +1,57 @@
-import jsonpickle
-from typing import Optional, Dict
+import json
+from typing import Optional, Dict, List, Tuple
 from .Schema import HealthinessInfo, SustainabilityInfo
 
 
 class Ingredient:
-
-    def __init__(self, name, food_item_type, ingredients, healthiness: Optional[HealthinessInfo], sustainability: Optional[SustainabilityInfo], nutritional_values: Dict[str, float]):
+    def __init__(self, name: str, ingredients: List[Tuple[str, str]], healthiness: Optional[HealthinessInfo], sustainability: Optional[SustainabilityInfo], nutritional_values: Dict[str, float]):
         self.name = name
-        self.food_item_type = food_item_type
         self.ingredients = ingredients
         self.healthiness = healthiness
         self.sustainability = sustainability
         self.nutritional_values = nutritional_values
 
-    def from_dict(self, data):
-        name = data.get("food_item", "")
-        food_item_type = data.get("food_item_type", "")
+    def to_dict(self):
+        return {
+            "food_item": self.name,
+            "ingredients": {
+                "ingredients": [name for name, _ in self.ingredients],
+                "quantities": [quantity for _, quantity in self.ingredients]
+            } if self.ingredients else None,
+            "healthiness": self.healthiness.to_dict() if self.healthiness else None,
+            "sustainability": self.sustainability.to_dict() if self.sustainability else None,
+            "nutritional_values": self.nutritional_values
+        }
 
-        ingr_data = data.get("ingredients")
+    def to_json(self):
+        return json.dumps(self.to_dict())
+
+    def from_food_info_dict(self, food_info):
+        self.name = food_info.get("food_item", "")
+
+        ingr_data = food_info.get("ingredients")
         if ingr_data is None:
-            ingredients = []
+            self.ingredients = []
         else:
             names = ingr_data.get("ingredients", [])
             quants = ingr_data.get("quantities", [])
-            ingredients = list(zip(names, quants)) if quants else [(name, "") for name in names]
+            self.ingredients = list(zip(names, quants)) if quants else [(n, "") for n in names]
 
-        healthiness_data = data.get("healthiness", {})
-        sustainability_data = data.get("sustainability", {})
-        healthiness = HealthinessInfo(**healthiness_data) if healthiness_data else None
-        sustainability = SustainabilityInfo(**sustainability_data) if sustainability_data else None
+        h_data = food_info.get("healthiness", {})
+        s_data = food_info.get("sustainability", {})
+        self.healthiness = HealthinessInfo.from_dict(h_data) if h_data else None
+        self.sustainability = SustainabilityInfo.from_dict(s_data) if s_data else None
 
-        nutr = data.get("nutritional_values", {})
-        nutritional_values = {k: float(v) for k, v in nutr.items()}
+        nutr = food_info.get("nutritional_values")
+        if nutr is None:
+            self.nutritional_values = {}
+        else:
+            self.nutritional_values = {k: float(v) for k, v in nutr.items()}
 
-        return Ingredient(name, food_item_type, ingredients, healthiness, sustainability, nutritional_values)
 
     def display(self):
         print("\n" + "-" * 90)
         print(f"\nName : {self.name}")
-        print(f"Tipo : {self.food_item_type}")
 
         print(f"\nHealthiness Score: {self.healthiness.score if self.healthiness else 'N/A'}")
         if self.healthiness and self.healthiness.qualitative:
@@ -54,13 +67,13 @@ class Ingredient:
                 print(f"  • WF: {self.sustainability.WF}")
 
         if self.ingredients:
-            print("\nIngredienti:")
+            print("\nIngredients:")
             for ingrediente, quantita in self.ingredients:
                 print(f"  - {ingrediente}: {quantita}")
         else:
-            print("\nIngredienti: N/A")
+            print("\nIngredients: N/A")
 
-        print("\nValori nutrizionali:")
+        print("\nNutritional Values:")
         for nutriente, valore in self.nutritional_values.items():
             print(f"  • {nutriente}: {valore}")
 

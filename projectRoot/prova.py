@@ -11,7 +11,7 @@ userData = get_valid_user_data()
 
 
 food_info_recipe = "Lasagna"
-recipe = api.get_information(food_info_recipe)
+recipe = api.get_food_info(food_info_recipe)
 recipe.display()
 
 

@@ -1,3 +1,4 @@
+import json
 import service.bot.LangChainService as lcs
 import service.bot.LogService as log
 import service.bot.PhaseApi as api
@@ -401,60 +402,28 @@ def answer_question(userData,userPrompt,token,memory,info):
         response = lcs.execute_chain(p.TASK_3_10_PROMPT.format(language=language), userPrompt+' '+info, 0.1, userData)
         return response
     
-    elif(token == p.TASK_3_15_HOOK):
-        log.save_log("RECIPE_IMPROVEMENT_INGREDIENT_LIST_EVALUATION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        response = lcs.execute_chain(p.TASK_3_15_PROMPT.format(language=language), userPrompt, 0.1, userData)
-        #recover the previous info because the prompt do not generate new info
-        response.info = info
-        return response
     
     elif(token == p.TASK_3_20_HOOK):
         log.save_log("RECIPE_IMPROVEMENT_EXECUTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         
         #call the recipe improvement service
 
+        print("INFOOOOOOO : \n",info)
+
         translated_info = lcs.translate_info(info, language)
-
-        baseRecipe = imp.get_base_recipe(translated_info)
-        improvedRecipe = imp.get_recipe_improved(baseRecipe,userData)
+        translated_info = json.loads(translated_info)
         
+        base_recipe, improved_recipe = api.get_alternative(translated_info['name'],5,translated_info['improving_factor'])
 
-        base_ingredient_list = []
-        for ingredient in baseRecipe.ingredients:
-            base_ingredient_list.append(ingredient.name)
-        
-        imp_ingredient_list = []
-        for ingredient in improvedRecipe.ingredients:
-            imp_ingredient_list.append(ingredient.name)
+        base_recipe.display()
+        improved_recipe.display()
 
-        result_ingredient = list(set(base_ingredient_list + imp_ingredient_list))
-
-        
-
-        if(improvedRecipe != 'null'):
-            
-            # recupera le fonti degli ingredienti usati
-            ingredients_data_origins = {}
-            #sueatablelife_link = "https://www.sueatablelife.eu/"
-            sueatablelife_link = "https://doi.org/10.6084/m9.figshare.13271111.v2"
-            for ingredient in result_ingredient:
-                ingredientDataOrigin = ingService.get_data_origin(ingredient)
-                if ingredientDataOrigin != None:
-                    ingredients_data_origins[ingredient] = ingredientDataOrigin
-                else :
-                    ingredients_data_origins[ingredient] = sueatablelife_link
-        
-            # recuperiamo le informazioni sulla ricetta da suggerire
-            nutritional_facts = rcpService.get_nutritional_facts_by_id(int(improvedRecipe.id))
-            nutritional_facts = utils.escape_curly_braces(str(nutritional_facts))
-
-            ingredients_data_origins = utils.adapt_output_to_bot(ingredients_data_origins)
-
-            response = lcs.execute_chain(p.TASK_3_20_PROMPT.format(baseRecipe=utils.adapt_output_to_bot(baseRecipe), improvedRecipe=utils.adapt_output_to_bot(improvedRecipe), language=language, ingredients_data_origins=ingredients_data_origins, nutritional_facts=nutritional_facts), userPrompt, 0.1, userData, memory, True)
+        if(improved_recipe != 'null'):
+            response = lcs.execute_chain(p.TASK_3_20_PROMPT.format(baseRecipe=utils.adapt_output_to_bot(base_recipe), improvedRecipe=utils.adapt_output_to_bot(improved_recipe), language=language, imrpoving_factor=translated_info['improving_factor']), userPrompt, 0.1, userData, memory, True)
         else:
             None
             userDataStr = utils.escape_curly_braces(userData.to_json())
-            response = lcs.execute_chain(p.TASK_3_20_1_PROMPT.format(baseRecipe=utils.adapt_output_to_bot(baseRecipe), userData=userDataStr, language=language), userPrompt, 0.1, userData)
+            response = lcs.execute_chain(p.TASK_3_20_1_PROMPT.format(baseRecipe=utils.adapt_output_to_bot(base_recipe), userData=userDataStr, language=language), userPrompt, 0.1, userData)
         return response
     
     elif(token == p.TASK_3_30_HOOK):

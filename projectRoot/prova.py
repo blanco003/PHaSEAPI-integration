@@ -15,14 +15,6 @@ recipe = api.get_information(food_info_recipe)
 recipe.display()
 
 
-# ALTERNATIVE
-
-food_alternative = "Lasagna"
-num_alternative = 3
-recipe = api.get_alternative(food_alternative, num_alternative)
-recipe.display()
-
-
 # REC
 
 mealDataJson = '''
@@ -37,6 +29,17 @@ mealDataJson = '''
 
 recipe = api.get_recipe_suggestion(mealDataJson, userData)
 recipe.display()
+
+
+# ALTERNATIVE
+
+food_alternative = "Lasagna"
+num_alternative = 3
+base, imp = api.get_alternative(food_alternative, num_alternative, "overall")
+print("\n###### BASE :")
+recipe.display()
+print("\n###### IMP :")
+imp.display()
 
 
 #################################################################################################################################################################

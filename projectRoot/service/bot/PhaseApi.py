@@ -37,14 +37,9 @@ def get_recipe_suggestion(mealDataJson, userData):
       mealData = mealDataJson
 
 
-    
-
     # recupera dal db la lista dei nomi delle ricette che l'utente ha consumato
     
     previous_recommendations = fs.get_consumed_recipes(userData.id)
-    
-    #previous_recommendations= []
-
     
     payload = {
         "user_id": userData.id,
@@ -158,9 +153,7 @@ def get_information(recipe_name):
 
 
 
-
-
-def get_alternative(recipe_name, num_alternative=3):
+def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
    
    try :
       
@@ -175,26 +168,54 @@ def get_alternative(recipe_name, num_alternative=3):
       print(f"Status Code: {response.status_code}")
       print("Response JSON:", response_json)
 
-      # TODO : CONTROLLA IN BASE A COSA MIGLIORARE
-
-      # --- Estrai la ricetta "matched" ---
-      print("TEMP RECIPE")
-      first_recipe_alt_dict = response_json["matched_food_item"]
-
-      first_recipe_alt = rp.Recipe("", "", [], None, None, {})
-      first_recipe_alt.from_alternative_dict(first_recipe_alt_dict)
-      first_recipe_alt.display()
-      
-
-      # estrazione prima ricetta suggerita e popolamento oggetto Recipe
-      first_recipe_alt_dict = response_json["alternatives"][0]
-
-      first_recipe_alt = rp.Recipe("", "", [], None, None, {})
-      first_recipe_alt.from_alternative_dict(first_recipe_alt_dict)
-      #first_recipe_alt.display()
 
 
-      return first_recipe_alt
+      # ricetta base che ha fatto il match
+      base_recipe_dict = response_json["matched_food_item"]
+
+      base_recipe = rp.Recipe("", "", [], None, None, {})
+      base_recipe.from_alternative_dict(base_recipe_dict)
+      #base_recipe.display()
+
+
+      if improving_factor=="overall":
+         # estrae semplicemente la prima suggerita
+        imp_recipe_dict = response_json["alternatives"][0]
+
+        imp_recipe = rp.Recipe("", "", [], None, None, {})
+        imp_recipe.from_alternative_dict(imp_recipe_dict)
+        #imp_recipe.display()
+
+      else :
+        
+        # estrae la ricetta con miglior score di improving_factor rispetto a quello della ricetta che ha matchato
+        base_score = base_recipe_dict.get(improving_factor, {}).get("score", "E")
+        print(f"base recipe {improving_factor} score: {base_score}")
+
+        # ordina le alternative dalla migliore alla peggiore
+        sorted_alts = sorted(
+             response_json["alternatives"],
+             key=lambda alt: alt.get(improving_factor, {}).get("score", "E")
+        )
+
+        # trova la prima alternativa che ha score < base_score (cioè migliore)
+        imp_recipe_dict = None
+        for alt in sorted_alts:
+            # recupero score ricetta temporanea
+            alt_score = alt.get(improving_factor, {}).get("score", "E")
+            if alt_score < base_score: 
+                imp_recipe_dict = alt
+                break
+
+        # se nessuna alternativa è migliore, prendi la prima comunque
+        if imp_recipe_dict is None:
+             imp_recipe_dict = response_json["alternatives"][0]
+
+        imp_recipe = rp.Recipe("", "", [], None, None, {})
+        imp_recipe.from_alternative_dict(imp_recipe_dict)
+
+
+      return base_recipe, imp_recipe
       
     
    except requests.exceptions.RequestException as e:

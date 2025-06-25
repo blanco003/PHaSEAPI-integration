@@ -1,6 +1,14 @@
 import service.bot.PhaseApi as api
+import dto.User as ud
 
 # FOOD INFO
+
+def get_valid_user_data():
+    return ud.User("Test", 0, "Giacomo", "Rossi", "01/01/1990", "Italy", "english",[], [],[], [], False, 2, 12, "", [])
+
+
+userData = get_valid_user_data()
+
 
 food_info_recipe = "Lasagna"
 recipe = api.get_information(food_info_recipe)
@@ -17,7 +25,17 @@ recipe.display()
 
 # REC
 
-recipe = api.get_recipe_suggestion({}, {})
+mealDataJson = '''
+{
+  "mealType": "lunch",
+  "ingredients_desired": ["zucchini", "chicken breast", "rice"],
+  "ingredients_not_desired": ["mushrooms", "blue cheese"],
+  "previous_recommendations": ["Grilled Chicken Bowl", "Veggie Stir Fry"]
+}
+'''
+
+
+recipe = api.get_recipe_suggestion(mealDataJson, userData)
 recipe.display()
 
 

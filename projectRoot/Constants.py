@@ -297,23 +297,24 @@ Follow these steps to produce the output:
   Take into account the following allergies {allergies} and dietary restrictions {restrictions} to avoid trivial or irrelevant comparisons for the user.
   If the recipe the recipe to be suggested contains ingredients that the user is allergic to, also provide only the name of the recipe beside to explain why he cant eat it,
   without mentioning the sustainable/healthiness and instructions of it, but instead ask him if he wants to remove or ingredients to the preferences to receive a new recipe suggestion.
-
+  Use the field explanation of the recipe, to support the explanation of why this recipe was recommended.
+  
   Write an empty row for better readability before the environmental part.
 
   Write a sentence to introduce the environmental impact of the recipe, using a representative emoji to start it. 
-  Use information about the carbon footprint and water footprint of the ingredients to support your explanation, but keep it simple and understandable, using a bullet point for each concept.
+  Use information about the carbon footprint and water footprint of the ingredients, stored in the score fields CF and WF of the recipe's sustainability field, to support your explanation, but keep it simple and understandable, using a bullet point for each concept.
   Refer to numbers of CFP and WFP, but also provide an idea of whether those values are good or bad for the environment.
   
-  The sustainability score is such that the lower the value, the better the recipe is for the environment. It ranges from 0 to 1.
+  The sustainability score is a categorical score across 5 levels indicating sustainability from A (best) to E (worst).
+  The sustainability score of the recipe is stored in the score field of the recipe's sustainability field.
   Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).
   
   Write a sentence to introduce the healthiness of the recipe, using a representative emoji to start it. 
-  Use information about the nutritional facts {nutritional_facts} of the recipe to support your explanation, but keep it simple and understandable, using a bullet point for each concept.
+  Use information about the nutritional_values, ingredients and quantities of the recipe to support your explanation, but keep it simple and understandable, using a bullet point for each concept.
   
-  The who score : {who_score}, a score based on the World Health Organization methodology, is used to express the overall nutritional quality of the recipe, such that the higher the value, the healthier the recipe. It ranges from 0 to 1.
-  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Use this value to reinforce the overall nutritional quality of the recipe. Mention to what it refers. 
-
-  Provide the URL that redirects to the recipe instructions.
+  The Nutri-Score is a traffic light-shaped score, which rates the nutritional quality of a product with a score from A (best) to E (worst), is used to express the overall nutritional quality of the recipe.  Mention to what it refers. 
+  The Nutri-Score of the recipe is stored in the score field of the recipe's healtiness field.
+  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Use this value to reinforce the overall nutritional quality of the recipe.
 
   Then, highlightning the following part using an emoji:
   Persuade the user to accept the suggestion by explicitly asking if they want to eat the suggested food, add constraints to get a new suggestion, or decline it.

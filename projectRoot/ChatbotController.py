@@ -304,12 +304,15 @@ def answer_question(userData,userPrompt,token,memory,info):
 
         # temp_suggestedRecipe = food.get_recipe_suggestion(translated_info,userData)
 
-      
+        # PHASEAPI /RECOMMEND
         temp_suggestedRecipe = api.get_recipe_suggestion(translated_info,userData)
 
-        suggestedRecipe = utils.adapt_output_to_bot(temp_suggestedRecipe)
-        print("suggestedRecipe : \n",suggestedRecipe)
+        print("\n########################################################")
+        print("/recomend recipe")
+        temp_suggestedRecipe.display()
 
+        suggestedRecipe = utils.adapt_output_to_bot(temp_suggestedRecipe)
+    
         translated_info = utils.escape_curly_braces(translated_info)
         userDataStr = utils.escape_curly_braces(userData.to_json())
 
@@ -317,22 +320,12 @@ def answer_question(userData,userPrompt,token,memory,info):
 
         if(suggestedRecipe != 'null'):
 
-            # recuperiamo le informazioni sulla ricetta da suggerire
-            
-            # SONO GIA' INTEGRATI IN RECIPE GRAZIE ALL'API
-
-            #nutritional_facts = rcpService.get_nutritional_facts_by_id(int(temp_suggestedRecipe.id))
-            #nutritional_facts = utils.escape_curly_braces(str(nutritional_facts))
-
-            # who_score = rcpService.get_who_score(int(temp_suggestedRecipe.id))
-            #who_score = temp_suggestedRecipe.who_score
-            #print(f"\n\n@@@@@@@@@@@@@@@@@@@@@@@ who_score : {who_score} @@@@@@@@@@@@@@@@@@@@@@@\n\n")
-
+            # informazioni utente
             allergies = user.get_allergies(userData.id)
             restrictions = user.get_restrictions(userData.id)
             evolving_diet = user.get_evolving_diet(userData.id)
             
-            response = lcs.execute_chain(p.TASK_2_10_PROMPT.format(suggestedRecipe=suggestedRecipe, mealInfo=translated_info, userData=userDataStr, language = language, allergies=allergies, restrictions=restrictions, evolving_diet=evolving_diet, nutritional_facts=utils.adapt_output_to_bot(temp_suggestedRecipe.nutritional_values), who_score=temp_suggestedRecipe.healthiness_score), userPrompt, 0.6, userData, memory, True)
+            response = lcs.execute_chain(p.TASK_2_10_PROMPT.format(suggestedRecipe=suggestedRecipe, mealInfo=translated_info, userData=userDataStr, language = language, allergies=allergies, restrictions=restrictions, evolving_diet=evolving_diet), userPrompt, 0.6, userData, memory, True)
         else:
             response = lcs.execute_chain(p.TASK_2_10_1_PROMPT.format(mealInfo=translated_info, userData=userDataStr, language = language), userPrompt, 0.6, userData, memory, False)        
         
@@ -839,6 +832,7 @@ def manage_suggestion(userData,memory,status,whichJson=0):
     
     jsonRecipe = utils.extract_json(originalPrompt, whichJson)
 
+    print("jsonRecipe : ", jsonRecipe)
     fhService.build_and_save_user_history(userData, jsonRecipe, status)
 
 

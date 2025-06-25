@@ -153,10 +153,17 @@ def build_and_save_user_history(userData, jsonRecipe, status, ingredients_to_rem
     - ingredients_to_add : evenutali nomi degli ingredienti da aggiungere alla ricetta prima di salvarla.
     """
 
-    suggestedRecipe = recipe.Recipe(None,None,None,None,None,None)
-
     print("---------------------------------------------------------------------\nJSON RECIPE : \n",jsonRecipe)
-    suggestedRecipe.from_json(jsonRecipe)
+    suggestedRecipe = recipe.Recipe.from_json(jsonRecipe)
+    suggestedRecipe.display()
+
+    
+    
+
+       
+
+    ################################################################################################################
+    # TODO 
 
     # rimuoviamo eventuali ingredienti
     if ingredients_to_remove:
@@ -217,7 +224,8 @@ def build_and_save_user_history(userData, jsonRecipe, status, ingredients_to_rem
 
         print("NEW who_score : ",suggestedRecipe.who_score)
         
-        
+
+    # TODO    
     ########################################################################################################
 
     sysdate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')

@@ -1,4 +1,4 @@
-import jsonpickle
+import json
 import requests
 
 import dto.Recipe as rp
@@ -30,17 +30,22 @@ def get_recipe_suggestion(mealDataJson, userData):
     
 
 
-    """
-    mealData = jsonpickle.decode(mealDataJson) 
-    """
+    
+    if isinstance(mealDataJson, str):
+      mealData = json.loads(mealDataJson)
+    else:
+      mealData = mealDataJson
+
+
+    
 
     # recupera dal db la lista dei nomi delle ricette che l'utente ha consumato
-    """
+    
     previous_recommendations = fs.get_consumed_recipes(userData.id)
-    """
-    previous_recommendations= []
+    
+    #previous_recommendations= []
 
-    """
+    
     payload = {
         "user_id": userData.id,
         "preferences": mealData['ingredients_desired'],
@@ -52,8 +57,8 @@ def get_recipe_suggestion(mealDataJson, userData):
         "diversity_factor": 0.5,
         "conversation_id": userData.id
     }
-    """
-    #print("Payload : \n",payload)
+    
+    print("Payload : \n",payload)
 
     try :
 

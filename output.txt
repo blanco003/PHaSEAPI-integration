@@ -1,32 +1,32 @@
-2025-06-24 15:47:48,099 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-06-24 15:47:48,100 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-06-24 15:47:48,101 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-06-24 15:47:48,101 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-06-24 15:47:48,102 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-06-24 15:47:48,103 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-06-24 15:47:48,106 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-06-24 15:47:48,108 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-06-24 15:47:48,108 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
-2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
-2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
-2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
-2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
-2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
-2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
-2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
-2025-06-24 15:47:48,109 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
-2025-06-24 15:47:48,110 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
-2025-06-24 15:47:48,110 - apscheduler.scheduler - INFO - Added job "main.<locals>.<lambda>" to job store "default"
-2025-06-24 15:47:48,110 - apscheduler.scheduler - INFO - Scheduler started
-2025-06-24 15:47:48,299 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getMe "HTTP/1.1 200 OK"
-2025-06-24 15:47:48,365 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/deleteWebhook "HTTP/1.1 200 OK"
-2025-06-24 15:47:48,366 - apscheduler.scheduler - INFO - Scheduler started
-2025-06-24 15:47:48,366 - telegram.ext.Application - INFO - Application started
-2025-06-24 15:47:52,831 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
-2025-06-24 15:47:52,992 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendChatAction "HTTP/1.1 200 OK"
+2025-06-25 18:50:38,993 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 18:50:38,994 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 18:50:38,995 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 18:50:38,995 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 18:50:38,996 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 18:50:38,997 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 18:50:38,997 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 18:50:38,999 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 18:50:39,000 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 18:50:39,000 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 18:50:39,000 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-25 18:50:39,000 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-25 18:50:39,001 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-25 18:50:39,001 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-25 18:50:39,001 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-25 18:50:39,001 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-25 18:50:39,001 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-25 18:50:39,001 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-25 18:50:39,001 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-25 18:50:39,001 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-25 18:50:39,001 - apscheduler.scheduler - INFO - Added job "schedule_user_reminder.<locals>.<lambda>" to job store "default"
+2025-06-25 18:50:39,002 - apscheduler.scheduler - INFO - Added job "main.<locals>.<lambda>" to job store "default"
+2025-06-25 18:50:39,002 - apscheduler.scheduler - INFO - Scheduler started
+2025-06-25 18:50:39,240 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getMe "HTTP/1.1 200 OK"
+2025-06-25 18:50:39,312 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/deleteWebhook "HTTP/1.1 200 OK"
+2025-06-25 18:50:39,314 - apscheduler.scheduler - INFO - Scheduler started
+2025-06-25 18:50:39,314 - telegram.ext.Application - INFO - Application started
+2025-06-25 18:50:40,128 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:50:40,227 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendChatAction "HTTP/1.1 200 OK"
 
 ####################################################################################################
 Debug (ChatBotController -> answer_router)
@@ -38,7 +38,7 @@ answer_router ---- > answer_question
 Debug (ChatBotController -> answer_question)
 
 userData : 
- <dto.User.User object at 0x000002060CFA9FD0>
+ <dto.User.User object at 0x000001A69BAC8E50>
 
 userPrompt : 
  Hi!
@@ -52,22 +52,20 @@ memory :
 info : 
  None
 GRETINGS
-2025-06-24 15:47:59,244 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-06-25 18:50:45,757 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 
 
 answer: 
  TOKEN 1
-Ciao! 👋
+Hello! 👋
 
-Sono E-Mealio, il tuo assistente personale per l'alimentazione sostenibile e salutare! Posso aiutarti a scegliere cibi eco-sostenibili e a migliorare le tue abitudini alimentari.
+I'm E-Mealio, your friendly food recommender system! I'm here to help you make environmentally sustainable and healthy food choices.
 
-Puoi selezionare una delle funzionalità dai pulsanti del menu per ricevere una spiegazione dettagliata su come utilizzarla. Ti mostrerò esempi pratici e istruzioni specifiche per ogni funzione.
+You can click one of the buttons below to learn more about what I can do for you, or simply start interacting with me using natural language. I'll guide you through making better food choices while keeping our planet healthy!
 
-Ricorda che puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
+Remember, you can always use the /start command to return to the main menu and see all available functionalities.
 
-Ecco una battuta per strapparti un sorriso: 
-Perché la pasta non voleva uscire con il pomodoro? 
-Perché era troppo "salsoso"! 😄
+Here's a food joke to brighten your day: Why did the cookie go to the doctor? Because it was feeling crumbly! 🍪
 
 action from get_token(answer):  TOKEN 1
 
@@ -75,20 +73,18 @@ info from get_info(answer):
   
 
 answer from clean_answer_from_token_and_info(answer, info): 
- Ciao! 👋
+ Hello! 👋
 
-Sono E-Mealio, il tuo assistente personale per l'alimentazione sostenibile e salutare! Posso aiutarti a scegliere cibi eco-sostenibili e a migliorare le tue abitudini alimentari.
+I'm E-Mealio, your friendly food recommender system! I'm here to help you make environmentally sustainable and healthy food choices.
 
-Puoi selezionare una delle funzionalità dai pulsanti del menu per ricevere una spiegazione dettagliata su come utilizzarla. Ti mostrerò esempi pratici e istruzioni specifiche per ogni funzione.
+You can click one of the buttons below to learn more about what I can do for you, or simply start interacting with me using natural language. I'll guide you through making better food choices while keeping our planet healthy!
 
-Ricorda che puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
+Remember, you can always use the /start command to return to the main menu and see all available functionalities.
 
-Ecco una battuta per strapparti un sorriso: 
-Perché la pasta non voleva uscire con il pomodoro? 
-Perché era troppo "salsoso"! 😄
+Here's a food joke to brighten your day: Why did the cookie go to the doctor? Because it was feeling crumbly! 🍪
 
 response: 
- {'answer': 'Ciao! 👋\n\nSono E-Mealio, il tuo assistente personale per l\'alimentazione sostenibile e salutare! Posso aiutarti a scegliere cibi eco-sostenibili e a migliorare le tue abitudini alimentari.\n\nPuoi selezionare una delle funzionalità dai pulsanti del menu per ricevere una spiegazione dettagliata su come utilizzarla. Ti mostrerò esempi pratici e istruzioni specifiche per ogni funzione.\n\nRicorda che puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.\n\nEcco una battuta per strapparti un sorriso: \nPerché la pasta non voleva uscire con il pomodoro? \nPerché era troppo "salsoso"! 😄', 'action': 'TOKEN 1', 'info': ' ', 'memory': None, 'modifiedPrompt': ''}
+ {'answer': "Hello! 👋\n\nI'm E-Mealio, your friendly food recommender system! I'm here to help you make environmentally sustainable and healthy food choices.\n\nYou can click one of the buttons below to learn more about what I can do for you, or simply start interacting with me using natural language. I'll guide you through making better food choices while keeping our planet healthy!\n\nRemember, you can always use the /start command to return to the main menu and see all available functionalities.\n\nHere's a food joke to brighten your day: Why did the cookie go to the doctor? Because it was feeling crumbly! 🍪", 'action': 'TOKEN 1', 'info': ' ', 'memory': None, 'modifiedPrompt': ''}
 
 ####  TOKEN 1  ---->>>  TOKEN 1  ####
 
@@ -97,26 +93,25 @@ response:
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 Invio messaggio all'utente : 
- Ciao! 👋
+ Hello! 👋
 
-Sono E-Mealio, il tuo assistente personale per l'alimentazione sostenibile e salutare! Posso aiutarti a scegliere cibi eco-sostenibili e a migliorare le tue abitudini alimentari.
+I'm E-Mealio, your friendly food recommender system! I'm here to help you make environmentally sustainable and healthy food choices.
 
-Puoi selezionare una delle funzionalità dai pulsanti del menu per ricevere una spiegazione dettagliata su come utilizzarla. Ti mostrerò esempi pratici e istruzioni specifiche per ogni funzione.
+You can click one of the buttons below to learn more about what I can do for you, or simply start interacting with me using natural language. I'll guide you through making better food choices while keeping our planet healthy!
 
-Ricorda che puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
+Remember, you can always use the /start command to return to the main menu and see all available functionalities.
 
-Ecco una battuta per strapparti un sorriso: 
-Perché la pasta non voleva uscire con il pomodoro? 
-Perché era troppo "salsoso"! 😄
+Here's a food joke to brighten your day: Why did the cookie go to the doctor? Because it was feeling crumbly! 🍪
 +++++++++++++++++++++++++++++++++++++++++++++++
 
-2025-06-24 15:47:59,489 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendMessage "HTTP/1.1 200 OK"
-2025-06-24 15:48:02,902 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
-2025-06-24 15:48:08,830 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
-2025-06-24 15:48:09,086 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendChatAction "HTTP/1.1 200 OK"
+2025-06-25 18:50:46,057 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendMessage "HTTP/1.1 200 OK"
+2025-06-25 18:50:47,472 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:50:47,622 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendChatAction "HTTP/1.1 200 OK"
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-lorenzob16 ha cliccato : Recipe Recommendation !
+
+===================================================================================
+context.user_data['callbackMessage'] :  
+update.message.text :  Suggest me something for lunch
 
 ####################################################################################################
 Debug (ChatBotController -> answer_router)
@@ -128,10 +123,10 @@ answer_router ---- > answer_question
 Debug (ChatBotController -> answer_question)
 
 userData : 
- <dto.User.User object at 0x000002060CFA9FD0>
+ <dto.User.User object at 0x000001A69BAC8E50>
 
 userPrompt : 
- I clicked on the Recipe Recommendation button functionality.
+ Suggest me something for lunch
 
 token : 
  TOKEN 1
@@ -142,13 +137,13 @@ memory :
 info : 
   
 GRETINGS
-2025-06-24 15:48:12,462 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-06-25 18:50:49,343 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 
 
 answer: 
- TOKEN 1.2
+ TOKEN 2
 
-action from get_token(answer):  TOKEN 1.2
+action from get_token(answer):  TOKEN 2
 
 info from get_info(answer): 
   
@@ -157,117 +152,9 @@ answer from clean_answer_from_token_and_info(answer, info):
  
 
 response: 
- {'answer': '', 'action': 'TOKEN 1.2', 'info': ' ', 'memory': None, 'modifiedPrompt': ''}
+ {'answer': '', 'action': 'TOKEN 2', 'info': ' ', 'memory': None, 'modifiedPrompt': ''}
 
-####  TOKEN 1  ---->>>  TOKEN 1.2  ####
-
-answer_router ---- > answer_question
-
-
-----------------------------------------------------------------------------------------------------
-Debug (ChatBotController -> answer_question)
-
-userData : 
- <dto.User.User object at 0x000002060CFA9FD0>
-
-userPrompt : 
- I clicked on the Recipe Recommendation button functionality.
-
-token : 
- TOKEN 1.2
-
-memory : 
- None
-
-info : 
-  
-PRE_FOOD_SUGGESTION
-2025-06-24 15:48:19,921 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
-
-
-answer: 
- TOKEN 2
-Benvenuto nella funzionalità di Raccomandazione Ricette!
-
-Sono qui per aiutarti a trovare la ricetta perfetta che sia sia gustosa che sostenibile per l'ambiente. Ti suggerirò ricette basate sulle tue preferenze, privilegiando ingredienti di stagione e a basso impatto ambientale.
-
-Per fornirti il suggerimento migliore, ho bisogno di sapere:
-- Per quale pasto desideri la ricetta (colazione, pranzo, cena o spuntino)?
-- Quali ingredienti vorresti includere?
-- Ci sono ingredienti che preferisci evitare?
-
-Se lo desideri, puoi anche specificare:
-- Preferenze sul tempo di preparazione (es. "vorrei una ricetta veloce")
-- Se desideri che la ricetta sia particolarmente salutare
-
-Fammi sapere le tue preferenze e ti suggerirò una ricetta su misura per te!
-
-Ricorda: puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
-
-action from get_token(answer):  TOKEN 2
-
-info from get_info(answer): 
-  
-
-answer from clean_answer_from_token_and_info(answer, info): 
- Benvenuto nella funzionalità di Raccomandazione Ricette!
-
-Sono qui per aiutarti a trovare la ricetta perfetta che sia sia gustosa che sostenibile per l'ambiente. Ti suggerirò ricette basate sulle tue preferenze, privilegiando ingredienti di stagione e a basso impatto ambientale.
-
-Per fornirti il suggerimento migliore, ho bisogno di sapere:
-- Per quale pasto desideri la ricetta (colazione, pranzo, cena o spuntino)?
-- Quali ingredienti vorresti includere?
-- Ci sono ingredienti che preferisci evitare?
-
-Se lo desideri, puoi anche specificare:
-- Preferenze sul tempo di preparazione (es. "vorrei una ricetta veloce")
-- Se desideri che la ricetta sia particolarmente salutare
-
-Fammi sapere le tue preferenze e ti suggerirò una ricetta su misura per te!
-
-Ricorda: puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
-
-response: 
- {'answer': 'Benvenuto nella funzionalità di Raccomandazione Ricette!\n\nSono qui per aiutarti a trovare la ricetta perfetta che sia sia gustosa che sostenibile per l\'ambiente. Ti suggerirò ricette basate sulle tue preferenze, privilegiando ingredienti di stagione e a basso impatto ambientale.\n\nPer fornirti il suggerimento migliore, ho bisogno di sapere:\n- Per quale pasto desideri la ricetta (colazione, pranzo, cena o spuntino)?\n- Quali ingredienti vorresti includere?\n- Ci sono ingredienti che preferisci evitare?\n\nSe lo desideri, puoi anche specificare:\n- Preferenze sul tempo di preparazione (es. "vorrei una ricetta veloce")\n- Se desideri che la ricetta sia particolarmente salutare\n\nFammi sapere le tue preferenze e ti suggerirò una ricetta su misura per te!\n\nRicorda: puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.', 'action': 'TOKEN 2', 'info': ' ', 'memory': None, 'modifiedPrompt': ''}
-
-####  TOKEN 1.2  ---->>>  TOKEN 2  ####
-
-####################################################################################################
-
-
-++++++++++++++++++++++++++++++++++++++++++++++++++
-Invio messaggio all'utente : 
- Benvenuto nella funzionalità di Raccomandazione Ricette!
-
-Sono qui per aiutarti a trovare la ricetta perfetta che sia sia gustosa che sostenibile per l'ambiente. Ti suggerirò ricette basate sulle tue preferenze, privilegiando ingredienti di stagione e a basso impatto ambientale.
-
-Per fornirti il suggerimento migliore, ho bisogno di sapere:
-- Per quale pasto desideri la ricetta (colazione, pranzo, cena o spuntino)?
-- Quali ingredienti vorresti includere?
-- Ci sono ingredienti che preferisci evitare?
-
-Se lo desideri, puoi anche specificare:
-- Preferenze sul tempo di preparazione (es. "vorrei una ricetta veloce")
-- Se desideri che la ricetta sia particolarmente salutare
-
-Fammi sapere le tue preferenze e ti suggerirò una ricetta su misura per te!
-
-Ricorda: puoi sempre tornare al menu principale usando il comando /start per vedere tutte le funzionalità disponibili.
-+++++++++++++++++++++++++++++++++++++++++++++++
-
-2025-06-24 15:48:19,934 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
-2025-06-24 15:48:20,210 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendMessage "HTTP/1.1 200 OK"
-2025-06-24 15:48:20,313 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/editMessageReplyMarkup "HTTP/1.1 200 OK"
-2025-06-24 15:48:28,164 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
-2025-06-24 15:48:28,389 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendChatAction "HTTP/1.1 200 OK"
-
-
-===================================================================================
-context.user_data['callbackMessage'] :  
-update.message.text :  per pranzo
-
-####################################################################################################
-Debug (ChatBotController -> answer_router)
+####  TOKEN 1  ---->>>  TOKEN 2  ####
 
 answer_router ---- > answer_question
 
@@ -276,10 +163,10 @@ answer_router ---- > answer_question
 Debug (ChatBotController -> answer_question)
 
 userData : 
- <dto.User.User object at 0x000002060CFA9FD0>
+ <dto.User.User object at 0x000001A69BAC8E50>
 
 userPrompt : 
- per pranzo
+ Suggest me something for lunch
 
 token : 
  TOKEN 2
@@ -290,7 +177,7 @@ memory :
 info : 
   
 FOOD_SUGGESTION_INTERACTION
-2025-06-24 15:48:31,412 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-06-25 18:50:52,227 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 
 
 answer: 
@@ -333,10 +220,10 @@ answer_router ---- > answer_question
 Debug (ChatBotController -> answer_question)
 
 userData : 
- <dto.User.User object at 0x000002060CFA9FD0>
+ <dto.User.User object at 0x000001A69BAC8E50>
 
 userPrompt : 
- per pranzo
+ Suggest me something for lunch
 
 token : 
  TOKEN 2.05
@@ -365,10 +252,10 @@ answer_router ---- > answer_question
 Debug (ChatBotController -> answer_question)
 
 userData : 
- <dto.User.User object at 0x000002060CFA9FD0>
+ <dto.User.User object at 0x000001A69BAC8E50>
 
 userPrompt : 
- per pranzo
+ Suggest me something for lunch
 
 token : 
  TOKEN 2.10
@@ -387,7 +274,7 @@ info :
     "healthiness": ""
 }
 PROVIDING_FOOD_SUGGESTION
-2025-06-24 15:48:33,416 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-06-25 18:50:55,180 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 translated_info : 
  {
     "mealType": "Lunch",
@@ -398,124 +285,60 @@ translated_info :
     "cookingTime": "",
     "healthiness": ""
 }
+Payload : 
+ {'user_id': '310071850', 'preferences': [], 'soft_restrictions': [], 'hard_restrictions': [], 'meal_time': 'Lunch', 'previous_recommendations': ['Spinach & Tomato Crustless Quiche'], 'recommendation_count': 1, 'diversity_factor': 0.5, 'conversation_id': '310071850'}
+Response JSON: {'user_id': 12345, 'recommendations': [{'food_item': 'Spaghetti Carbonara', 'score': 0.92, 'explanation': "U25 interacted_with 'Pasta amatriciana' has_ingredient 'guanciale' has_ingredient 'Spaghetti Carbonara'", 'food_info': {'food_item': 'Spaghetti Carbonara', 'food_item_type': 'recipe', 'healthiness': {'qualitative': 'Moderate healthiness level', 'score': 'B'}, 'sustainability': {'CF': 0.5, 'WF': 0.3, 'qualitative': 'Moderate sustainability level', 'score': 'C'}, 'nutritional_values': {'calories [cal]': 450, 'carbs [g]': 56, 'fat [g]': 18, 'protein [g]': 12}, 'ingredients': {'ingredients': ['pasta', 'eggs', 'cheese pecorino', 'black pepper'], 'quantities': ['100g', '2', '50g', 'to taste']}}}], 'conversation_id': 'conv_2025032012345'}
 
-Debug (get_recipe_suggestion)
+########################################################
+/recomend recipe
 
-mealDataJson : 
- {
-    "mealType": "Lunch",
-    "recipeName": "",
-    "sustainabilityScore": "",
-    "ingredients_desired": [],
-    "ingredients_not_desired": [],
-    "cookingTime": "",
-    "healthiness": ""
-}
+------------------------------------------------------------------------------------------
 
-userData : 
- <dto.User.User object at 0x000002060CFA9FD0>
-2025-06-24 15:48:33,425 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
-2025-06-24 15:48:33,425 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Alibaba-NLP/gte-large-en-v1.5
-Batches:   0%|                                                                                                                               | 0/1 [00:00<?, ?it/s]Batches: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:04<00:00,  4.01s/it]Batches: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:04<00:00,  4.01s/it]
+Name : Spaghetti Carbonara
+Spiegazione: U25 interacted_with 'Pasta amatriciana' has_ingredient 'guanciale' has_ingredient 'Spaghetti Carbonara'
 
-mealData['ingredients_desired'] :  []
-disliked_ingredients_in_user_profile :  []
-all_disliked_ingredients :  []
-Batches:   0%|                                                                                                                               | 0/1 [00:00<?, ?it/s]Batches: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 10.64it/s]
+Healthiness Score: B
+  • Qualitative: Moderate healthiness level
 
-Debug (query_template_replacement)
+Sustainability Score: C
+  • Qualitative: Moderate sustainability level
+  • CF: 0.5
+  • WF: 0.3
 
-mandatoryRepalcement : 
- [['TAGS_SUSTAINABILITY', ''], ['TAGS_RESTRICTIONS', ''], ['TAGS_ALLERGENES', ''], ['TAGS_MEAL_TYPE', ' "$and": [ { "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "lunch" } } ] ']]
+Ingredienti:
+  - pasta: 100g
+  - eggs: 2
+  - cheese pecorino: 50g
+  - black pepper: to taste
 
-notMandatoryReplacement : 
- [['TAGS_USER_HISTORY', ''], ['TAGS_HEALTHINESS', ''], ['TAGS_MEAL_DURATION', ''], ['TAGS_DIETARY_PREFERENCES', ' "$and": [  {"tags": { "$regex": "vegan" }} ] ']]
-
-numberReplacement : 
- 4
-
-queryTemplate : 
- { "$and": [ 
-        { "sustainability_label": { "$in": [0, 1] } }, 
-        { "percentage_covered_cfp": { "$gte": 70 } }, 
-        { "percentage_covered_wfp": { "$gte": 70 } },
-        { "disabled": false },
-        {TAGS_SUSTAINABILITY},
-        {TAGS_RESTRICTIONS},
-        {TAGS_ALLERGENES},
-        {TAGS_DIETARY_PREFERENCES},
-        {TAGS_MEAL_TYPE},
-        {TAGS_USER_HISTORY},
-        {TAGS_HEALTHINESS},
-        {TAGS_MEAL_DURATION},
-        ] }
-
-return queryTemplate :
- { "$and": [ 
-        { "sustainability_label": { "$in": [0, 1] } }, 
-        { "percentage_covered_cfp": { "$gte": 70 } }, 
-        { "percentage_covered_wfp": { "$gte": 70 } },
-        { "disabled": false },
-        {},
-        {},
-        {},
-        { "$and": [  {"tags": { "$regex": "vegan" }} ] },
-        { "$and": [ { "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "lunch" } } ] },
-        {},
-        {},
-        {},
-        ] }
-Executed query{ "$and": [ 
-        { "sustainability_label": { "$in": [0, 1] } }, 
-        { "percentage_covered_cfp": { "$gte": 70 } }, 
-        { "percentage_covered_wfp": { "$gte": 70 } },
-        { "disabled": false },
-        {},
-        {},
-        {},
-        { "$and": [  {"tags": { "$regex": "vegan" }} ] },
-        { "$and": [ { "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "lunch" } } ] },
-        {},
-        {},
-        {},
-        ] }
-Retrieved 61 recipes
-Start similarity searching 
-End similarity searching 
-
-suggestedRecipe : 
- <dto.Recipe.Recipe object at 0x000002060DEA2150>
-
-Debug (get_recipe_suggestion)
-
-
-@@@@@@@@@@@@@@@@@@@@@@@ who_score : 0.2968559218559218 @@@@@@@@@@@@@@@@@@@@@@@
-
-
-2025-06-24 15:49:01,344 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+Valori nutrizionali:
+  • calories [cal]: 450.0
+  • carbs [g]: 56.0
+  • fat [g]: 18.0
+  • protein [g]: 12.0
+------------------------------------------------------------------------------------------
+2025-06-25 18:51:01,784 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 
 
 answer: 
  TOKEN 2.20
-Ti suggerisco "Carrot Rice with Peanuts", una ricetta che si allinea perfettamente con il tuo obiettivo di seguire una dieta vegana. Può essere facilmente adattata sostituendo il burro con un'alternativa vegetale.
+I suggest Spaghetti Carbonara for your lunch! Based on your previous interaction with Pasta Amatriciana, I think you'll enjoy this classic Italian dish.
 
-🌍 Impatto ambientale:
-• Bassa impronta di carbonio per la maggior parte degli ingredienti (carote 0.24, cipolle 0.22 kg CO2)
-• Utilizzo efficiente dell'acqua, specialmente per carote (195L) e cipolle (290L)
-Sostenibilità complessiva: ★★★★☆
+🌍 Environmental Impact:
+• Carbon Footprint: 0.5 kg CO2eq - relatively moderate impact
+• Water Footprint: 0.3 m³ - reasonably efficient water usage
+Sustainability Rating: ★★★☆☆
 
-❤️ Profilo nutrizionale:
-• Solo 199 calorie per porzione
-• Basso contenuto di grassi saturi (1.9g)
-• Buona fonte di carboidrati (30g)
-• Basso contenuto di sodio (109.6mg)
-Qualità nutrizionale WHO: ★★★☆☆
+❤️ Health Benefits:
+• Well-balanced with 450 calories per serving
+• Good protein content (12g) from eggs and pecorino
+• Complex carbohydrates (56g) from pasta
+• Moderate fat content (18g)
+Nutri-Score Rating: ★★★★☆
 
-Istruzioni complete: https://www.food.com/recipe/carrot-rice-with-peanuts-15656
+💡 Would you like to try this Spaghetti Carbonara? You can accept this suggestion, add specific constraints for a new recommendation, or decline it. Your choice will be saved to help track your sustainability journey and eating habits.
 
-🤔 Ti piacerebbe provare questa ricetta? Puoi accettare il suggerimento, aggiungere vincoli per una nuova proposta o rifiutarlo. La tua risposta verrà salvata nel tuo profilo per monitorare le tue abitudini alimentari sostenibili.
-
-Per qualsiasi domanda sugli ingredienti o sulla preparazione, non esitare a chiedere!
+Feel free to ask for more details about the recipe or its ingredients!
 
 action from get_token(answer):  TOKEN 2.20
 
@@ -523,28 +346,26 @@ info from get_info(answer):
   
 
 answer from clean_answer_from_token_and_info(answer, info): 
- Ti suggerisco "Carrot Rice with Peanuts", una ricetta che si allinea perfettamente con il tuo obiettivo di seguire una dieta vegana. Può essere facilmente adattata sostituendo il burro con un'alternativa vegetale.
+ I suggest Spaghetti Carbonara for your lunch! Based on your previous interaction with Pasta Amatriciana, I think you'll enjoy this classic Italian dish.
 
-🌍 Impatto ambientale:
-• Bassa impronta di carbonio per la maggior parte degli ingredienti (carote 0.24, cipolle 0.22 kg CO2)
-• Utilizzo efficiente dell'acqua, specialmente per carote (195L) e cipolle (290L)
-Sostenibilità complessiva: ★★★★☆
+🌍 Environmental Impact:
+• Carbon Footprint: 0.5 kg CO2eq - relatively moderate impact
+• Water Footprint: 0.3 m³ - reasonably efficient water usage
+Sustainability Rating: ★★★☆☆
 
-❤️ Profilo nutrizionale:
-• Solo 199 calorie per porzione
-• Basso contenuto di grassi saturi (1.9g)
-• Buona fonte di carboidrati (30g)
-• Basso contenuto di sodio (109.6mg)
-Qualità nutrizionale WHO: ★★★☆☆
+❤️ Health Benefits:
+• Well-balanced with 450 calories per serving
+• Good protein content (12g) from eggs and pecorino
+• Complex carbohydrates (56g) from pasta
+• Moderate fat content (18g)
+Nutri-Score Rating: ★★★★☆
 
-Istruzioni complete: https://www.food.com/recipe/carrot-rice-with-peanuts-15656
+💡 Would you like to try this Spaghetti Carbonara? You can accept this suggestion, add specific constraints for a new recommendation, or decline it. Your choice will be saved to help track your sustainability journey and eating habits.
 
-🤔 Ti piacerebbe provare questa ricetta? Puoi accettare il suggerimento, aggiungere vincoli per una nuova proposta o rifiutarlo. La tua risposta verrà salvata nel tuo profilo per monitorare le tue abitudini alimentari sostenibili.
-
-Per qualsiasi domanda sugli ingredienti o sulla preparazione, non esitare a chiedere!
+Feel free to ask for more details about the recipe or its ingredients!
 
 response: 
- {'answer': 'Ti suggerisco "Carrot Rice with Peanuts", una ricetta che si allinea perfettamente con il tuo obiettivo di seguire una dieta vegana. Può essere facilmente adattata sostituendo il burro con un\'alternativa vegetale.\n\n🌍 Impatto ambientale:\n• Bassa impronta di carbonio per la maggior parte degli ingredienti (carote 0.24, cipolle 0.22 kg CO2)\n• Utilizzo efficiente dell\'acqua, specialmente per carote (195L) e cipolle (290L)\nSostenibilità complessiva: ★★★★☆\n\n❤️ Profilo nutrizionale:\n• Solo 199 calorie per porzione\n• Basso contenuto di grassi saturi (1.9g)\n• Buona fonte di carboidrati (30g)\n• Basso contenuto di sodio (109.6mg)\nQualità nutrizionale WHO: ★★★☆☆\n\nIstruzioni complete: https://www.food.com/recipe/carrot-rice-with-peanuts-15656\n\n🤔 Ti piacerebbe provare questa ricetta? Puoi accettare il suggerimento, aggiungere vincoli per una nuova proposta o rifiutarlo. La tua risposta verrà salvata nel tuo profilo per monitorare le tue abitudini alimentari sostenibili.\n\nPer qualsiasi domanda sugli ingredienti o sulla preparazione, non esitare a chiedere!', 'action': 'TOKEN 2.20', 'info': ' ', 'memory': InMemoryChatMessageHistory(messages=[HumanMessage(content='You are a food recommender system with the role of helping users choose environmentally sustainable and healthy foods.\nYour role is to suggest the following recipe {{"py/object": "dto.Recipe.Recipe", "name": "Carrot Rice with Peanuts", "id": 15656, "ingredients": [{{"py/object": "dto.Ingredient.Ingredient", "name": "rice", "cfp": 2.19, "wfp": 1597.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "water", "cfp": 0.49, "wfp": null}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "peanut", "cfp": 0.83, "wfp": 2782.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "butter", "cfp": 8.48, "wfp": 5659.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "onion", "cfp": 0.22, "wfp": 290.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "gingerroot", "cfp": 0.84, "wfp": 1657.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "carrot", "cfp": 0.24, "wfp": 195.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "salt", "cfp": 0.44, "wfp": null}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "pepper", "cfp": 0.65, "wfp": 379.0}}, {{"py/object": "dto.Ingredient.Ingredient", "name": "cilantro", "cfp": 0.84, "wfp": 8280.0}}], "sustainabilityScore": 0.11106179658988523, "who_score": 0.2968559218559218, "instructions": "https://www.food.com/recipe/carrot-rice-with-peanuts-15656", "description": "This is an unbelievably flavourful rice recipe that almost seems a little too yummy for so few calories! I found this recice on a newsgroup, trimmed and vegetarian-ised it, and thought I\'d share it with everyone here! It can easily be veganised with a suitable butter substitute.", "removedConstraints": [], "mealType": "Lunch"}} given the following constraints {{\n    "mealType": "Lunch",\n    "recipeName": "",\n    "sustainabilityScore": "",\n    "ingredients_desired": [],\n    "ingredients_not_desired": [],\n    "cookingTime": "",\n    "healthiness": ""\n}} and the user profile {{"py/object": "dto.User.User", "username": "lorenzob16", "id": "310071850", "name": "Lorenzo", "surname": "Blanco", "dateOfBirth": "16/12/2003", "nation": "Italia", "language": "it", "allergies": [], "restrictions": [], "disliked_ingredients": [], "evolving_diet": ["vegan"], "reminder": false, "days_reminder": null, "hour_reminder": null, "lastInteraction": "2025-06-24 15:48:19", "tastes": {{"breakfast": [], "lunch": [], "dinner": [], "break": []}}}}.\n\nCommunicate with the user in the following language : it.\n\nFollow these steps to produce the output:\n- Print the string "TOKEN 2.20", then explain why the suggested recipe is a good choice for the user, focusing on the environmental benefits it provides. \n  If there are constraints in the "removedConstraints" field of the suggested recipe, explain that those not mandatory constraints were removed in order to provide the suggestion, but mention that the user can explicitly choose to ignore one or more of these constraints, or refine them to receive a more tailored suggestion.\n  If the constraint "TAGS_DIETARY_PREFERENCES" does not appear in the "removedConstraints" field, emphasize that the suggested recipe is well aligned with the user\'s future dietary preferences [\'vegan\'], reinforcing that the recommendation supports their personal goals and sustainable food journey.\n  Do not mention missing constraints if the "removedConstraints" field is empty. \n  Take into account the following allergies [] and dietary restrictions [] to avoid trivial or irrelevant comparisons for the user.\n  If the recipe the recipe to be suggested contains ingredients that the user is allergic to, also provide only the name of the recipe beside to explain why he cant eat it,\n  without mentioning the sustainable/healthiness and instructions of it, but instead ask him if he wants to remove or ingredients to the preferences to receive a new recipe suggestion.\n\n  Write an empty row for better readability before the environmental part.\n\n  Write a sentence to introduce the environmental impact of the recipe, using a representative emoji to start it. \n  Use information about the carbon footprint and water footprint of the ingredients to support your explanation, but keep it simple and understandable, using a bullet point for each concept.\n  Refer to numbers of CFP and WFP, but also provide an idea of whether those values are good or bad for the environment.\n  \n  The sustainability score is such that the lower the value, the better the recipe is for the environment. It ranges from 0 to 1.\n  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).\n  \n  Write a sentence to introduce the healthiness of the recipe, using a representative emoji to start it. \n  Use information about the nutritional facts {{\'calories [cal]\': 199.1, \'totalFat [g]\': 6.9, \'saturatedFat [g]\': 1.9, \'totalCarbohydrate [g]\': 30, \'protein [g]\': 4.8, \'sugars [g]\': 2, \'dietaryFiber [g]\': 1.9, \'cholesterol [mg]\': 5.1, \'sodium [mg]\': 109.6}} of the recipe to support your explanation, but keep it simple and understandable, using a bullet point for each concept.\n  \n  The who score : 0.2968559218559218, a score based on the World Health Organization methodology, is used to express the overall nutritional quality of the recipe, such that the higher the value, the healthier the recipe. It ranges from 0 to 1.\n  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Use this value to reinforce the overall nutritional quality of the recipe. Mention to what it refers. \n\n  Provide the URL that redirects to the recipe instructions.\n\n  Then, highlightning the following part using an emoji:\n  Persuade the user to accept the suggestion by explicitly asking if they want to eat the suggested food, add constraints to get a new suggestion, or decline it.\n  Explain also that the response will be saved in the user\'s profile for track the consumption of the recipe and allow the evaluation of the user\'s sustainability habits.\n  \n  Write an empty row for better readability before the final part.\n\n  Finally conclude suggesting the user to ask more details about the recipe or the ingredients if they want.\n\n\nBe succinct, using up to 200 words.\nMaintain a respectful and polite tone.\n', additional_kwargs={}, response_metadata={}), HumanMessage(content='Suggest me a recipe given the following constraints {{\n    "mealType": "Lunch",\n    "recipeName": "",\n    "sustainabilityScore": "",\n    "ingredients_desired": [],\n    "ingredients_not_desired": [],\n    "cookingTime": "",\n    "healthiness": ""\n}}', additional_kwargs={}, response_metadata={}), AIMessage(content='Ti suggerisco "Carrot Rice with Peanuts", una ricetta che si allinea perfettamente con il tuo obiettivo di seguire una dieta vegana. Può essere facilmente adattata sostituendo il burro con un\'alternativa vegetale.\n\n🌍 Impatto ambientale:\n• Bassa impronta di carbonio per la maggior parte degli ingredienti (carote 0.24, cipolle 0.22 kg CO2)\n• Utilizzo efficiente dell\'acqua, specialmente per carote (195L) e cipolle (290L)\nSostenibilità complessiva: ★★★★☆\n\n❤️ Profilo nutrizionale:\n• Solo 199 calorie per porzione\n• Basso contenuto di grassi saturi (1.9g)\n• Buona fonte di carboidrati (30g)\n• Basso contenuto di sodio (109.6mg)\nQualità nutrizionale WHO: ★★★☆☆\n\nIstruzioni complete: https://www.food.com/recipe/carrot-rice-with-peanuts-15656\n\n🤔 Ti piacerebbe provare questa ricetta? Puoi accettare il suggerimento, aggiungere vincoli per una nuova proposta o rifiutarlo. La tua risposta verrà salvata nel tuo profilo per monitorare le tue abitudini alimentari sostenibili.\n\nPer qualsiasi domanda sugli ingredienti o sulla preparazione, non esitare a chiedere!', additional_kwargs={}, response_metadata={})]), 'modifiedPrompt': ''}
+ {'answer': "I suggest Spaghetti Carbonara for your lunch! Based on your previous interaction with Pasta Amatriciana, I think you'll enjoy this classic Italian dish.\n\n🌍 Environmental Impact:\n• Carbon Footprint: 0.5 kg CO2eq - relatively moderate impact\n• Water Footprint: 0.3 m³ - reasonably efficient water usage\nSustainability Rating: ★★★☆☆\n\n❤️ Health Benefits:\n• Well-balanced with 450 calories per serving\n• Good protein content (12g) from eggs and pecorino\n• Complex carbohydrates (56g) from pasta\n• Moderate fat content (18g)\nNutri-Score Rating: ★★★★☆\n\n💡 Would you like to try this Spaghetti Carbonara? You can accept this suggestion, add specific constraints for a new recommendation, or decline it. Your choice will be saved to help track your sustainability journey and eating habits.\n\nFeel free to ask for more details about the recipe or its ingredients!", 'action': 'TOKEN 2.20', 'info': ' ', 'memory': InMemoryChatMessageHistory(messages=[HumanMessage(content='You are a food recommender system with the role of helping users choose environmentally sustainable and healthy foods.\nYour role is to suggest the following recipe {{"py/object": "dto.Recipe.Recipe", "name": "Spaghetti Carbonara", "explanation": "U25 interacted_with \'Pasta amatriciana\' has_ingredient \'guanciale\' has_ingredient \'Spaghetti Carbonara\'", "ingredients": [{{"py/tuple": ["pasta", "100g"]}}, {{"py/tuple": ["eggs", "2"]}}, {{"py/tuple": ["cheese pecorino", "50g"]}}, {{"py/tuple": ["black pepper", "to taste"]}}], "healthiness": {{"py/object": "dto.Schema.HealthinessInfo", "score": "B", "qualitative": "Moderate healthiness level"}}, "sustainability": {{"py/object": "dto.Schema.SustainabilityInfo", "score": "C", "qualitative": "Moderate sustainability level", "CF": 0.5, "WF": 0.3}}, "nutritional_values": {{"calories [cal]": 450.0, "carbs [g]": 56.0, "fat [g]": 18.0, "protein [g]": 12.0}}}} given the following constraints {{\n    "mealType": "Lunch",\n    "recipeName": "",\n    "sustainabilityScore": "",\n    "ingredients_desired": [],\n    "ingredients_not_desired": [],\n    "cookingTime": "",\n    "healthiness": ""\n}} and the user profile {{"py/object": "dto.User.User", "username": "lorenzob16", "id": "310071850", "name": "Lorenzo", "surname": "Blanco", "dateOfBirth": "16/12/2003", "nation": "Italia", "language": "en", "allergies": [], "restrictions": [], "disliked_ingredients": [], "evolving_diet": [], "reminder": false, "days_reminder": null, "hour_reminder": null, "lastInteraction": "2025-06-25 18:50:45", "tastes": {{"breakfast": [], "lunch": [], "dinner": [], "break": []}}}}.\n\nCommunicate with the user in the following language : en.\n\nFollow these steps to produce the output:\n- Print the string "TOKEN 2.20", then explain why the suggested recipe is a good choice for the user, focusing on the environmental benefits it provides. \n  If there are constraints in the "removedConstraints" field of the suggested recipe, explain that those not mandatory constraints were removed in order to provide the suggestion, but mention that the user can explicitly choose to ignore one or more of these constraints, or refine them to receive a more tailored suggestion.\n  If the constraint "TAGS_DIETARY_PREFERENCES" does not appear in the "removedConstraints" field, emphasize that the suggested recipe is well aligned with the user\'s future dietary preferences [], reinforcing that the recommendation supports their personal goals and sustainable food journey.\n  Do not mention missing constraints if the "removedConstraints" field is empty. \n  Take into account the following allergies [] and dietary restrictions [] to avoid trivial or irrelevant comparisons for the user.\n  If the recipe the recipe to be suggested contains ingredients that the user is allergic to, also provide only the name of the recipe beside to explain why he cant eat it,\n  without mentioning the sustainable/healthiness and instructions of it, but instead ask him if he wants to remove or ingredients to the preferences to receive a new recipe suggestion.\n  Use the field explanation of the recipe, to support the explanation of why this recipe was recommended.\n  \n  Write an empty row for better readability before the environmental part.\n\n  Write a sentence to introduce the environmental impact of the recipe, using a representative emoji to start it. \n  Use information about the carbon footprint and water footprint of the ingredients, stored in the score fields CF and WF of the recipe\'s sustainability field, to support your explanation, but keep it simple and understandable, using a bullet point for each concept.\n  Refer to numbers of CFP and WFP, but also provide an idea of whether those values are good or bad for the environment.\n  \n  The sustainability score is a categorical score across 5 levels indicating sustainability from A (best) to E (worst).\n  The sustainability score of the recipe is stored in the score field of the recipe\'s sustainability field.\n  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).\n  \n  Write a sentence to introduce the healthiness of the recipe, using a representative emoji to start it. \n  Use information about the nutritional_values, ingredients and quantities of the recipe to support your explanation, but keep it simple and understandable, using a bullet point for each concept.\n  \n  The Nutri-Score is a traffic light-shaped score, which rates the nutritional quality of a product with a score from A (best) to E (worst), is used to express the overall nutritional quality of the recipe.  Mention to what it refers. \n  The Nutri-Score of the recipe is stored in the score field of the recipe\'s healtiness field.\n  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Use this value to reinforce the overall nutritional quality of the recipe.\n\n  Then, highlightning the following part using an emoji:\n  Persuade the user to accept the suggestion by explicitly asking if they want to eat the suggested food, add constraints to get a new suggestion, or decline it.\n  Explain also that the response will be saved in the user\'s profile for track the consumption of the recipe and allow the evaluation of the user\'s sustainability habits.\n  \n  Write an empty row for better readability before the final part.\n\n  Finally conclude suggesting the user to ask more details about the recipe or the ingredients if they want.\n\n\nBe succinct, using up to 200 words.\nMaintain a respectful and polite tone.\n', additional_kwargs={}, response_metadata={}), HumanMessage(content='Suggest me a recipe given the following constraints {{\n    "mealType": "Lunch",\n    "recipeName": "",\n    "sustainabilityScore": "",\n    "ingredients_desired": [],\n    "ingredients_not_desired": [],\n    "cookingTime": "",\n    "healthiness": ""\n}}', additional_kwargs={}, response_metadata={}), AIMessage(content="I suggest Spaghetti Carbonara for your lunch! Based on your previous interaction with Pasta Amatriciana, I think you'll enjoy this classic Italian dish.\n\n🌍 Environmental Impact:\n• Carbon Footprint: 0.5 kg CO2eq - relatively moderate impact\n• Water Footprint: 0.3 m³ - reasonably efficient water usage\nSustainability Rating: ★★★☆☆\n\n❤️ Health Benefits:\n• Well-balanced with 450 calories per serving\n• Good protein content (12g) from eggs and pecorino\n• Complex carbohydrates (56g) from pasta\n• Moderate fat content (18g)\nNutri-Score Rating: ★★★★☆\n\n💡 Would you like to try this Spaghetti Carbonara? You can accept this suggestion, add specific constraints for a new recommendation, or decline it. Your choice will be saved to help track your sustainability journey and eating habits.\n\nFeel free to ask for more details about the recipe or its ingredients!", additional_kwargs={}, response_metadata={})]), 'modifiedPrompt': ''}
 
 ####  TOKEN 2.10  ---->>>  TOKEN 2.20  ####
 
@@ -553,32 +374,427 @@ response:
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 Invio messaggio all'utente : 
- Ti suggerisco "Carrot Rice with Peanuts", una ricetta che si allinea perfettamente con il tuo obiettivo di seguire una dieta vegana. Può essere facilmente adattata sostituendo il burro con un'alternativa vegetale.
+ I suggest Spaghetti Carbonara for your lunch! Based on your previous interaction with Pasta Amatriciana, I think you'll enjoy this classic Italian dish.
 
-🌍 Impatto ambientale:
-• Bassa impronta di carbonio per la maggior parte degli ingredienti (carote 0.24, cipolle 0.22 kg CO2)
-• Utilizzo efficiente dell'acqua, specialmente per carote (195L) e cipolle (290L)
-Sostenibilità complessiva: ★★★★☆
+🌍 Environmental Impact:
+• Carbon Footprint: 0.5 kg CO2eq - relatively moderate impact
+• Water Footprint: 0.3 m³ - reasonably efficient water usage
+Sustainability Rating: ★★★☆☆
 
-❤️ Profilo nutrizionale:
-• Solo 199 calorie per porzione
-• Basso contenuto di grassi saturi (1.9g)
-• Buona fonte di carboidrati (30g)
-• Basso contenuto di sodio (109.6mg)
-Qualità nutrizionale WHO: ★★★☆☆
+❤️ Health Benefits:
+• Well-balanced with 450 calories per serving
+• Good protein content (12g) from eggs and pecorino
+• Complex carbohydrates (56g) from pasta
+• Moderate fat content (18g)
+Nutri-Score Rating: ★★★★☆
 
-Istruzioni complete: https://www.food.com/recipe/carrot-rice-with-peanuts-15656
+💡 Would you like to try this Spaghetti Carbonara? You can accept this suggestion, add specific constraints for a new recommendation, or decline it. Your choice will be saved to help track your sustainability journey and eating habits.
 
-🤔 Ti piacerebbe provare questa ricetta? Puoi accettare il suggerimento, aggiungere vincoli per una nuova proposta o rifiutarlo. La tua risposta verrà salvata nel tuo profilo per monitorare le tue abitudini alimentari sostenibili.
-
-Per qualsiasi domanda sugli ingredienti o sulla preparazione, non esitare a chiedere!
+Feel free to ask for more details about the recipe or its ingredients!
 +++++++++++++++++++++++++++++++++++++++++++++++
 
-2025-06-24 15:49:01,356 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
-2025-06-24 15:49:01,628 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendMessage "HTTP/1.1 200 OK"
-2025-06-24 15:49:11,426 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
-2025-06-24 15:49:21,493 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
-2025-06-24 15:49:31,561 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
-2025-06-24 15:49:41,626 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
-2025-06-24 15:49:51,693 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
-2025-06-24 15:50:01,768 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:51:01,799 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:51:02,362 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendMessage "HTTP/1.1 200 OK"
+2025-06-25 18:51:04,129 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:51:04,304 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendChatAction "HTTP/1.1 200 OK"
+
+
+===================================================================================
+context.user_data['callbackMessage'] :  
+update.message.text :  Ok ill prepare it
+
+####################################################################################################
+Debug (ChatBotController -> answer_router)
+
+answer_router ---- > answer_question
+
+
+----------------------------------------------------------------------------------------------------
+Debug (ChatBotController -> answer_question)
+
+userData : 
+ <dto.User.User object at 0x000001A69BAC8E50>
+
+userPrompt : 
+ Ok ill prepare it
+
+token : 
+ TOKEN 2.20
+
+memory : 
+ Human: You are a food recommender system with the role of helping users choose environmentally sustainable and healthy foods.
+Your role is to suggest the following recipe {{"py/object": "dto.Recipe.Recipe", "name": "Spaghetti Carbonara", "explanation": "U25 interacted_with 'Pasta amatriciana' has_ingredient 'guanciale' has_ingredient 'Spaghetti Carbonara'", "ingredients": [{{"py/tuple": ["pasta", "100g"]}}, {{"py/tuple": ["eggs", "2"]}}, {{"py/tuple": ["cheese pecorino", "50g"]}}, {{"py/tuple": ["black pepper", "to taste"]}}], "healthiness": {{"py/object": "dto.Schema.HealthinessInfo", "score": "B", "qualitative": "Moderate healthiness level"}}, "sustainability": {{"py/object": "dto.Schema.SustainabilityInfo", "score": "C", "qualitative": "Moderate sustainability level", "CF": 0.5, "WF": 0.3}}, "nutritional_values": {{"calories [cal]": 450.0, "carbs [g]": 56.0, "fat [g]": 18.0, "protein [g]": 12.0}}}} given the following constraints {{
+    "mealType": "Lunch",
+    "recipeName": "",
+    "sustainabilityScore": "",
+    "ingredients_desired": [],
+    "ingredients_not_desired": [],
+    "cookingTime": "",
+    "healthiness": ""
+}} and the user profile {{"py/object": "dto.User.User", "username": "lorenzob16", "id": "310071850", "name": "Lorenzo", "surname": "Blanco", "dateOfBirth": "16/12/2003", "nation": "Italia", "language": "en", "allergies": [], "restrictions": [], "disliked_ingredients": [], "evolving_diet": [], "reminder": false, "days_reminder": null, "hour_reminder": null, "lastInteraction": "2025-06-25 18:50:45", "tastes": {{"breakfast": [], "lunch": [], "dinner": [], "break": []}}}}.
+
+Communicate with the user in the following language : en.
+
+Follow these steps to produce the output:
+- Print the string "TOKEN 2.20", then explain why the suggested recipe is a good choice for the user, focusing on the environmental benefits it provides. 
+  If there are constraints in the "removedConstraints" field of the suggested recipe, explain that those not mandatory constraints were removed in order to provide the suggestion, but mention that the user can explicitly choose to ignore one or more of these constraints, or refine them to receive a more tailored suggestion.
+  If the constraint "TAGS_DIETARY_PREFERENCES" does not appear in the "removedConstraints" field, emphasize that the suggested recipe is well aligned with the user's future dietary preferences [], reinforcing that the recommendation supports their personal goals and sustainable food journey.
+  Do not mention missing constraints if the "removedConstraints" field is empty. 
+  Take into account the following allergies [] and dietary restrictions [] to avoid trivial or irrelevant comparisons for the user.
+  If the recipe the recipe to be suggested contains ingredients that the user is allergic to, also provide only the name of the recipe beside to explain why he cant eat it,
+  without mentioning the sustainable/healthiness and instructions of it, but instead ask him if he wants to remove or ingredients to the preferences to receive a new recipe suggestion.
+  Use the field explanation of the recipe, to support the explanation of why this recipe was recommended.
+  
+  Write an empty row for better readability before the environmental part.
+
+  Write a sentence to introduce the environmental impact of the recipe, using a representative emoji to start it. 
+  Use information about the carbon footprint and water footprint of the ingredients, stored in the score fields CF and WF of the recipe's sustainability field, to support your explanation, but keep it simple and understandable, using a bullet point for each concept.
+  Refer to numbers of CFP and WFP, but also provide an idea of whether those values are good or bad for the environment.
+  
+  The sustainability score is a categorical score across 5 levels indicating sustainability from A (best) to E (worst).
+  The sustainability score of the recipe is stored in the score field of the recipe's sustainability field.
+  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).
+  
+  Write a sentence to introduce the healthiness of the recipe, using a representative emoji to start it. 
+  Use information about the nutritional_values, ingredients and quantities of the recipe to support your explanation, but keep it simple and understandable, using a bullet point for each concept.
+  
+  The Nutri-Score is a traffic light-shaped score, which rates the nutritional quality of a product with a score from A (best) to E (worst), is used to express the overall nutritional quality of the recipe.  Mention to what it refers. 
+  The Nutri-Score of the recipe is stored in the score field of the recipe's healtiness field.
+  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Use this value to reinforce the overall nutritional quality of the recipe.
+
+  Then, highlightning the following part using an emoji:
+  Persuade the user to accept the suggestion by explicitly asking if they want to eat the suggested food, add constraints to get a new suggestion, or decline it.
+  Explain also that the response will be saved in the user's profile for track the consumption of the recipe and allow the evaluation of the user's sustainability habits.
+  
+  Write an empty row for better readability before the final part.
+
+  Finally conclude suggesting the user to ask more details about the recipe or the ingredients if they want.
+
+
+Be succinct, using up to 200 words.
+Maintain a respectful and polite tone.
+
+Human: Suggest me a recipe given the following constraints {{
+    "mealType": "Lunch",
+    "recipeName": "",
+    "sustainabilityScore": "",
+    "ingredients_desired": [],
+    "ingredients_not_desired": [],
+    "cookingTime": "",
+    "healthiness": ""
+}}
+AI: I suggest Spaghetti Carbonara for your lunch! Based on your previous interaction with Pasta Amatriciana, I think you'll enjoy this classic Italian dish.
+
+🌍 Environmental Impact:
+• Carbon Footprint: 0.5 kg CO2eq - relatively moderate impact
+• Water Footprint: 0.3 m³ - reasonably efficient water usage
+Sustainability Rating: ★★★☆☆
+
+❤️ Health Benefits:
+• Well-balanced with 450 calories per serving
+• Good protein content (12g) from eggs and pecorino
+• Complex carbohydrates (56g) from pasta
+• Moderate fat content (18g)
+Nutri-Score Rating: ★★★★☆
+
+💡 Would you like to try this Spaghetti Carbonara? You can accept this suggestion, add specific constraints for a new recommendation, or decline it. Your choice will be saved to help track your sustainability journey and eating habits.
+
+Feel free to ask for more details about the recipe or its ingredients!
+
+info : 
+  
+SUGGESTION_CHAT_LOOP
+2025-06-25 18:51:06,319 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+
+answer: 
+ TOKEN 2.30
+
+action from get_token(answer):  TOKEN 2.30
+
+info from get_info(answer): 
+  
+
+answer from clean_answer_from_token_and_info(answer, info): 
+ 
+
+response: 
+ {'answer': '', 'action': 'TOKEN 2.30', 'info': ' ', 'memory': InMemoryChatMessageHistory(messages=[HumanMessage(content='You are a food recommender system with the role of helping users choose environmentally sustainable and healthy foods.\nYour role is to suggest the following recipe {{"py/object": "dto.Recipe.Recipe", "name": "Spaghetti Carbonara", "explanation": "U25 interacted_with \'Pasta amatriciana\' has_ingredient \'guanciale\' has_ingredient \'Spaghetti Carbonara\'", "ingredients": [{{"py/tuple": ["pasta", "100g"]}}, {{"py/tuple": ["eggs", "2"]}}, {{"py/tuple": ["cheese pecorino", "50g"]}}, {{"py/tuple": ["black pepper", "to taste"]}}], "healthiness": {{"py/object": "dto.Schema.HealthinessInfo", "score": "B", "qualitative": "Moderate healthiness level"}}, "sustainability": {{"py/object": "dto.Schema.SustainabilityInfo", "score": "C", "qualitative": "Moderate sustainability level", "CF": 0.5, "WF": 0.3}}, "nutritional_values": {{"calories [cal]": 450.0, "carbs [g]": 56.0, "fat [g]": 18.0, "protein [g]": 12.0}}}} given the following constraints {{\n    "mealType": "Lunch",\n    "recipeName": "",\n    "sustainabilityScore": "",\n    "ingredients_desired": [],\n    "ingredients_not_desired": [],\n    "cookingTime": "",\n    "healthiness": ""\n}} and the user profile {{"py/object": "dto.User.User", "username": "lorenzob16", "id": "310071850", "name": "Lorenzo", "surname": "Blanco", "dateOfBirth": "16/12/2003", "nation": "Italia", "language": "en", "allergies": [], "restrictions": [], "disliked_ingredients": [], "evolving_diet": [], "reminder": false, "days_reminder": null, "hour_reminder": null, "lastInteraction": "2025-06-25 18:50:45", "tastes": {{"breakfast": [], "lunch": [], "dinner": [], "break": []}}}}.\n\nCommunicate with the user in the following language : en.\n\nFollow these steps to produce the output:\n- Print the string "TOKEN 2.20", then explain why the suggested recipe is a good choice for the user, focusing on the environmental benefits it provides. \n  If there are constraints in the "removedConstraints" field of the suggested recipe, explain that those not mandatory constraints were removed in order to provide the suggestion, but mention that the user can explicitly choose to ignore one or more of these constraints, or refine them to receive a more tailored suggestion.\n  If the constraint "TAGS_DIETARY_PREFERENCES" does not appear in the "removedConstraints" field, emphasize that the suggested recipe is well aligned with the user\'s future dietary preferences [], reinforcing that the recommendation supports their personal goals and sustainable food journey.\n  Do not mention missing constraints if the "removedConstraints" field is empty. \n  Take into account the following allergies [] and dietary restrictions [] to avoid trivial or irrelevant comparisons for the user.\n  If the recipe the recipe to be suggested contains ingredients that the user is allergic to, also provide only the name of the recipe beside to explain why he cant eat it,\n  without mentioning the sustainable/healthiness and instructions of it, but instead ask him if he wants to remove or ingredients to the preferences to receive a new recipe suggestion.\n  Use the field explanation of the recipe, to support the explanation of why this recipe was recommended.\n  \n  Write an empty row for better readability before the environmental part.\n\n  Write a sentence to introduce the environmental impact of the recipe, using a representative emoji to start it. \n  Use information about the carbon footprint and water footprint of the ingredients, stored in the score fields CF and WF of the recipe\'s sustainability field, to support your explanation, but keep it simple and understandable, using a bullet point for each concept.\n  Refer to numbers of CFP and WFP, but also provide an idea of whether those values are good or bad for the environment.\n  \n  The sustainability score is a categorical score across 5 levels indicating sustainability from A (best) to E (worst).\n  The sustainability score of the recipe is stored in the score field of the recipe\'s sustainability field.\n  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).\n  \n  Write a sentence to introduce the healthiness of the recipe, using a representative emoji to start it. \n  Use information about the nutritional_values, ingredients and quantities of the recipe to support your explanation, but keep it simple and understandable, using a bullet point for each concept.\n  \n  The Nutri-Score is a traffic light-shaped score, which rates the nutritional quality of a product with a score from A (best) to E (worst), is used to express the overall nutritional quality of the recipe.  Mention to what it refers. \n  The Nutri-Score of the recipe is stored in the score field of the recipe\'s healtiness field.\n  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Use this value to reinforce the overall nutritional quality of the recipe.\n\n  Then, highlightning the following part using an emoji:\n  Persuade the user to accept the suggestion by explicitly asking if they want to eat the suggested food, add constraints to get a new suggestion, or decline it.\n  Explain also that the response will be saved in the user\'s profile for track the consumption of the recipe and allow the evaluation of the user\'s sustainability habits.\n  \n  Write an empty row for better readability before the final part.\n\n  Finally conclude suggesting the user to ask more details about the recipe or the ingredients if they want.\n\n\nBe succinct, using up to 200 words.\nMaintain a respectful and polite tone.\n', additional_kwargs={}, response_metadata={}), HumanMessage(content='Suggest me a recipe given the following constraints {{\n    "mealType": "Lunch",\n    "recipeName": "",\n    "sustainabilityScore": "",\n    "ingredients_desired": [],\n    "ingredients_not_desired": [],\n    "cookingTime": "",\n    "healthiness": ""\n}}', additional_kwargs={}, response_metadata={}), AIMessage(content="I suggest Spaghetti Carbonara for your lunch! Based on your previous interaction with Pasta Amatriciana, I think you'll enjoy this classic Italian dish.\n\n🌍 Environmental Impact:\n• Carbon Footprint: 0.5 kg CO2eq - relatively moderate impact\n• Water Footprint: 0.3 m³ - reasonably efficient water usage\nSustainability Rating: ★★★☆☆\n\n❤️ Health Benefits:\n• Well-balanced with 450 calories per serving\n• Good protein content (12g) from eggs and pecorino\n• Complex carbohydrates (56g) from pasta\n• Moderate fat content (18g)\nNutri-Score Rating: ★★★★☆\n\n💡 Would you like to try this Spaghetti Carbonara? You can accept this suggestion, add specific constraints for a new recommendation, or decline it. Your choice will be saved to help track your sustainability journey and eating habits.\n\nFeel free to ask for more details about the recipe or its ingredients!", additional_kwargs={}, response_metadata={}), HumanMessage(content='Ok ill prepare it', additional_kwargs={}, response_metadata={}), AIMessage(content='', additional_kwargs={}, response_metadata={})]), 'modifiedPrompt': ''}
+
+####  TOKEN 2.20  ---->>>  TOKEN 2.30  ####
+
+answer_router ---- > answer_question
+
+
+----------------------------------------------------------------------------------------------------
+Debug (ChatBotController -> answer_question)
+
+userData : 
+ <dto.User.User object at 0x000001A69BAC8E50>
+
+userPrompt : 
+ Ok ill prepare it
+
+token : 
+ TOKEN 2.30
+
+memory : 
+ Human: You are a food recommender system with the role of helping users choose environmentally sustainable and healthy foods.
+Your role is to suggest the following recipe {{"py/object": "dto.Recipe.Recipe", "name": "Spaghetti Carbonara", "explanation": "U25 interacted_with 'Pasta amatriciana' has_ingredient 'guanciale' has_ingredient 'Spaghetti Carbonara'", "ingredients": [{{"py/tuple": ["pasta", "100g"]}}, {{"py/tuple": ["eggs", "2"]}}, {{"py/tuple": ["cheese pecorino", "50g"]}}, {{"py/tuple": ["black pepper", "to taste"]}}], "healthiness": {{"py/object": "dto.Schema.HealthinessInfo", "score": "B", "qualitative": "Moderate healthiness level"}}, "sustainability": {{"py/object": "dto.Schema.SustainabilityInfo", "score": "C", "qualitative": "Moderate sustainability level", "CF": 0.5, "WF": 0.3}}, "nutritional_values": {{"calories [cal]": 450.0, "carbs [g]": 56.0, "fat [g]": 18.0, "protein [g]": 12.0}}}} given the following constraints {{
+    "mealType": "Lunch",
+    "recipeName": "",
+    "sustainabilityScore": "",
+    "ingredients_desired": [],
+    "ingredients_not_desired": [],
+    "cookingTime": "",
+    "healthiness": ""
+}} and the user profile {{"py/object": "dto.User.User", "username": "lorenzob16", "id": "310071850", "name": "Lorenzo", "surname": "Blanco", "dateOfBirth": "16/12/2003", "nation": "Italia", "language": "en", "allergies": [], "restrictions": [], "disliked_ingredients": [], "evolving_diet": [], "reminder": false, "days_reminder": null, "hour_reminder": null, "lastInteraction": "2025-06-25 18:50:45", "tastes": {{"breakfast": [], "lunch": [], "dinner": [], "break": []}}}}.
+
+Communicate with the user in the following language : en.
+
+Follow these steps to produce the output:
+- Print the string "TOKEN 2.20", then explain why the suggested recipe is a good choice for the user, focusing on the environmental benefits it provides. 
+  If there are constraints in the "removedConstraints" field of the suggested recipe, explain that those not mandatory constraints were removed in order to provide the suggestion, but mention that the user can explicitly choose to ignore one or more of these constraints, or refine them to receive a more tailored suggestion.
+  If the constraint "TAGS_DIETARY_PREFERENCES" does not appear in the "removedConstraints" field, emphasize that the suggested recipe is well aligned with the user's future dietary preferences [], reinforcing that the recommendation supports their personal goals and sustainable food journey.
+  Do not mention missing constraints if the "removedConstraints" field is empty. 
+  Take into account the following allergies [] and dietary restrictions [] to avoid trivial or irrelevant comparisons for the user.
+  If the recipe the recipe to be suggested contains ingredients that the user is allergic to, also provide only the name of the recipe beside to explain why he cant eat it,
+  without mentioning the sustainable/healthiness and instructions of it, but instead ask him if he wants to remove or ingredients to the preferences to receive a new recipe suggestion.
+  Use the field explanation of the recipe, to support the explanation of why this recipe was recommended.
+  
+  Write an empty row for better readability before the environmental part.
+
+  Write a sentence to introduce the environmental impact of the recipe, using a representative emoji to start it. 
+  Use information about the carbon footprint and water footprint of the ingredients, stored in the score fields CF and WF of the recipe's sustainability field, to support your explanation, but keep it simple and understandable, using a bullet point for each concept.
+  Refer to numbers of CFP and WFP, but also provide an idea of whether those values are good or bad for the environment.
+  
+  The sustainability score is a categorical score across 5 levels indicating sustainability from A (best) to E (worst).
+  The sustainability score of the recipe is stored in the score field of the recipe's sustainability field.
+  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).
+  
+  Write a sentence to introduce the healthiness of the recipe, using a representative emoji to start it. 
+  Use information about the nutritional_values, ingredients and quantities of the recipe to support your explanation, but keep it simple and understandable, using a bullet point for each concept.
+  
+  The Nutri-Score is a traffic light-shaped score, which rates the nutritional quality of a product with a score from A (best) to E (worst), is used to express the overall nutritional quality of the recipe.  Mention to what it refers. 
+  The Nutri-Score of the recipe is stored in the score field of the recipe's healtiness field.
+  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Use this value to reinforce the overall nutritional quality of the recipe.
+
+  Then, highlightning the following part using an emoji:
+  Persuade the user to accept the suggestion by explicitly asking if they want to eat the suggested food, add constraints to get a new suggestion, or decline it.
+  Explain also that the response will be saved in the user's profile for track the consumption of the recipe and allow the evaluation of the user's sustainability habits.
+  
+  Write an empty row for better readability before the final part.
+
+  Finally conclude suggesting the user to ask more details about the recipe or the ingredients if they want.
+
+
+Be succinct, using up to 200 words.
+Maintain a respectful and polite tone.
+
+Human: Suggest me a recipe given the following constraints {{
+    "mealType": "Lunch",
+    "recipeName": "",
+    "sustainabilityScore": "",
+    "ingredients_desired": [],
+    "ingredients_not_desired": [],
+    "cookingTime": "",
+    "healthiness": ""
+}}
+AI: I suggest Spaghetti Carbonara for your lunch! Based on your previous interaction with Pasta Amatriciana, I think you'll enjoy this classic Italian dish.
+
+🌍 Environmental Impact:
+• Carbon Footprint: 0.5 kg CO2eq - relatively moderate impact
+• Water Footprint: 0.3 m³ - reasonably efficient water usage
+Sustainability Rating: ★★★☆☆
+
+❤️ Health Benefits:
+• Well-balanced with 450 calories per serving
+• Good protein content (12g) from eggs and pecorino
+• Complex carbohydrates (56g) from pasta
+• Moderate fat content (18g)
+Nutri-Score Rating: ★★★★☆
+
+💡 Would you like to try this Spaghetti Carbonara? You can accept this suggestion, add specific constraints for a new recommendation, or decline it. Your choice will be saved to help track your sustainability journey and eating habits.
+
+Feel free to ask for more details about the recipe or its ingredients!
+Human: Ok ill prepare it
+AI: 
+
+info : 
+  
+SUGGESTION_ACCEPTED
+jsonRecipe :  {"py/object": "dto.Recipe.Recipe", "name": "Spaghetti Carbonara", "explanation": "U25 interacted_with 'Pasta amatriciana' has_ingredient 'guanciale' has_ingredient 'Spaghetti Carbonara'", "ingredients": [{"py/tuple": ["pasta", "100g"]}, {"py/tuple": ["eggs", "2"]}, {"py/tuple": ["cheese pecorino", "50g"]}, {"py/tuple": ["black pepper", "to taste"]}], "healthiness": {"py/object": "dto.Schema.HealthinessInfo", "score": "B", "qualitative": "Moderate healthiness level"}, "sustainability": {"py/object": "dto.Schema.SustainabilityInfo", "score": "C", "qualitative": "Moderate sustainability level", "CF": 0.5, "WF": 0.3}, "nutritional_values": {"calories [cal]": 450.0, "carbs [g]": 56.0, "fat [g]": 18.0, "protein [g]": 12.0}}
+---------------------------------------------------------------------
+JSON RECIPE : 
+ {"py/object": "dto.Recipe.Recipe", "name": "Spaghetti Carbonara", "explanation": "U25 interacted_with 'Pasta amatriciana' has_ingredient 'guanciale' has_ingredient 'Spaghetti Carbonara'", "ingredients": [{"py/tuple": ["pasta", "100g"]}, {"py/tuple": ["eggs", "2"]}, {"py/tuple": ["cheese pecorino", "50g"]}, {"py/tuple": ["black pepper", "to taste"]}], "healthiness": {"py/object": "dto.Schema.HealthinessInfo", "score": "B", "qualitative": "Moderate healthiness level"}, "sustainability": {"py/object": "dto.Schema.SustainabilityInfo", "score": "C", "qualitative": "Moderate sustainability level", "CF": 0.5, "WF": 0.3}, "nutritional_values": {"calories [cal]": 450.0, "carbs [g]": 56.0, "fat [g]": 18.0, "protein [g]": 12.0}}
+
+------------------------------------------------------------------------------------------
+
+Name : Spaghetti Carbonara
+Spiegazione: U25 interacted_with 'Pasta amatriciana' has_ingredient 'guanciale' has_ingredient 'Spaghetti Carbonara'
+
+Healthiness Score: B
+  • Qualitative: Moderate healthiness level
+
+Sustainability Score: C
+  • Qualitative: Moderate sustainability level
+  • CF: 0.5
+  • WF: 0.3
+
+Ingredienti:
+  - pasta: 100g
+  - eggs: 2
+  - cheese pecorino: 50g
+  - black pepper: to taste
+
+Valori nutrizionali:
+  • calories [cal]: 450.0
+  • carbs [g]: 56.0
+  • fat [g]: 18.0
+  • protein [g]: 12.0
+------------------------------------------------------------------------------------------
+
+####  TOKEN 2.30  ---->>>  TOKEN 1  ####
+
+####################################################################################################
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+Invio messaggio all'utente : 
+ I'm glad you accepted my suggestion! If I can help you with other food sustainability and healthiness questions, I'm here to help!
++++++++++++++++++++++++++++++++++++++++++++++++
+
+2025-06-25 18:51:06,431 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendMessage "HTTP/1.1 200 OK"
+2025-06-25 18:51:06,532 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendChatAction "HTTP/1.1 200 OK"
+
+
+===================================================================================
+context.user_data['callbackMessage'] :  Hi!
+update.message.text :  Ok ill prepare it
+
+####################################################################################################
+Debug (ChatBotController -> answer_router)
+
+answer_router ---- > answer_question
+
+
+----------------------------------------------------------------------------------------------------
+Debug (ChatBotController -> answer_question)
+
+userData : 
+ <dto.User.User object at 0x000001A69BAC8E50>
+
+userPrompt : 
+ Hi!
+
+token : 
+ TOKEN 1
+
+memory : 
+ None
+
+info : 
+ 
+GRETINGS
+2025-06-25 18:51:11,155 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+
+
+answer: 
+ TOKEN 1
+Hello! 👋
+
+I'm E-Mealio, your friendly food recommender system! I'm here to help you make environmentally sustainable and healthy food choices.
+
+Would you like to explore my capabilities? Click on one of the buttons below to learn more about what I can do for you, or simply start a conversation about food recommendations, sustainability, or tracking your meals!
+
+Remember, you can always use the /start command to return to the main menu and view all available functionalities.
+
+Here's a food joke to brighten your day: Why did the cookie go to the doctor? Because it was feeling crumbly! 🍪
+
+action from get_token(answer):  TOKEN 1
+
+info from get_info(answer): 
+  
+
+answer from clean_answer_from_token_and_info(answer, info): 
+ Hello! 👋
+
+I'm E-Mealio, your friendly food recommender system! I'm here to help you make environmentally sustainable and healthy food choices.
+
+Would you like to explore my capabilities? Click on one of the buttons below to learn more about what I can do for you, or simply start a conversation about food recommendations, sustainability, or tracking your meals!
+
+Remember, you can always use the /start command to return to the main menu and view all available functionalities.
+
+Here's a food joke to brighten your day: Why did the cookie go to the doctor? Because it was feeling crumbly! 🍪
+
+response: 
+ {'answer': "Hello! 👋\n\nI'm E-Mealio, your friendly food recommender system! I'm here to help you make environmentally sustainable and healthy food choices.\n\nWould you like to explore my capabilities? Click on one of the buttons below to learn more about what I can do for you, or simply start a conversation about food recommendations, sustainability, or tracking your meals!\n\nRemember, you can always use the /start command to return to the main menu and view all available functionalities.\n\nHere's a food joke to brighten your day: Why did the cookie go to the doctor? Because it was feeling crumbly! 🍪", 'action': 'TOKEN 1', 'info': ' ', 'memory': None, 'modifiedPrompt': ''}
+
+####  TOKEN 1  ---->>>  TOKEN 1  ####
+
+####################################################################################################
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+Invio messaggio all'utente : 
+ Hello! 👋
+
+I'm E-Mealio, your friendly food recommender system! I'm here to help you make environmentally sustainable and healthy food choices.
+
+Would you like to explore my capabilities? Click on one of the buttons below to learn more about what I can do for you, or simply start a conversation about food recommendations, sustainability, or tracking your meals!
+
+Remember, you can always use the /start command to return to the main menu and view all available functionalities.
+
+Here's a food joke to brighten your day: Why did the cookie go to the doctor? Because it was feeling crumbly! 🍪
++++++++++++++++++++++++++++++++++++++++++++++++
+
+2025-06-25 18:51:11,274 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/sendMessage "HTTP/1.1 200 OK"
+2025-06-25 18:51:14,226 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:51:24,365 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:51:34,505 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:51:44,568 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:51:54,677 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:52:04,739 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:52:14,852 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:52:24,990 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:52:35,138 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:52:45,202 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:52:55,263 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:53:05,327 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:53:15,388 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:53:25,451 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:53:35,513 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:53:45,577 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:53:55,638 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:54:05,755 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:54:15,893 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:54:26,032 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:54:36,273 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:54:46,411 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:54:56,549 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:55:06,686 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:55:16,747 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:55:26,860 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:55:36,923 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:55:47,033 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:55:57,095 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:56:07,212 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:56:17,276 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:56:27,338 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:56:37,417 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:56:47,477 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:56:57,548 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:57:07,625 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:57:17,689 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:57:27,799 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:57:37,937 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:57:48,077 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:57:58,140 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:58:08,249 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:58:18,368 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:58:28,429 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:58:38,492 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:58:48,553 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:58:58,615 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:59:08,678 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"
+2025-06-25 18:59:18,739 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7522266888:AAHq67e4j2LyKp05Uz33cip7URJNHdwlrak/getUpdates "HTTP/1.1 200 OK"

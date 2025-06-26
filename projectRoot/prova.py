@@ -2,7 +2,7 @@ import service.bot.PhaseApi as api
 import dto.User as ud
 
 # FOOD INFO
-
+"""
 def get_valid_user_data():
     return ud.User("Test", 0, "Giacomo", "Rossi", "01/01/1990", "Italy", "english",[], [],[], [], False, 2, 12, "", [])
 
@@ -29,7 +29,7 @@ mealDataJson = '''
 
 recipe = api.get_recipe_suggestion(mealDataJson, userData)
 recipe.display()
-
+"""
 
 # ALTERNATIVE
 
@@ -37,7 +37,7 @@ food_alternative = "Lasagna"
 num_alternative = 3
 base, imp = api.get_alternative(food_alternative, num_alternative, "overall")
 print("\n###### BASE :")
-recipe.display()
+base.display()
 print("\n###### IMP :")
 imp.display()
 

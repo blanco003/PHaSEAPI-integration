@@ -6,7 +6,6 @@ from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv, find_dotenv
-#from langchain.memory import ChatMessageHistory
 from langchain_community.chat_message_histories import ChatMessageHistory
 import Utils
 import service.bot.LogService as log
@@ -271,12 +270,16 @@ def translate_text(text, target_language):
     return translated_text
 
 
+
+
+
 def translate_info(info, input_language, fields_to_translate = None):
     """
     Data una stringa rappresentante un json, traduce i valori dei campi dalla lingua di partenza data in input all'inglese.
     """
 
-    if input_language.lower() == "english" or input_language.lower() == "en" :
+    if input_language.lower() == "english":
+        print("\ntranslate_info : restituito direttamente")
         return info
 
     if fields_to_translate == None :
@@ -299,11 +302,9 @@ def translate_info(info, input_language, fields_to_translate = None):
 
     translated_text = translated.strip()
 
-    print("translated_info : \n",translated_text)
+    #print("translated_info : \n",translated_text)
 
     return translated_text
-
-
 
 
 
@@ -373,3 +374,46 @@ def ask_model(input, prompt):
     print("Answer : \n", answer)
 
     return answer
+
+
+
+
+
+def translate_concept(text, input_language):
+    """
+    Traduce un testo nella lingua specificata utilizzando il LLM.
+
+    Args:
+    - text : testo da tradurre.
+    - target_language : lingua di destinazione.
+
+    Returns:
+    - str : testo tradotto.
+    """
+
+
+    # se input_language è l'inglese non serve chiamare il LLM, il testo è già inglese
+    if input_language.lower() == "english" or input_language.lower() == "en":
+        return text
+
+
+    translation_prompt = f"Translate the following text into English. Provide only the translation, keeping the original text structure and line breaks, without adding explanations or comments."
+    
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", translation_prompt),
+        ("human", "{query}")
+    ])
+    
+    #print("text : ", text)
+
+    output_parser = StrOutputParser()
+
+    chain = prompt | llm | output_parser
+
+    translated = chain.invoke({ "query": text })
+
+    translated_text = translated.strip()
+
+    #print("translated_text : ",translated_text)
+
+    return translated_text

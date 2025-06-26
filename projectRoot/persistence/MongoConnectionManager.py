@@ -17,5 +17,6 @@ def get_connection():
     global connection
     if client is None and connection is None:
         client = MongoClient('localhost', 27017)
-        connection = client['emealio_food_db']
+        #connection = client['emealio_food_db']
+        connection = client['phaseapi_food_db']
     return connection

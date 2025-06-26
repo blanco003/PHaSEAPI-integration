@@ -17,7 +17,7 @@ def get_recipe_suggestion(mealDataJson, userData):
     # PRONTA MA NON FUNZIONA L'API
     
     """
-    Parametri chiamata : 
+    Parametri della chiamata /recommend API: 
       user_id : Unique identifier for the user
       preferences : List of food items, ingredients, or cuisines the user likes
       soft_restrictions : List of food items, ingredients, or cuisines the user dislikes
@@ -29,17 +29,12 @@ def get_recipe_suggestion(mealDataJson, userData):
       conversation_id : Identifier for the conversation these recommendations are associated with
     """
     
-
-
-    
     if isinstance(mealDataJson, str):
       mealData = json.loads(mealDataJson)
     else:
       mealData = mealDataJson
 
-
-    # recupera dal db la lista dei nomi delle ricette che l'utente ha consumato
-    
+    # recupera dal db la lista dei nomi delle ricette che l'utente ha consumato nell'ultima settimana
     previous_recommendations = fs.get_consumed_recipes(userData.id)
     
     payload = {
@@ -49,66 +44,57 @@ def get_recipe_suggestion(mealDataJson, userData):
         "hard_restrictions": userData.allergies,
         "meal_time": mealData['mealType'],
         "previous_recommendations": previous_recommendations,
-        "recommendation_count": 1,
+        "recommendation_count": 3,
         "diversity_factor": 0.5,
         "conversation_id": userData.id
     }
     
-    print("Payload : \n",payload)
+    print("\n...............................................................................")
+    print(f"\nCalling /recommend with payload:\n{payload}")
 
     try :
 
-
+      # CHIAMATA EFFETIVA (quando l'api funzionerà)
       #response = requests.post(URL_RECCOMENDATION, headers=HEADER, json=payload)
-      
 
       response_json = {
-  "user_id": 12345,
-  "recommendations": [
-    {
-      "food_item": "Spaghetti Carbonara",
-      "score": 0.92,
-      "explanation": "U25 interacted_with 'Pasta amatriciana' has_ingredient 'guanciale' has_ingredient 'Spaghetti Carbonara'",
-      "food_info": {
-        "food_item": "Spaghetti Carbonara",
-        "food_item_type": "recipe",
-        "healthiness": {
-          "qualitative": "Moderate healthiness level",
-          "score": "B"
-        },
-        "sustainability": {
-          "CF": 0.5,
-          "WF": 0.3,
-          "qualitative": "Moderate sustainability level",
-          "score": "C"
-        },
-        "nutritional_values": {
-          "calories [cal]": 450,
-          "carbs [g]": 56,
-          "fat [g]": 18,
-          "protein [g]": 12
-        },
-        "ingredients": {
-          "ingredients": [
-            "pasta",
-            "eggs",
-            "cheese pecorino",
-            "black pepper"
-          ],
-          "quantities": [
-            "100g",
-            "2",
-            "50g",
-            "to taste"
-          ]
-        }
+          "user_id": 12345,
+          "recommendations": [
+                                {
+                                  "food_item": "Spaghetti Carbonara",
+                                  "score": 0.92,
+                                  "explanation": "U25 interacted_with 'Pasta amatriciana' has_ingredient 'guanciale' has_ingredient 'Spaghetti Carbonara'",
+                                  "food_info": {
+                                        "food_item": "Spaghetti Carbonara",
+                                        "food_item_type": "recipe",
+                                        "healthiness": {
+                                                "qualitative": "Moderate healthiness level",
+                                                "score": "B"
+                                        },
+                                        "sustainability": {
+                                                "CF": 0.5,
+                                                "WF": 0.3,
+                                                "qualitative": "Moderate sustainability level",
+                                                "score": "C"
+                                        },
+                                        "nutritional_values": {
+                                                "calories [cal]": 450,
+                                                "carbs [g]": 56,
+                                                "fat [g]": 18,
+                                                "protein [g]": 12
+                                        },
+                                        "ingredients": {
+                                                "ingredients": ["pasta", "eggs", "cheese pecorino", "black pepper"],
+                                                "quantities": ["100g", "2", "50g", "to taste"]
+                                        }      
+                                    }
+                                }
+                              ],
+          "conversation_id": "conv_2025032012345"
       }
-    }
-  ],
-  "conversation_id": "conv_2025032012345"
-}
+      
 
-      #print(f"Status Code: {response.status_code}")
+      #print(f"\nStatus Code: {response.status_code}")
       print("Response JSON:", response_json)
 
       # estrazione prima ricetta suggerita e popolamento oggetto Recipe
@@ -117,6 +103,7 @@ def get_recipe_suggestion(mealDataJson, userData):
       first_recipe_reccomended = rp.Recipe("", "", [], "", "", {})
       first_recipe_reccomended.from_recommendation_dict(first_recipe_reccomended_dict)
 
+      print("\n...............................................................................")
 
       return first_recipe_reccomended
 
@@ -125,36 +112,7 @@ def get_recipe_suggestion(mealDataJson, userData):
     except requests.exceptions.RequestException as e:
         print(f"Errore durante la richiesta di raccomandazione all'utente {userData.id}:", e)
         return None
-  
-
-
-
-def get_food_info(item):
-   
-   try :
-      response = requests.get(URL_INFORMATION + item, headers=HEADER)
-      response_json = response.json()
-      print(f"Status Code: {response.status_code}")
-      print("Response JSON:", response_json)
-      
-       
-      # l'endpoint è lo stesso per ricette e ingredienti, ma cambia il campo food_item_type della riposta
-      if response_json["food_item_type"]=="recipe":
-          recipe_information = rp.Recipe("", "", [], None, None, {})
-          recipe_information.from_foodinfo_dict(response_json)
-          return recipe_information
-
-      else:
-          ingredient_information = ig.Ingredient("", [], None, None, {})
-          ingredient_information.from_food_info_dict(response_json)
-          return ingredient_information
-     
-   except requests.exceptions.RequestException as e:
-        print(f"Errore durante la richiesta di recupero informazioni {item} :", e)
-        return None
-
-
-
+    
 
 def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
    
@@ -165,10 +123,14 @@ def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
             "num_alternatives": num_alternative
       }
 
+      print("\n...............................................................................")
+      print(f"\nCalling /alternative with payload:\n{payload}")
+
+
       response = requests.post(URL_ALTERNATIVE, headers=HEADER, params=payload)
       response_json = response.json()
 
-      print(f"Status Code: {response.status_code}")
+      print(f"\nStatus Code: {response.status_code}")
       print("Response JSON:", response_json)
 
 
@@ -189,11 +151,22 @@ def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
         imp_recipe.from_alternative_dict(imp_recipe_dict)
         #imp_recipe.display()
 
+        # per stampare entrambi gli score di entrambe le ricette
+        base_healthiness_score = base_recipe_dict.get("healthiness", {}).get("score", "E")
+        base_sustainability_score = base_recipe_dict.get("sustainability", {}).get("score", "E")
+        print(f"\nbase recipe healthiness score: {base_healthiness_score}")
+        print(f"base recipe sustainability score: {base_sustainability_score}")
+
+        imp_healthiness_score = imp_recipe_dict.get("healthiness", {}).get("score", "E")
+        imp_sustainability_score = imp_recipe_dict.get("sustainability", {}).get("score", "E")
+        print(f"\nimp recipe healthiness score: {imp_healthiness_score}")
+        print(f"imp recipe sustainability score: {imp_sustainability_score}")
+
       else :
         
         # estrae la ricetta con miglior score di improving_factor rispetto a quello della ricetta che ha matchato
         base_score = base_recipe_dict.get(improving_factor, {}).get("score", "E")
-        print(f"base recipe {improving_factor} score: {base_score}")
+        print(f"\nbase recipe {improving_factor} score: {base_score}")
 
         # ordina le alternative dalla migliore alla peggiore
         sorted_alts = sorted(
@@ -214,10 +187,13 @@ def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
         if imp_recipe_dict is None:
              imp_recipe_dict = response_json["alternatives"][0]
 
+
         imp_recipe = rp.Recipe("", "", [], None, None, {})
         imp_recipe.from_alternative_dict(imp_recipe_dict)
+        imp_score = imp_recipe_dict.get(improving_factor, {}).get("score", "E")
+        print(f"improved recipe {improving_factor} score: {imp_score}")
 
-
+      print("\n...............................................................................")
       return base_recipe, imp_recipe
       
     
@@ -225,3 +201,42 @@ def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
         print(f"Errore durante la richiesta di alternative {recipe_name} :", e)
         return None
 
+
+
+
+def get_food_info(item):
+   
+
+   try :
+      
+      print("\n...............................................................................")
+      print(f"\nCalling {URL_INFORMATION + item}")
+
+      response = requests.get(URL_INFORMATION + item, headers=HEADER)
+      response_json = response.json()
+
+      
+      
+      print(f"\nStatus Code: {response.status_code}")
+      print("Response JSON:", response_json)
+      
+       
+      # l'endpoint è lo stesso per ricette e ingredienti, ma cambia il campo food_item_type della riposta
+      if response_json["food_item_type"]=="recipe":
+          recipe_information = rp.Recipe("", "", [], None, None, {})
+          recipe_information.from_foodinfo_dict(response_json)
+          print("\n...............................................................................")
+          return recipe_information
+
+      else:
+          ingredient_information = ig.Ingredient("", [], None, None, {})
+          ingredient_information.from_food_info_dict(response_json)
+          print("\n...............................................................................")
+          return ingredient_information
+      
+      
+     
+   except requests.exceptions.RequestException as e:
+        print(f"Errore durante la richiesta di recupero informazioni {item} :", e)
+        return None
+   

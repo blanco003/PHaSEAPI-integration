@@ -12,13 +12,7 @@ import dto.Response as rc
 
 import service.domain.FoodHistoryService as history
 import service.domain.UserDataService as user
-import service.domain.IngredientService as ingService
 import service.domain.FoodHistoryService as fhService
-import service.domain.RecipeService as rcpService
-
-
-
-import service.asyncr.ComputeMonthlyUserTasteService as taste
 
 import jsonpickle
 import datetime
@@ -164,7 +158,6 @@ def answer_question(userData,userPrompt,token,memory,info):
         #persist user data calling MongoDB...
         response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_3.format(language=language), "User data: " + userData.to_json(), 0.4, userData)
         userData.reminder = False
-        userData.tastes = taste.return_empty_tastes()
         user.save_user(userData)
         return response
     
@@ -264,11 +257,7 @@ def answer_question(userData,userPrompt,token,memory,info):
         log.save_log("PRE_SUSTAINABILITY_EXPERT", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         response = lcs.execute_chain(p.PRE_TASK_6_PROMPT.format(language=language), userPrompt, 0.3, userData)
         return response
-    
-    elif(token == p.TASK_PRE_7_HOOK):
-        log.save_log("PRE_FOOD_DIARY", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        response = lcs.execute_chain(p.PRE_TASK_7_PROMPT.format(language=language), userPrompt, 0.3, userData)
-        return response
+
 
 ########################################################################################
 
@@ -339,27 +328,6 @@ def answer_question(userData,userPrompt,token,memory,info):
         response = lcs.execute_chain(p.TASK_2_20_PROMPT.format(language=language), userPrompt, 0.6, userData, memory, True)
         return response
     
-
-    elif(token == p.TASK_2_25_HOOK):
-
-        log.save_log("SUGGESTION_SWAP_INGREDIENT", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-
-        originalPrompt = utils.de_escape_curly_braces(memory.messages[0].content)    
-    
-        jsonRecipe = utils.extract_json(originalPrompt, 0)
-
-        ingredients_to_remove, ingredients_to_add = rcpService.get_substitutions_info(info)
-
-
-        fhService.build_and_save_user_history(userData, jsonRecipe, "accepted", ingredients_to_remove, ingredients_to_add)
-
-        fhService.clean_temporary_declined_suggestions(userData.id)
-
-        answer = lcs.translate_text(p.CUSTOM_SUGGESTION_ACCEPTED, language)
-        response = rc.Response(answer,"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
-
-        return response
-    
     elif(token == p.TASK_2_30_HOOK):
         log.save_log("SUGGESTION_ACCEPTED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         manage_suggestion(userData,memory,"accepted")
@@ -412,6 +380,8 @@ def answer_question(userData,userPrompt,token,memory,info):
 
         translated_info = lcs.translate_info(info, language)
         translated_info = json.loads(translated_info)
+
+        print("TRANSLATED_INFOOOOO : \n",info)
         
         base_recipe, improved_recipe = api.get_alternative(translated_info['name'],5,translated_info['improving_factor'])
 
@@ -431,27 +401,7 @@ def answer_question(userData,userPrompt,token,memory,info):
         response = lcs.execute_chain(p.TASK_3_30_PROMPT.format(language=language), userPrompt, 0.6, userData, memory, True)
         return response
     
-    # ricetta migliorata accettata con sostituzioni/aggiunte/rimozioni
-    elif(token == p.TASK_3_35_HOOK):
-
-        log.save_log("RECIPE_IMPROVEMENT_SWAP_INGREDIENT", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-
-        originalPrompt = utils.de_escape_curly_braces(memory.messages[0].content)
-    
-        jsonRecipe = utils.extract_json(originalPrompt, 1)
-
-        ingredients_to_remove, ingredients_to_add = rcpService.get_substitutions_info(info)
-
-
-        fhService.build_and_save_user_history(userData, jsonRecipe, "accepted", ingredients_to_remove, ingredients_to_add)
-        fhService.clean_temporary_declined_suggestions(userData.id)
-
-        answer = lcs.translate_text(p.CUSTOM_RECIPE_IMPROVEMENT_ACCEPTED, language)
-        response = rc.Response(answer,"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
-
-        return response
-    
-    # ricetta migliorata accettata direttamente
+    # ricetta migliorata accettata 
     elif(token == p.TASK_3_40_HOOK):
         log.save_log("RECIPE_IMPROVEMENT_ACCEPTED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         
@@ -583,11 +533,12 @@ def answer_question(userData,userPrompt,token,memory,info):
         log.save_log("SUSTAINABILITY_CONCEPT_EXPERT_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         allergies = user.get_allergies(userData.id)
         restrictions = user.get_restrictions(userData.id)
-        conceptData = jsonpickle.decode(info)
+    
+        #print("Concept : ",userPrompt)
+        concept = lcs.translate_concept(userPrompt,language)
+        #print("Translated concept : ",concept)
 
-        concept = conceptData['concept']
-
-        response = ws.web_search(p.WEB_SEARCH_PROMPT.format(concept = concept), userPrompt, 0.2, userData, None, True)
+        response = ws.web_search(p.WEB_SEARCH_PROMPT.format(concept = concept), concept, 0.2, userData, None, True)
 
         clean_answer = response.answer['clean_answer']
         citations_and_urls = response.answer['citations_and_urls']
@@ -609,15 +560,20 @@ def answer_question(userData,userPrompt,token,memory,info):
         print("ITEM_DATA : \n", item_data)
 
         
-        translated_item = lcs.translate_ingredients_list(item_data['item'],language)
+        # caso di un singolo ingrediente/ricetta forza il valore a lista se è una stringa
+        ingredient_list = item_data['item']
 
+        if isinstance(ingredient_list, str):
+            ingredient_list = [ingredient_list]
+
+        translated_item = lcs.translate_ingredients_list(ingredient_list, language)
         print("TRANSLATED_ITEM: \n", translated_item)
 
         items_food_info = []
 
         for item in translated_item:
             item_food_info = api.get_food_info(item)
-            if items_food_info!=None:
+            if item_food_info is not None:
                 item_food_info.display()
                 items_food_info.append(utils.adapt_output_to_bot(item_food_info))
 

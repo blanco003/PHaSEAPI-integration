@@ -12,8 +12,9 @@ from functools import wraps
 import service.domain.FoodHistoryService as foodHistory
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime, timedelta
-import service.asyncr.ComputeMonthlyUserTasteService as cmu
+
 import asyncio
+import service.bot.LangChainService as lcs
 
 #---------------------------------------------------------
 ## PER SALVARE L'OUTPUT SUL FILE TXT
@@ -241,8 +242,9 @@ async def interaction(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
     print("Invio messaggio all'utente : \n", response.answer)
     print("+++++++++++++++++++++++++++++++++++++++++++++++\n")
 
+
     # LOGICA PER MENU AL SECONDO MESSAGGIO TASK_1_HOOK O TASK_MINUS_1_HOOK
-    if response.action == con.TASK_1_HOOK or response.action == con.TASK_MINUS_1_HOOK    :
+    if response.action == con.TASK_1_HOOK or response.action == con.TASK_MINUS_1_HOOK:
         if context.user_data.get('menu_ready', False):
             # secondo messaggio: mostra il menu
             
@@ -259,11 +261,11 @@ async def interaction(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
         context.user_data['menu_ready'] = False  
 
     context = update_context(context, response)
-
+    
     # gestione ricorsiva
     if len(context.user_data['callbackMessage']) > 0 and MULTIPLE_MESSAGES:
         return await interaction(update, context)
-    if context.user_data['action'] == "TASK -1" and MULTIPLE_MESSAGES:
+    if context.user_data['action'] == "TOKEN -1" and MULTIPLE_MESSAGES:
         context.user_data['callbackMessage'] = con.USER_GREETINGS_PHRASE
         return await interaction(update, context)
 
@@ -277,12 +279,14 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 
+
 def schedule_user_reminder(scheduler, bot, user):
     
     async def personalized_reminder():
         last_interaction = datetime.strptime(user['lastInteraction'], '%Y-%m-%d %H:%M:%S').date()
         if datetime.now().date() - last_interaction >= timedelta(days=us.get_num_days_reminder(user['id'])):
-            await bot.send_message(chat_id=user['id'], text="Hey! It's been a while since we last talked. How about a chat to keep up with your sustainable habits and discover new recipe? Just write me something and I'll be here for you!")
+            # traduciamo il messaggio da inviare in base alla lingua dell'utente
+            await bot.send_message(chat_id=user['id'], text=lcs.translate_text(con.REMINDER,user['language']))
 
     # Rimuove job esistenti con lo stesso ID (per evitare duplicati)
     job_id = f"user_reminder_{user['id']}"
@@ -299,10 +303,6 @@ def schedule_user_reminder(scheduler, bot, user):
         replace_existing=True
     )
 
-
-async def compute_monthly_user_taste():
-    """Calcola il profilo di gusto degli utenti per ogni tipologia di pasto alla fine del mese."""
-    cmu.compute_monthly_user_taste()
 
 
 @send_action(ChatAction.TYPING)
@@ -324,14 +324,11 @@ async def callback(update: Update, context: CallbackContext) -> None:
     
     context = update_context(context,response)
 
-
     # ELIMINA IL MESSAGGIO CON I BOTTONI
     #await update.callback_query.message.delete()
 
     # ELIMINA SOLO I BOTTONI E LASCIA IL MESSAGGIO DEL MENU
     await update.callback_query.message.edit_reply_markup(reply_markup=None)
-
-
 
 
 def main() -> None:
@@ -362,31 +359,22 @@ def main() -> None:
     # Handle the case when a user sends /start but they're not in a conversation
     application.add_handler(CommandHandler('start', start))
 
-    ###################
+    # Handle callback of the menu buttons
     application.add_handler(CallbackQueryHandler(callback))
-    ####################
 
     # configuriamo lo scheduler (che verrà eseguito in background su un thread separato)
     scheduler = BackgroundScheduler()
 
     #reminder scheduled to be sent every day at 12:00 if the user hasn't interacted in the last 2 days
-    
-    # VERSIONE VECCHIA : TUTTI GLI UTENTI UGUALI
-    # scheduler.add_job(lambda: asyncio.run(send_reminder(application)), 'cron', hour=12, minute=00)
-
     # VERSIONE NUOVA : PERSONALIZZATO IN BASE ALL'UTENTE
     users = us.get_all_users_with_reminder()
     for user in users:
         schedule_user_reminder(scheduler, application.bot, user)
 
-    #compute the user's taste at the start of the month based on the previous month's data
-    scheduler.add_job(lambda: asyncio.run(compute_monthly_user_taste()), 'cron', day=1, hour=0, minute=0)
-
     scheduler.start()
 
-    # per restare in attesa di messagggi (gestiti dalle funzioni asincrone)
     application.run_polling()
 
-
+    
 if __name__ == '__main__':
     main()

@@ -3,12 +3,7 @@ from datetime import datetime, timedelta
 import jsonpickle
 import dto.UserHistory as uh
 import dto.Recipe as recipe
-#import dto.CustomRecipe as customRecipe
-import service.domain.RecipeService as recipeService
-import service.domain.IngredientService as ingService
 
-import Utils as utils
-import service.bot.LangChainService as lcs
 
 def get_custom_dates(DataJson):
     """
@@ -143,7 +138,7 @@ def build_and_save_user_history(userData, jsonRecipe, status, ingredients_to_rem
     """
     Costruisce un oggetto di cronologia suggerimento alimentare istanza della classe UserHistory 
     a partire da una ricetta suggerita, i dati dell'utente, e lo stato di accettazione del suggerimento,
-    e lo salva nel db. Se vengono fatte delle modifiche di ingredienti viene ricalcolato lo score di sostenibilità.
+    e lo salva nel db.
 
     Args:
     - userData : oggetto utente contenente le informazioni dell'utente 
@@ -156,77 +151,6 @@ def build_and_save_user_history(userData, jsonRecipe, status, ingredients_to_rem
     print("---------------------------------------------------------------------\nJSON RECIPE : \n",jsonRecipe)
     suggestedRecipe = recipe.Recipe.from_json(jsonRecipe)
     suggestedRecipe.display()
-
-    
-    
-
-       
-
-    ################################################################################################################
-    # TODO 
-
-    # rimuoviamo eventuali ingredienti
-    if ingredients_to_remove:
-        new_ingredients = []
-        for ingredient in suggestedRecipe.ingredients:
-            if ingredient.name not in ingredients_to_remove:
-                new_ingredients.append(ingredient)
-        suggestedRecipe.ingredients = new_ingredients
-
-
-    # aggiungiamo eventuali ingredienti
-    if ingredients_to_add:
-        # recuperiamo dal db gli ingredienti da aggiungere
-        # da stringhe recuperiamo gli oggetti istanza della classe Ingredient
-        ingredients_obj_to_add = ingService.get_ingredient_list_from_generic_list_of_string(ingredients_to_add)
-        suggestedRecipe.ingredients.extend(ingredients_obj_to_add)
-        
-
-    ########################################################################################################
-    # se ci sono stati cambiamenti ricalcoliamo lo score di sostenibilità e salubrità
-    if ingredients_to_remove or ingredients_to_add:
-        
-        #print("\n\nRicalcolo.................................")
-
-  
-        print("\nOLD sustainability_score : ",suggestedRecipe.sustainabilityScore)
-        recipeService.compute_recipe_sustainability_score(suggestedRecipe)
-        print("NEW sustainability_score : ",suggestedRecipe.sustainabilityScore)
-
-        # come fa a calcolarlo senza grammature ??
-        # recipeService.compute_who_score(suggestedRecipe,"",True)
-
-        # per ricalcolare il who score abbiamo bisogno delle grammature degli ingredienti
-        prompt = """
-                    Given the following recipe, in json format, return a json string containing the fields 'ingredients' and 'quantities', with the corresponding lists of ingredients and weights.
-                    If the ingredients appear in the recipe instructions, extract the corresponding weights, in grams, otherwise assume it based on the portion generally used or recommended of the corresponding ingredient. Report only the number of the weights without grams or g.
-                    Print only the JSON string. Do not add any explanation, comment, or text before or after the JSON.
-                """
-        answer = lcs.ask_model(input=utils.adapt_output_to_bot(suggestedRecipe),prompt=prompt)
-
-        info = jsonpickle.decode(answer)
-
-        ingredients = ingService.get_ingredient_list_from_generic_list_of_string(info['ingredients'])
-        quantities = info['quantities']
-
-        # calcoliamo i valori nutrizionali totali della ricetta
-        nutritional_facts = recipeService.calculate_nutritional_facts_of_recipe(ingredients, quantities)
-
-        print("\nOLD who_score : ",suggestedRecipe.who_score)
-
-        # calcoliamo il who score
-        who_score = recipeService.compute_who_score_of_custom_recipe(nutritional_facts['protein [g]'],nutritional_facts['totalCarbohydrate [g]'],
-                                                nutritional_facts['sugars [g]'],nutritional_facts['totalFat [g]'],
-                                                nutritional_facts['saturatedFat [g]'],nutritional_facts['dietaryFiber [g]'],
-                                                nutritional_facts['sodium [mg]'],1,"",True)
-
-        suggestedRecipe.who_score = who_score
-
-        print("NEW who_score : ",suggestedRecipe.who_score)
-        
-
-    # TODO    
-    ########################################################################################################
 
     sysdate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
     userHistory = uh.UserHistory(userData.id, suggestedRecipe, sysdate, status)

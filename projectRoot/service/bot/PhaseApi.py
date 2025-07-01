@@ -1,8 +1,8 @@
 import json
 import requests
 
-import dto.Recipe as rp
-import dto.Ingredient as ig
+import dto.RecipeApi as rp
+import dto.IngredientApi as ig
 from service.domain import FoodHistoryService as fs
 
 
@@ -99,7 +99,7 @@ def get_recipe_suggestion(mealDataJson, userData):
       # estrazione prima ricetta suggerita e popolamento oggetto Recipe
       first_recipe_reccomended_dict = response_json["recommendations"][0]
 
-      first_recipe_reccomended = rp.Recipe("", "", [], "", "", {}, "")
+      first_recipe_reccomended = rp.RecipeApi("", "", [], "", "", {}, "")
       first_recipe_reccomended.from_recommendation_dict(first_recipe_reccomended_dict)
 
       print("\n...............................................................................")
@@ -132,7 +132,7 @@ def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
       # ricetta base che ha fatto il match
       base_recipe_dict = response_json["matched_food_item"]
 
-      base_recipe = rp.Recipe("", "", [], None, None, {}, "")
+      base_recipe = rp.RecipeApi("", "", [], None, None, {}, "")
       base_recipe.from_alternative_dict(base_recipe_dict)
       #base_recipe.display()
 
@@ -140,7 +140,7 @@ def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
          # estrae semplicemente la prima suggerita
         imp_recipe_dict = response_json["alternatives"][0]
 
-        imp_recipe = rp.Recipe("", "", [], None, None, {}, "")
+        imp_recipe = rp.RecipeApi("", "", [], None, None, {}, "")
         imp_recipe.from_alternative_dict(imp_recipe_dict)
         #imp_recipe.display()
 
@@ -180,7 +180,7 @@ def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
         if imp_recipe_dict is None:
              imp_recipe_dict = response_json["alternatives"][0]
 
-        imp_recipe = rp.Recipe("", "", [], None, None, {}, "")
+        imp_recipe = rp.RecipeApi("", "", [], None, None, {}, "")
         imp_recipe.from_alternative_dict(imp_recipe_dict)
         imp_score = imp_recipe_dict.get(improving_factor, {}).get("score", "E")
         print(f"improved recipe {improving_factor} score: {imp_score}")
@@ -240,13 +240,13 @@ def get_food_info(item):
       
       # l'endpoint è lo stesso per ricette e ingredienti, ma cambia il campo food_item_type della riposta
       if response_json["food_item_type"]=="recipe":
-          recipe_information = rp.Recipe("", "", [], None, None, {}, "")
+          recipe_information = rp.RecipeApi("", "", [], None, None, {}, "")
           recipe_information.from_foodinfo_dict(response_json)
           print("\n...............................................................................")
           return recipe_information
 
       else:
-          ingredient_information = ig.Ingredient("", [], None, None, {}, "")
+          ingredient_information = ig.IngredientApi("", [], None, None, {}, "")
           ingredient_information.from_food_info_dict(response_json)
           print("\n...............................................................................")
           return ingredient_information
@@ -276,7 +276,7 @@ def get_only_ingredient_food_info(item):
       
       # l'endpoint è lo stesso per ricette e ingredienti, ma cambia il campo food_item_type della riposta
       if response_json["food_item_type"]=="ingredient":
-          ingredient_information = ig.Ingredient("", [], None, None, {}, "")
+          ingredient_information = ig.IngredientApi("", [], None, None, {}, "")
           ingredient_information.from_food_info_dict(response_json)
           print("\n...............................................................................")
           return ingredient_information

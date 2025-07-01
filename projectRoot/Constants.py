@@ -444,8 +444,8 @@ Follow these steps to produce the output:
     Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).
     Compare the scores of the base recipe with the improved one.
   
-  - If the improving factor is healhiness : 
-    Using the provided nutrional facts, in the field nutritional_values stored in the ingredients data, and the differences in the ingredients between the base and the improved recipe, explain why the improved recipe is a better choice from an healthiness point of view, but keep it simple and understandable.  
+  - If the improving factor is healthiness : 
+    Using the provided nutrional facts, in the field nutritional_values stored in the recipes data, and the differences in the ingredients between the base and the improved recipe, explain why the improved recipe is a better choice from an healthiness point of view, but keep it simple and understandable.  
     Provide the data on nutritional values and explain why the ingredients of the improved recipe are better in terms of healthiness.
     Refer to the number of the nutritional facts, stored in the nutritional_values fiels of the recipes, but also provide an idea of whether those values are good or bad for the general health.
 
@@ -459,9 +459,10 @@ Follow these steps to produce the output:
   
   Provide instructions on how to substitute the ingredients in the base recipe to obtain the improved recipe. Be clear on what ingredients to remove and what to add. Provide some information about the ingredient differences, based on the improving factor, to support your explaination.
 
-  Then, highlight this request using an emoji, persuade the user to accept the consumption of the improved recipe.
-  Explain also that the response will be saved in the user's profile for track the consumption of the recipe and allow the evaluation of the user's habits.
-  
+  Then, highlightning the following part using an emoji:
+  Persuade the user to accept the improved recipe suggestion by explicitly asking if they want to eat the suggested food, or decline it.
+  Explain also that the response will be saved in the user's profile for track the consumption of the recipe and allow the evaluation of the user's sustainability habits.
+ 
   Use a bulleted list for each concept, and use an emoji to represent it.
 
   Write an empty row for better readability before the final part.

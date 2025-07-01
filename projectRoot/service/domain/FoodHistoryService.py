@@ -2,7 +2,7 @@ import persistence.UserHistoryPersistence as userHistoryDB
 from datetime import datetime, timedelta
 import jsonpickle
 import dto.UserHistory as uh
-import dto.Recipe as recipe
+import dto.RecipeApi as recipe
 
 
 def get_custom_dates(DataJson):

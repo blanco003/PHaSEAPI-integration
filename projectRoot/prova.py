@@ -40,7 +40,7 @@ recipe.display()
 ##################################################################################################################################
 # ALTERNATIVE
 
-"""
+
 food_alternative = "Crispy Chicken Dijon"
 num_alternative = 5
 base_recipe, base_ing_info, imp_recipe, imp_ing_info = api.get_alternative(food_alternative, num_alternative, "sustainability")
@@ -56,7 +56,7 @@ for ing in base_ing_info:
 print("\n###### IMP ING INFO :\n")
 for ing in imp_ing_info:
   ing.display()
-"""
+
 
 
 

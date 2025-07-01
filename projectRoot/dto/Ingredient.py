@@ -4,12 +4,14 @@ from .Schema import HealthinessInfo, SustainabilityInfo
 
 
 class Ingredient:
-    def __init__(self, name: str, ingredients: List[Tuple[str, str]], healthiness: Optional[HealthinessInfo], sustainability: Optional[SustainabilityInfo], nutritional_values: Dict[str, float]):
+    def __init__(self, name: str, ingredients: List[Tuple[str, str]], healthiness: Optional[HealthinessInfo], sustainability: Optional[SustainabilityInfo], nutritional_values: Dict[str, float], food_item_url: Optional[str]):
         self.name = name
         self.ingredients = ingredients
         self.healthiness = healthiness
         self.sustainability = sustainability
         self.nutritional_values = nutritional_values
+        self.food_item_url = food_item_url
+
 
     def to_dict(self):
         return {
@@ -20,7 +22,8 @@ class Ingredient:
             } if self.ingredients else None,
             "healthiness": self.healthiness.to_dict() if self.healthiness else None,
             "sustainability": self.sustainability.to_dict() if self.sustainability else None,
-            "nutritional_values": self.nutritional_values
+            "nutritional_values": self.nutritional_values,
+            "food_item_url": self.food_item_url
         }
 
     def to_json(self):
@@ -47,6 +50,8 @@ class Ingredient:
             self.nutritional_values = {}
         else:
             self.nutritional_values = {k: float(v) for k, v in nutr.items()}
+
+        self.food_item_url = food_info.get("food_item_url", "")
 
 
     def display(self):
@@ -76,5 +81,7 @@ class Ingredient:
         print("\nNutritional Values:")
         for nutriente, valore in self.nutritional_values.items():
             print(f"  • {nutriente}: {valore}")
+
+        print(f"\nURL : {self.food_item_url}")
 
         print("-" * 90)

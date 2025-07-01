@@ -4,13 +4,14 @@ from .Schema import HealthinessInfo, SustainabilityInfo
 
 
 class Recipe:
-    def __init__(self, name: str, explanation: str, ingredients: list, healthiness: Optional[HealthinessInfo], sustainability: Optional[SustainabilityInfo], nutritional_values: Dict[str, float]):
+    def __init__(self, name: str, explanation: str, ingredients: list, healthiness: Optional[HealthinessInfo], sustainability: Optional[SustainabilityInfo], nutritional_values: Optional[dict[str, Optional[float]]], food_item_url: Optional[str]):
         self.name = name
         self.explanation = explanation
         self.ingredients = ingredients
         self.healthiness = healthiness
         self.sustainability = sustainability
         self.nutritional_values = nutritional_values
+        self.food_item_url = food_item_url
 
     def to_dict(self):
         return {
@@ -19,7 +20,8 @@ class Recipe:
             "ingredients": self.ingredients,
             "healthiness": self.healthiness.to_dict() if self.healthiness else None,
             "sustainability": self.sustainability.to_dict() if self.sustainability else None,
-            "nutritional_values": self.nutritional_values
+            "nutritional_values": self.nutritional_values,
+            "food_item_url": self.food_item_url
         }
 
     def to_json(self):
@@ -56,7 +58,9 @@ class Recipe:
         nutr = data.get("nutritional_values", {})
         nutritional_values = {k: float(v) for k, v in nutr.items()}
 
-        return Recipe(name, explanation, ingredients, healthiness, sustainability, nutritional_values)
+        food_item_url = data.get("food_item_url", "")
+
+        return Recipe(name, explanation, ingredients, healthiness, sustainability, nutritional_values, food_item_url)
 
 
 
@@ -65,7 +69,7 @@ class Recipe:
 
         self.name = food_info.get("food_item", "")
         self.explanation = rec_item.get("explanation", "")
-
+        
         ingr_data = food_info.get("ingredients", {})
         names = ingr_data.get("ingredients", [])
         quants = ingr_data.get("quantities", [])
@@ -78,6 +82,8 @@ class Recipe:
 
         nutr = food_info.get("nutritional_values", {})
         self.nutritional_values = {k: float(v) for k, v in nutr.items()}
+
+        self.food_item_url = food_info.get("food_item_url", "")
 
     def from_alternative_dict(self, alt_item):
         self.name = alt_item.get("food_item", "")
@@ -100,7 +106,9 @@ class Recipe:
         self.nutritional_values = {
             k: float(v) for k, v in nutr.items() if v is not None
         }   
-        
+
+        self.food_item_url = alt_item.get("food_item_url", "")
+
 
     def from_foodinfo_dict(self, food_info):
         self.name = food_info.get("food_item", "")
@@ -120,6 +128,8 @@ class Recipe:
         self.nutritional_values = {
             k: float(v) for k, v in nutr.items() if v is not None
         }   
+
+        self.food_item_url = food_info.get("food_item_url", "")
 
     def display(self):
         print("\n" + "-" * 90)
@@ -149,5 +159,7 @@ class Recipe:
         print("\nValori nutrizionali:")
         for nutriente, valore in self.nutritional_values.items():
             print(f"  • {nutriente}: {valore}")
+
+        print(f"\nURL : {self.food_item_url}")
 
         print("-" * 90)

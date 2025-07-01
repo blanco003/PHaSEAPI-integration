@@ -15,7 +15,6 @@ URL_ALTERNATIVE = "http://localhost:8100/alternative/"
 def get_recipe_suggestion(mealDataJson, userData):
     
     # PRONTA MA NON FUNZIONA L'API
-    
     """
     Parametri della chiamata /recommend API: 
       user_id : Unique identifier for the user
@@ -53,7 +52,6 @@ def get_recipe_suggestion(mealDataJson, userData):
     print(f"\nCalling /recommend with payload:\n{payload}")
 
     try :
-
       # CHIAMATA EFFETIVA (quando l'api funzionerà)
       #response = requests.post(URL_RECCOMENDATION, headers=HEADER, json=payload)
 
@@ -67,6 +65,7 @@ def get_recipe_suggestion(mealDataJson, userData):
                                   "food_info": {
                                         "food_item": "Spaghetti Carbonara",
                                         "food_item_type": "recipe",
+                                        "food_item_url": "https://www.food.com/recipe/spaghetti-carbonara-for-one-447544",
                                         "healthiness": {
                                                 "qualitative": "Moderate healthiness level",
                                                 "score": "B"
@@ -100,14 +99,12 @@ def get_recipe_suggestion(mealDataJson, userData):
       # estrazione prima ricetta suggerita e popolamento oggetto Recipe
       first_recipe_reccomended_dict = response_json["recommendations"][0]
 
-      first_recipe_reccomended = rp.Recipe("", "", [], "", "", {})
+      first_recipe_reccomended = rp.Recipe("", "", [], "", "", {}, "")
       first_recipe_reccomended.from_recommendation_dict(first_recipe_reccomended_dict)
 
       print("\n...............................................................................")
 
       return first_recipe_reccomended
-
-
 
     except requests.exceptions.RequestException as e:
         print(f"Errore durante la richiesta di raccomandazione all'utente {userData.id}:", e)
@@ -126,28 +123,24 @@ def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
       print("\n...............................................................................")
       print(f"\nCalling /alternative with payload:\n{payload}")
 
-
       response = requests.post(URL_ALTERNATIVE, headers=HEADER, params=payload)
       response_json = response.json()
 
       print(f"\nStatus Code: {response.status_code}")
       print("Response JSON:", response_json)
 
-
-
       # ricetta base che ha fatto il match
       base_recipe_dict = response_json["matched_food_item"]
 
-      base_recipe = rp.Recipe("", "", [], None, None, {})
+      base_recipe = rp.Recipe("", "", [], None, None, {}, "")
       base_recipe.from_alternative_dict(base_recipe_dict)
       #base_recipe.display()
-
 
       if improving_factor=="overall":
          # estrae semplicemente la prima suggerita
         imp_recipe_dict = response_json["alternatives"][0]
 
-        imp_recipe = rp.Recipe("", "", [], None, None, {})
+        imp_recipe = rp.Recipe("", "", [], None, None, {}, "")
         imp_recipe.from_alternative_dict(imp_recipe_dict)
         #imp_recipe.display()
 
@@ -187,14 +180,38 @@ def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
         if imp_recipe_dict is None:
              imp_recipe_dict = response_json["alternatives"][0]
 
-
-        imp_recipe = rp.Recipe("", "", [], None, None, {})
+        imp_recipe = rp.Recipe("", "", [], None, None, {}, "")
         imp_recipe.from_alternative_dict(imp_recipe_dict)
         imp_score = imp_recipe_dict.get(improving_factor, {}).get("score", "E")
         print(f"improved recipe {improving_factor} score: {imp_score}")
 
+      # recupero le info degli ingredienti di entrambe le ricette tramite /food info
+      print("###############################################################################")
+
+      base_ing_info = [] # lista di Ingredient
+      print("base ingredients : ",base_recipe.ingredients)
+
+      for ing in base_recipe.ingredients:
+        ing_info = get_only_ingredient_food_info(ing[0]) # solo il nome
+        # se restituisce None ha trovato una ricetta non un ingrediente...
+        if ing_info!=None:
+          ing_info.display()
+          base_ing_info.append(ing_info)
+
+      imp_ing_info = []
+      print("\nimproved ingredients : ",imp_recipe.ingredients)
+
+      for ing in imp_recipe.ingredients:
+        ing_info = get_only_ingredient_food_info(ing[0]) # solo il nome
+        # se restituisce None ha trovato una ricetta non un ingrediente...
+        if ing_info!=None:
+          ing_info.display()
+          imp_ing_info.append(ing_info)
+
+      print("###############################################################################")
+
       print("\n...............................................................................")
-      return base_recipe, imp_recipe
+      return base_recipe, base_ing_info, imp_recipe, imp_ing_info
       
     
    except requests.exceptions.RequestException as e:
@@ -205,37 +222,69 @@ def get_alternative(recipe_name, num_alternative=5, improving_factor="overall"):
 
 
 def get_food_info(item):
+  
+   try :
+      print("\n...............................................................................")
+      print(f"\nCalling {URL_INFORMATION + item}")
+
+      response = requests.get(URL_INFORMATION + item, headers=HEADER)
+      response_json = response.json()
+      
+      print(f"\nStatus Code: {response.status_code}")
+      print("Response JSON:", response_json)
+
+      # se il codice è 404 non ha trovato nessun risultato
+      if response.status_code==404:
+         print("Non trovato!")
+         return None
+      
+      # l'endpoint è lo stesso per ricette e ingredienti, ma cambia il campo food_item_type della riposta
+      if response_json["food_item_type"]=="recipe":
+          recipe_information = rp.Recipe("", "", [], None, None, {}, "")
+          recipe_information.from_foodinfo_dict(response_json)
+          print("\n...............................................................................")
+          return recipe_information
+
+      else:
+          ingredient_information = ig.Ingredient("", [], None, None, {}, "")
+          ingredient_information.from_food_info_dict(response_json)
+          print("\n...............................................................................")
+          return ingredient_information
+      
+   except requests.exceptions.RequestException as e:
+        print(f"Errore durante la richiesta di recupero informazioni {item} :", e)
+        return None
    
 
+
+
+def get_only_ingredient_food_info(item):
+   
    try :
-      
       print("\n...............................................................................")
       print(f"\nCalling {URL_INFORMATION + item}")
 
       response = requests.get(URL_INFORMATION + item, headers=HEADER)
       response_json = response.json()
 
-      
-      
       print(f"\nStatus Code: {response.status_code}")
+      if response.status_code==404:
+         print("Non trovato!")
+         return None
+
       print("Response JSON:", response_json)
       
-       
       # l'endpoint è lo stesso per ricette e ingredienti, ma cambia il campo food_item_type della riposta
-      if response_json["food_item_type"]=="recipe":
-          recipe_information = rp.Recipe("", "", [], None, None, {})
-          recipe_information.from_foodinfo_dict(response_json)
-          print("\n...............................................................................")
-          return recipe_information
-
-      else:
-          ingredient_information = ig.Ingredient("", [], None, None, {})
+      if response_json["food_item_type"]=="ingredient":
+          ingredient_information = ig.Ingredient("", [], None, None, {}, "")
           ingredient_information.from_food_info_dict(response_json)
           print("\n...............................................................................")
           return ingredient_information
-      
-      
-     
+
+      else:
+          # ha trovato una ricetta...
+          return None
+        
    except requests.exceptions.RequestException as e:
         print(f"Errore durante la richiesta di recupero informazioni {item} :", e)
         return None

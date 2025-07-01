@@ -417,22 +417,16 @@ Follow these steps to produce the output:
 
 - If the name of the recipe and the improving_factor are provided, print the string "TOKEN 3.20" followed by the JSON.
 
-- Otherwise:
-
-  - If the neither the name of the recipe and the improving factor are not provided : 
-    Print the string "TOKEN 3.10" followed by the JSON, then write a message telling the user that the recipe is not processable without a proper recipe name, or a ingredients list to derive from, and an improving factor, and ask them to provide them.
-
-  - If only the recipe name is not provided : 
-    Print the string "TOKEN 3.10" followed by the JSON, then write a message telling the user that the recipe is not processable without a proper recipe name, or a ingredients list to derive from, and ask them to provide it or them.
-  
-  - If the improving_factor is not provided : 
-    Print the string "TOKEN 3.10" followed by the JSON, then write a message telling the user that the recipe with the given name is not processable without a improving factor and ask them to provide it.
+- Otherwise, based on the information that are missing:
+  Print the string "TOKEN 3.10" followed by the JSON, then write a message telling the user that the recipe is not processable without a proper recipe name, or a ingredients list to derive from, and an improving factor, and ask them to provide them.
 
 Do not include in the JSON any markup text like "```json\n\n```"."""
 
 
 TASK_3_20_PROMPT = """You will receive two recipes as JSON structures: the base recipe {baseRecipe} and the improved recipe {improvedRecipe} based on the improving factor : {imrpoving_factor}.
 Your task is to suggest to the user what to substitute in the base recipe in order to obtain the improved recipe.
+The base recipe has the following ingredients data : {base_recipe_ingredients}
+The improved recipe has the following ingredients data : {improved_recipe_ingredients}
 
 Communicate with the user in the following language : {language}.
 
@@ -441,8 +435,9 @@ Follow these steps to produce the output:
 - Print the string "TOKEN 3.30", then write a message:
 
   - If the improving factor is sustanaibility : 
-    Using the provided carbon and water footprint data and the differences in the ingredients, explain why the improved recipe is a better choice from an environmental point of view, but keep it simple and understandable. 
-    Refer to numbers of CFP and WFP, stored in the score fields CF and WF of the recipes sustainability field, but also provide an idea of whether those values are good or bad for the environment.
+    Using the provided carbon and water footprint data, in the fields CF and WF stored in each field sustainaility of the ingredients data, and the differences in the ingredients between the base and the improved recipe, explain why the improved recipe is a better choice from an environmental point of view, but keep it simple and understandable. 
+    Provide the data on CFP and WFP of each ingredients, and explain why the ingredients of the improved recipe are better in terms of sustanaibility.
+    Refer to numbers of CFP and WFP, but also provide an idea of whether those values are good or bad for the environment.
 
     The sustainability score is a categorical score across 5 levels indicating sustainability from A (best) to E (worst).
     The sustainability score of the recipe is stored in the score field of the recipes sustainability field.
@@ -450,7 +445,8 @@ Follow these steps to produce the output:
     Compare the scores of the base recipe with the improved one.
   
   - If the improving factor is healhiness : 
-    Using the provided nutrional facts and the differences in the ingredients, explain why the improved recipe is a better choice from an healthiness point of view, but keep it simple and understandable. 
+    Using the provided nutrional facts, in the field nutritional_values stored in the ingredients data, and the differences in the ingredients between the base and the improved recipe, explain why the improved recipe is a better choice from an healthiness point of view, but keep it simple and understandable.  
+    Provide the data on nutritional values and explain why the ingredients of the improved recipe are better in terms of healthiness.
     Refer to the number of the nutritional facts, stored in the nutritional_values fiels of the recipes, but also provide an idea of whether those values are good or bad for the general health.
 
     The Nutri-Score is a traffic light-shaped score, which rates the nutritional quality of a product with a score from A (best) to E (worst), is used to express the overall nutritional quality of the recipe.  Mention to what it refers. 
@@ -459,24 +455,9 @@ Follow these steps to produce the output:
     Compare the scores of the base recipe with the improved one.
 
   - If the improving factor is overall : 
-    Using the provided carbon and water footprint data and the differences in the ingredients, explain why the improved recipe is a better choice from an environmental point of view, but keep it simple and understandable. 
-    Refer to numbers of CFP and WFP, stored in the score fields CF and WF of the recipes sustainability field, but also provide an idea of whether those values are good or bad for the environment.
-
-    Using the provided nutrional facts and the differences in the ingredients, explain why the improved recipe is a better choice from an healthiness point of view, but keep it simple and understandable. 
-    Refer to the number of the nutritional facts, stored in the nutritional_values fiels of the recipes, but also provide an idea of whether those values are good or bad for the general health.
-
-    The sustainability score is a categorical score across 5 levels indicating sustainability from A (best) to E (worst).
-    The sustainability score of the recipe is stored in the score field of the recipes sustainability field.
-    Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).
-    Compare the scores of the base recipe with the improved one.
-
-    The Nutri-Score is a traffic light-shaped score, which rates the nutritional quality of a product with a score from A (best) to E (worst), is used to express the overall nutritional quality of the recipe.  Mention to what it refers. 
-    The Nutri-Score of the recipe is stored in the score field of the recipes healtiness field.
-    Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Use this value to reinforce the overall nutritional quality of the recipe.
-    Compare the scores of the base recipe with the improved one.
+    Apply both sustainability and healthiness instructions as above.
   
   Provide instructions on how to substitute the ingredients in the base recipe to obtain the improved recipe. Be clear on what ingredients to remove and what to add. Provide some information about the ingredient differences, based on the improving factor, to support your explaination.
-  
 
   Then, highlight this request using an emoji, persuade the user to accept the consumption of the improved recipe.
   Explain also that the response will be saved in the user's profile for track the consumption of the recipe and allow the evaluation of the user's habits.

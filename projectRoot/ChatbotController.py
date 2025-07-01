@@ -375,21 +375,19 @@ def answer_question(userData,userPrompt,token,memory,info):
         log.save_log("RECIPE_IMPROVEMENT_EXECUTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         
         #call the recipe improvement service
-
-        print("INFOOOOOOO : \n",info)
-
         translated_info = lcs.translate_info(info, language)
         translated_info = json.loads(translated_info)
 
-        print("TRANSLATED_INFOOOOO : \n",info)
         
-        base_recipe, improved_recipe = api.get_alternative(translated_info['name'],5,translated_info['improving_factor'])
+        base_recipe, base_ing_info, improved_recipe, improved_ing_info = api.get_alternative(translated_info['name'],5,translated_info['improving_factor'])
 
         base_recipe.display()
         improved_recipe.display()
 
         if(improved_recipe != 'null'):
-            response = lcs.execute_chain(p.TASK_3_20_PROMPT.format(baseRecipe=utils.adapt_output_to_bot(base_recipe), improvedRecipe=utils.adapt_output_to_bot(improved_recipe), language=language, imrpoving_factor=translated_info['improving_factor']), userPrompt, 0.1, userData, memory, True)
+            input_prompt=p.TASK_3_20_PROMPT.format(baseRecipe=utils.adapt_output_to_bot(base_recipe), improvedRecipe=utils.adapt_output_to_bot(improved_recipe), language=language, imrpoving_factor=translated_info['improving_factor'], base_recipe_ingredients=utils.adapt_output_to_bot(base_ing_info), improved_recipe_ingredients=utils.adapt_output_to_bot(improved_ing_info))
+            print(f"\n#####################################################################################################\n{input_prompt}\n#####################################################################################################\n")
+            response = lcs.execute_chain(input_prompt, userPrompt, 0.1, userData, memory, True)
         else:
             None
             userDataStr = utils.escape_curly_braces(userData.to_json())

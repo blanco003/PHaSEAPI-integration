@@ -331,6 +331,7 @@ def translate_ingredients_list(ingredients, input_language):
     
     prompt_text = (
         f"Traduci i seguenti ingredienti dall'{input_language} in inglese. "
+        f"Non interpretare i nomi, non scomporli in ingredienti: esegui solo una traduzione letterale. "
         f"Restituisci solo una lista Python valida nel formato ['x', 'y', ...], senza aggiungere testo extra:\n{joined_ingredients}"
     )
     

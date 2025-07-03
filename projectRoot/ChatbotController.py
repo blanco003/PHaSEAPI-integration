@@ -401,14 +401,17 @@ def answer_question(userData,userPrompt,token,memory,info):
         translated_info = lcs.translate_info(info, language)
         translated_info = json.loads(translated_info)
 
-        
+        print("TRANSLATE ALTERNATIVE : \n",translated_info)
         base_recipe, base_ing_info, improved_recipe, improved_ing_info = api.get_alternative(translated_info['name'],5,translated_info['improving_factor'])
-
         
+        # filtra eventuali messaggi vuoti : caso in cui l'utente chiede un altro miglioramento ma considerando la stessa ricetta
+        if memory is not None:
+            memory.messages = [m for m in memory.messages if m.content and m.content.strip()]
+  
 
         if(improved_recipe != None):
-            #base_recipe.display()
-            #improved_recipe.display()
+            base_recipe.display()
+            improved_recipe.display()
             input_prompt=p.TASK_3_20_PROMPT.format(baseRecipe=utils.adapt_output_to_bot(base_recipe), improvedRecipe=utils.adapt_output_to_bot(improved_recipe), language=language, imrpoving_factor=translated_info['improving_factor'], base_recipe_ingredients=utils.adapt_output_to_bot(base_ing_info), improved_recipe_ingredients=utils.adapt_output_to_bot(improved_ing_info))
             print(f"\n#####################################################################################################\n{input_prompt}\n#####################################################################################################\n")
             response = lcs.execute_chain(input_prompt, userPrompt, 0.1, userData, memory, True)
@@ -711,8 +714,11 @@ def manage_suggestion(userData,memory,status,whichJson=0):
 
 def manage_suggestion_api(userData,memory,status,whichJson=0):
 
+    
     originalPrompt = utils.de_escape_curly_braces(memory.messages[0].content)
     jsonRecipe = utils.extract_json(originalPrompt, whichJson)
+    
+    print("\n\njsonRecipe :", jsonRecipe)
     fhService.build_and_save_user_history_api(userData, jsonRecipe, status)
 
 

@@ -241,8 +241,10 @@ def build_and_save_user_history_api(userData, jsonRecipe, status):
     - status : stato del suggerimento.
     """
 
-    print("---------------------------------------------------------------------\nJSON RECIPE : \n",jsonRecipe)
+    
     suggestedRecipe = recipeApi.RecipeApi.from_json(jsonRecipe)
+
+    print("\n\nbuild_and_save_user_history_api:")
     suggestedRecipe.display()
 
     sysdate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')

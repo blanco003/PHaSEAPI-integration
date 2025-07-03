@@ -344,16 +344,13 @@ Follow these steps to produce the output:
 - If the user asks a question about the food suggestion previously provided: 
   Print the string "TOKEN 2.20", then answer the question and persuade the user to accept the suggestion by explicitly asking if they want to eat the suggested food.
 
+- If the user asks for a new food suggestion, print the string "TOKEN 2.05", then print a JSON with the information previously collectet. Include every field, but set the absent information as an empty string (for atomic fields) or an empty list (for list fields).
 - If the user likes the recipe and wants to accept the suggestion with a substitution of ingredients that you have proposed in your last message, for example  "you could use ingredient x" instead of "ingredient y", or just adding or removing any ingredients, print the string "TOKEN 2.25", then print a JSON with both the ingredients that the you said in your last message to remove and add, in two fields named ingredients_to_remove and ingredients_to_add (translate the ingredients in english). 
 - If the user likes the recipe and wants to accept the suggestion with a substitution of ingredients, for example specifying that he will use "ingredient x" instead of "ingredient y", or just with adding or removing any ingredients, print the string "TOKEN 2.25", then print a JSON with both the ingredients that the user wants to remove and add, in two fields named ingredients_to_remove and ingredients_to_add (translate the ingredients in english). 
-
 - If the user likes the recipe and/or accepts the suggestion, print the string "TOKEN 2.30". Do not write anything else.
-
+- If the user doesnt like the recipe and asks for a new food suggestion, print the string "TOKEN 2.05", then print a JSON with the information previously collectet. Include every field, but set the absent information as an empty string (for atomic fields) or an empty list (for list fields).
 - If the user doesnt like the recipe and want to add new costraints, print the string "TOKEN 2.05", then print a JSON with both the information previously collected and add the new one by adding them together. Include every field, but set the absent information as an empty string (for atomic fields) or an empty list (for list fields).
-
 - If the user declines the suggestion, print the string "TOKEN 2.40". Do not write anything else.
-
-- If the user asks for a new food suggestion, print the string "TOKEN 2.50". Do not write anything else.
 
 - If the user asks or tells something completely unrelated to the current suggestion, follow these steps to produce the output :
   """ + HANDLE_LOOP_STATE + """
@@ -491,11 +488,11 @@ Follow these steps to produce the output:
 - If the user asks questions about the recipe improvement previously provided: 
   Print the string "TOKEN 3.30", then answer to the question, and persuade them to accept the consumption of the improved recipe.
 
+- If the user asks for a new improvement based for the same base recipe, print the string "TOKEN 3.10", then print a JSON with the information previously collected, name and improving_factor. Include every field, but set the absent information as an empty string (for atomic fields) or an empty list (for list fields).
+- If the user asks for a new improvement suggestion with a different base recipe, print the string "TOKEN 3.60". Do not write anything else.
 - If the user likes the recipe and/or accepts the improvement suggestion, print the string "TOKEN 3.40". Do not write anything else.
-
 - If the user declines the improvement suggestion, print the string "TOKEN 3.50". Do not write anything else.
 
-- If the user asks for a new improvement suggestion, print the string "TOKEN 3.60". Do not write anything else.
 
 - If the user asks or tells something unrelated to the current improvement, follow these steps to produce the output :
   """ + HANDLE_LOOP_STATE + """
@@ -747,7 +744,7 @@ Follow these steps to produce the output:
   
     The sustainability score is a categorical score across 5 levels indicating sustainability from A (best) to E (worst).
     The sustainability score of the recipe is stored in the score field of the recipe's sustainability field.
-    Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Dont'refers to number or letter scale.
+    Do not provide it explicitly but use a Likert scale to describe it printing from 1 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Dont'refers to number or letter scale. Use the following mapping (stars,score) : (1,E), (2,D), (3,C), (4,B), (5,A)
   
   Else if he asked about healthiness:
     Write a sentence to introduce the healthiness of the recipe, using a representative emoji to start it. 
@@ -755,7 +752,7 @@ Follow these steps to produce the output:
   
     The Nutri-Score is a traffic light-shaped score, which rates the nutritional quality of a product with a score from A (best) to E (worst), is used to express the overall nutritional quality of the recipe.  Mention to what it refers. 
     The Nutri-Score of the recipe is stored in the score field of the recipe's healtiness field.
-    Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Use this value to reinforce the overall nutritional quality of the recipe. Dont'refers to number or letter scale.
+    Do not provide it explicitly but use a Likert scale to describe it printing from 1 to 5 stars (use ascii stars, using black stars as point and white stars as filler). Use this value to reinforce the overall nutritional quality of the recipe. Dont'refers to number or letter scale. Use the following mapping (stars,score) : (1,E), (2,D), (3,C), (4,B), (5,A)
 
   Use a bulleted list for each concept, and use an emoji to represent it.
 

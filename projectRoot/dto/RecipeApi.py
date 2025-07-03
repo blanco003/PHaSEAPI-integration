@@ -133,6 +133,7 @@ class RecipeApi:
 
     def display(self):
         print("\n" + "-" * 90)
+        print("-" * 90)
         print(f"\nName : {self.name}")
         print(f"Spiegazione: {self.explanation}")
 
@@ -162,4 +163,5 @@ class RecipeApi:
 
         print(f"\nURL : {self.food_item_url}")
 
+        print("-" * 90)
         print("-" * 90)
